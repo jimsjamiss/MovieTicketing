@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_movie_ticketingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="customerInfo">
+    <Key>
+      <PropertyRef Name="custId" />
+    </Key>
+    <Property Name="custId" Type="int" Nullable="false" />
+    <Property Name="custName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="custAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="custPhone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="custEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="custPass" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="empInfo">
+    <Key>
+      <PropertyRef Name="empId" />
+    </Key>
+    <Property Name="empId" Type="int" Nullable="false" />
+    <Property Name="empName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="empAddress" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="movieShows">
+    <Key>
+      <PropertyRef Name="movieId" />
+    </Key>
+    <Property Name="movieId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="moviName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="movieType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="movieDate" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="movieHour" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="movieTicketing">
+    <Key>
+      <PropertyRef Name="tckId" />
+    </Key>
+    <Property Name="movieId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tckNum" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Time" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Venue" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tckId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="paymentId" />
+    </Key>
+    <Property Name="paymentId" Type="int" Nullable="false" />
+    <Property Name="amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="custId" Type="int" Nullable="false" />
+    <Property Name="movieId" Type="int" Nullable="false" />
+    <Property Name="empId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_movieTicketing_movieShows">
+    <End Role="movieShows" Type="Self.movieShows" Multiplicity="1" />
+    <End Role="movieTicketing" Type="Self.movieTicketing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movieShows">
+        <PropertyRef Name="movieId" />
+      </Principal>
+      <Dependent Role="movieTicketing">
+        <PropertyRef Name="movieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_customerInfo">
+    <End Role="customerInfo" Type="Self.customerInfo" Multiplicity="1" />
+    <End Role="payment" Type="Self.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customerInfo">
+        <PropertyRef Name="custId" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="custId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_empInfo">
+    <End Role="empInfo" Type="Self.empInfo" Multiplicity="1" />
+    <End Role="payment" Type="Self.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empInfo">
+        <PropertyRef Name="empId" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="empId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_movie_ticketingModelStoreContainer">
+    <EntitySet Name="customerInfo" EntityType="Self.customerInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="empInfo" EntityType="Self.empInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="movieShows" EntityType="Self.movieShows" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="movieTicketing" EntityType="Self.movieTicketing" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="payment" EntityType="Self.payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_movieTicketing_movieShows" Association="Self.FK_movieTicketing_movieShows">
+      <End Role="movieShows" EntitySet="movieShows" />
+      <End Role="movieTicketing" EntitySet="movieTicketing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_customerInfo" Association="Self.FK_payment_customerInfo">
+      <End Role="customerInfo" EntitySet="customerInfo" />
+      <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_empInfo" Association="Self.FK_payment_empInfo">
+      <End Role="empInfo" EntitySet="empInfo" />
+      <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
