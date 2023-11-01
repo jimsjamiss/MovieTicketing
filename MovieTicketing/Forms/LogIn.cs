@@ -47,34 +47,15 @@ namespace MovieTicketing.Forms
 
             if (userLogged != null)
             {
-                if (userLogged.custPass.Equals(txtPassword.Text))
+                if (userLogged.custPass.Equals(txtPassword.Text) && userLogged.custPass != "000" && userLogged.custName != "Jamis")
                 {
                     new BookTicket().Show();
                     this.Hide();
-                    // Assigned to a singleton
-                    //UserLogged.GetInstance().UserAccount = userLogged;
-
-                    //switch ((Role)userLogged.roleId)
-                    //{
-                    //    case Role.Customer:
-                    //        // Load student Dashboard
-                    //        new BookTicket().Show();
-                    //        this.Hide();
-                    //        break;
-                    //    case Role.Staff:
-                    //        // Load Teacher Dashboard
-                    //        new ApprovedTicket().Show();
-                    //        this.Hide();
-                    //        break;
-                    //    case Role.Admin:
-                    //        // Load Admin Dashboard
-                    //        new ApprovedTicket().Show();
-                    //        this.Hide();
-                    //        break;
-                    //    default:
-                    //        MessageBox.Show("User has no role!");
-                    //        break;
-                    //}
+                }
+                else if (userLogged.custName.Equals("Jamis") && userLogged.custPass.Equals("000"))
+                {
+                    new ApprovedTicket().Show();    
+                    this.Hide();
                 }
                 else
                 {
