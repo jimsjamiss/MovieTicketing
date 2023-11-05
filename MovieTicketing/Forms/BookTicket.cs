@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MovieTicketing.AppData;
 
 namespace MovieTicketing.Forms
 {
@@ -15,6 +16,17 @@ namespace MovieTicketing.Forms
         public BookTicket()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Dashboard().Show();
+            this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -30,6 +30,7 @@
     <Property Name="custPhone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="custEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="custPass" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="custStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="payment" Relationship="db_movie_ticketingModel.FK_payment_customerInfo" FromRole="customerInfo" ToRole="payment" />
   </EntityType>
   <EntityType Name="empInfo">

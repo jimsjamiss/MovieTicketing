@@ -7,7 +7,7 @@ using MovieTicketing.AppData;
 using System.Windows.Forms;
 using log4net.Core;
 using System.Data.SqlClient;
-
+using MovieTicketing.AppData;
 
 namespace MovieTicketing
 {

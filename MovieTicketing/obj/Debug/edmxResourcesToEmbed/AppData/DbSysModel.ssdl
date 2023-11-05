@@ -10,6 +10,7 @@
     <Property Name="custPhone" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="custEmail" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="custPass" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="custStatus" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="empInfo">
     <Key>
