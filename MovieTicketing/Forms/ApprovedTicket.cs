@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Dbsys;
 using MovieTicketing.AppData;
 
@@ -28,19 +29,25 @@ namespace MovieTicketing.Forms
 
         private void ApprovedTicket_Load(object sender, EventArgs e)
         {
-
+            
         }
 
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
-            customerInfo customerInfo = new customerInfo();
-            txtName.Text.Equals(customerInfo.custName);
+           
         }
 
         private void txtPhone_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private void txtNameChanged()
+        {
+          string name = txtName.Text;    
+            customerInfo customer = db.customerInfo.Where(m => m.custName == name).FirstOrDefault();
+
+            customer.custName = name;
         }
     }
 }
