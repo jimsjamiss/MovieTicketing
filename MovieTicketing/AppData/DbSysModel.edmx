@@ -9,13 +9,12 @@
           <Key>
             <PropertyRef Name="custId" />
           </Key>
-          <Property Name="custId" Type="int" Nullable="false" />
+          <Property Name="custId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="custName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="custAddress" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="custPhone" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="custEmail" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="custPass" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="custStatus" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="empInfo">
           <Key>
@@ -150,13 +149,12 @@
           <Key>
             <PropertyRef Name="custId" />
           </Key>
-          <Property Name="custId" Type="Int32" Nullable="false" />
+          <Property Name="custId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="custName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="custAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="custPhone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="custEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="custPass" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="custStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="payment" Relationship="db_movie_ticketingModel.FK_payment_customerInfo" FromRole="customerInfo" ToRole="payment" />
         </EntityType>
         <EntityType Name="empInfo">
@@ -258,7 +256,6 @@
           <EntitySetMapping Name="customerInfo">
             <EntityTypeMapping TypeName="db_movie_ticketingModel.customerInfo">
               <MappingFragment StoreEntitySet="customerInfo">
-                <ScalarProperty Name="custStatus" ColumnName="custStatus" />
                 <ScalarProperty Name="custPass" ColumnName="custPass" />
                 <ScalarProperty Name="custEmail" ColumnName="custEmail" />
                 <ScalarProperty Name="custPhone" ColumnName="custPhone" />

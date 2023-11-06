@@ -62,7 +62,8 @@ namespace MovieTicketing.Forms
             nUserAccount.custPass = txtPass.Text;
             nUserAccount.custEmail = txtEmail.Text; 
             nUserAccount.custPhone = txtPhone.Text; 
-            nUserAccount.custAddress = txtAddress.Text; 
+            nUserAccount.custAddress = txtAddress.Text;
+            
            
             username = txtFName.Text;
             db = new db_movie_ticketingEntities();
@@ -74,17 +75,25 @@ namespace MovieTicketing.Forms
             txtPhone.Clear();
             txtEmail.Clear();
             txtAddress.Clear();
+            cboxRole.Items.Clear();
             MessageBox.Show("Registered!");
         }
 
         private void frmRegistration_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cboxRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboxRole.Items.Add("User");
+            cboxRole.Items.Add("Staff");
+            cboxRole.Items.Add("Admin");
         }
     }
 }

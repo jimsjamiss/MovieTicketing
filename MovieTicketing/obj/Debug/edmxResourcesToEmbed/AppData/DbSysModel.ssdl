@@ -4,13 +4,12 @@
     <Key>
       <PropertyRef Name="custId" />
     </Key>
-    <Property Name="custId" Type="int" Nullable="false" />
+    <Property Name="custId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="custName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="custAddress" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="custPhone" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="custEmail" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="custPass" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="custStatus" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="empInfo">
     <Key>

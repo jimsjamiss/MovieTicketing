@@ -25,7 +25,6 @@ namespace MovieTicketing.AppData
         public string custPhone { get; set; }
         public string custEmail { get; set; }
         public string custPass { get; set; }
-        public string custStatus { get; set; }
     
         public virtual ICollection<payment> payment { get; set; }
     }

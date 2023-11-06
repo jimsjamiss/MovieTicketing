@@ -4,7 +4,6 @@
     <EntitySetMapping Name="customerInfo">
       <EntityTypeMapping TypeName="db_movie_ticketingModel.customerInfo">
         <MappingFragment StoreEntitySet="customerInfo">
-          <ScalarProperty Name="custStatus" ColumnName="custStatus" />
           <ScalarProperty Name="custPass" ColumnName="custPass" />
           <ScalarProperty Name="custEmail" ColumnName="custEmail" />
           <ScalarProperty Name="custPhone" ColumnName="custPhone" />

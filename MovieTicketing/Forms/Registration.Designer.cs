@@ -39,6 +39,8 @@
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cboxRole = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -60,9 +62,9 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(106, 446);
+            this.btnRegister.Location = new System.Drawing.Point(62, 446);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(194, 36);
+            this.btnRegister.Size = new System.Drawing.Size(307, 36);
             this.btnRegister.TabIndex = 2;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -116,7 +118,7 @@
             // 
             this.txtAddress.Location = new System.Drawing.Point(61, 401);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(308, 22);
+            this.txtAddress.Size = new System.Drawing.Size(128, 22);
             this.txtAddress.TabIndex = 1;
             // 
             // txtPass
@@ -138,11 +140,36 @@
             this.label5.Text = "Password";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(237, 365);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 20);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Role";
+            // 
+            // cboxRole
+            // 
+            this.cboxRole.FormattingEnabled = true;
+            this.cboxRole.Items.AddRange(new object[] {
+            "User",
+            "Staff",
+            "Admin"});
+            this.cboxRole.Location = new System.Drawing.Point(241, 401);
+            this.cboxRole.Name = "cboxRole";
+            this.cboxRole.Size = new System.Drawing.Size(128, 24);
+            this.cboxRole.TabIndex = 6;
+            this.cboxRole.SelectedIndexChanged += new System.EventHandler(this.cboxRole_SelectedIndexChanged);
+            // 
             // frmRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(435, 521);
+            this.Controls.Add(this.cboxRole);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.btnRegister);
@@ -177,5 +204,7 @@
         private System.Windows.Forms.ErrorProvider errorProviderCustom;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cboxRole;
     }
 }

@@ -23,18 +23,18 @@ namespace MovieTicketing.Forms
         public ApprovedTicket()
         {
             InitializeComponent();
-            
+            db = new db_movie_ticketingEntities();
             
         }
 
         private void ApprovedTicket_Load(object sender, EventArgs e)
         {
-            
-        }
 
+        }
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
+            
            
         }
 
@@ -44,10 +44,17 @@ namespace MovieTicketing.Forms
         }
         private void txtNameChanged()
         {
-          string name = txtName.Text;    
-            customerInfo customer = db.customerInfo.Where(m => m.custName == name).FirstOrDefault();
-
-            customer.custName = name;
+            string name = "";
+            txtName.Text = GetUserByUsername(name).ToString();
+        }
+        public customerInfo GetUserByUsername(String username)
+        {
+            // re-initialize db object because sometimes data in the list not updated
+            using (db = new db_movie_ticketingEntities())
+            {
+                // SELECT TOP 1 * FROM USERACCOUNT WHERE userName == username
+                return db.customerInfo.Where(s => s.custName == username).FirstOrDefault();
+            }
         }
     }
 }
