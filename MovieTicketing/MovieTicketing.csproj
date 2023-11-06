@@ -184,6 +184,7 @@
       <DependentUpon>DbSysModel.edmx</DependentUpon>
       <LastGenOutput>DbSysModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\CUTS.jpg" />
     <None Include="Resources\download.jpg" />
   </ItemGroup>
   <ItemGroup>
