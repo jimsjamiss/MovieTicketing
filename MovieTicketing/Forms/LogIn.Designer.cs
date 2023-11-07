@@ -42,35 +42,38 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(39, 47);
+            this.label1.Font = new System.Drawing.Font("Sitka Banner", 25.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(53, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(312, 48);
+            this.label1.Size = new System.Drawing.Size(278, 61);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Movie Ticketing";
+            this.label1.Text = "Under the Stars";
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(64, 196);
+            this.txtUserName.Location = new System.Drawing.Point(44, 196);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(287, 22);
             this.txtUserName.TabIndex = 1;
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(114, 321);
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(190)))), ((int)(((byte)(222)))));
+            this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLogin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLogin.Location = new System.Drawing.Point(94, 321);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(177, 23);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "LogIn";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(61, 177);
+            this.label2.Location = new System.Drawing.Point(41, 171);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 20);
             this.label2.TabIndex = 0;
@@ -80,7 +83,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(61, 249);
+            this.label3.Location = new System.Drawing.Point(41, 248);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 20);
             this.label3.TabIndex = 0;
@@ -88,7 +91,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(64, 271);
+            this.txtPassword.Location = new System.Drawing.Point(44, 271);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(287, 22);
             this.txtPassword.TabIndex = 1;
@@ -118,6 +121,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(144)))), ((int)(((byte)(223)))));
             this.ClientSize = new System.Drawing.Size(868, 508);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnRegister);

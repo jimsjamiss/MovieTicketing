@@ -28,7 +28,7 @@
           <Key>
             <PropertyRef Name="movieId" />
           </Key>
-          <Property Name="movieId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="movieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="moviName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="movieType" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="movieDate" Type="varchar" MaxLength="50" Nullable="false" />
@@ -38,7 +38,7 @@
           <Key>
             <PropertyRef Name="tckId" />
           </Key>
-          <Property Name="movieId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="movieId" Type="int" Nullable="false" />
           <Property Name="tckNum" Type="int" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="Time" Type="varchar" MaxLength="50" Nullable="false" />
@@ -170,7 +170,7 @@
           <Key>
             <PropertyRef Name="movieId" />
           </Key>
-          <Property Name="movieId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="movieId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="moviName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="movieType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="movieDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -181,7 +181,7 @@
           <Key>
             <PropertyRef Name="tckId" />
           </Key>
-          <Property Name="movieId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="movieId" Type="Int32" Nullable="false" />
           <Property Name="tckNum" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Time" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />

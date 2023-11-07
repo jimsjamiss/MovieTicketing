@@ -19,7 +19,7 @@ namespace MovieTicketing.AppData
             this.movieTicketing = new HashSet<movieTicketing>();
         }
     
-        public string movieId { get; set; }
+        public int movieId { get; set; }
         public string moviName { get; set; }
         public string movieType { get; set; }
         public string movieDate { get; set; }

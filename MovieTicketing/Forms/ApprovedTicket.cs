@@ -56,5 +56,11 @@ namespace MovieTicketing.Forms
                 return db.customerInfo.Where(s => s.custName == username).FirstOrDefault();
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new MovieRegistry().Show();                     
+        }
+        
     }
 }

@@ -19,6 +19,15 @@ namespace MovieTicketing
         Staff =2,
         Admin = 3
     }
+    public enum Genre { 
+        Comedy,
+        Action,
+        Animation,
+        Horror,
+        Suspense,
+        Thriller    
+    }
+
     public class Constant { }
 
 }

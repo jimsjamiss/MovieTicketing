@@ -9,6 +9,7 @@ using log4net.Core;
 using System.Data.SqlClient;
 using MovieTicketing.AppData;
 
+
 namespace MovieTicketing
 {
     internal class UserRepo
@@ -46,5 +47,24 @@ namespace MovieTicketing
                 return db.customerInfo.Where(s => s.custName == username).FirstOrDefault();
             }
         }
+        //public ErrorCode addMovie(movieInfo mvInfo, ref String outMessage)
+        //{
+               
+        //    ErrorCode retValue = ErrorCode.Error;
+        //    try
+        //    {
+        //        db.movieShows.Add(mvInfo);
+        //        db.SaveChanges();
+
+        //        outMessage = "Inserted";
+        //        retValue = ErrorCode.Success;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        outMessage = ex.Message;
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //    return retValue;
+        //}
     }
 }

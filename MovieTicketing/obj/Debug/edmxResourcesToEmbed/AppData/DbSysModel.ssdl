@@ -23,7 +23,7 @@
     <Key>
       <PropertyRef Name="movieId" />
     </Key>
-    <Property Name="movieId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="movieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="moviName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="movieType" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="movieDate" Type="varchar" MaxLength="50" Nullable="false" />
@@ -33,7 +33,7 @@
     <Key>
       <PropertyRef Name="tckId" />
     </Key>
-    <Property Name="movieId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="movieId" Type="int" Nullable="false" />
     <Property Name="tckNum" Type="int" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="Time" Type="varchar" MaxLength="50" Nullable="false" />

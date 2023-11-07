@@ -33,6 +33,8 @@ namespace MovieTicketing.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            ErrorProvider errorProviderCustom = new ErrorProvider();   
+            
             if (String.IsNullOrEmpty(txtUserName.Text))
             {
                 errorProviderCustom.SetError(txtUserName, "Empty Field!");
@@ -59,7 +61,7 @@ namespace MovieTicketing.Forms
                 }
                 else
                 {
-                    MessageBox.Show("Incorrect Password");
+                    MessageBox.Show("Incorrect Password","Incorrect",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 }
             }
             else
