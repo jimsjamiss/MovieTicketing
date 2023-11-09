@@ -34,19 +34,15 @@ namespace MovieTicketing.Forms
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
-            
-           
-        }
+            customerInfo cust = new customerInfo();
+            txtName.Text = GetUserByUsername(cust.custName).ToString();
 
+        }
         private void txtPhone_TextChanged(object sender, EventArgs e)
         {
 
         }
-        private void txtNameChanged()
-        {
-            string name = "";
-            txtName.Text = GetUserByUsername(name).ToString();
-        }
+       
         public customerInfo GetUserByUsername(String username)
         {
             // re-initialize db object because sometimes data in the list not updated
@@ -61,6 +57,10 @@ namespace MovieTicketing.Forms
         {
             new MovieRegistry().Show();                     
         }
-        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new DeleteMovie().Show();
+        }
     }
 }

@@ -75,7 +75,7 @@ namespace MovieTicketing.Forms
             txtPhone.Clear();
             txtEmail.Clear();
             txtAddress.Clear();
-            cboxRole.Items.Clear();
+            
             MessageBox.Show("Registered!");
         }
 
@@ -89,11 +89,5 @@ namespace MovieTicketing.Forms
 
         }
 
-        private void cboxRole_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cboxRole.Items.Add("User");
-            cboxRole.Items.Add("Staff");
-            cboxRole.Items.Add("Admin");
-        }
     }
 }

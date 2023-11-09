@@ -7,6 +7,7 @@
     <EntitySet Name="movieTicketing" EntityType="db_movie_ticketingModel.movieTicketing" />
     <EntitySet Name="payment" EntityType="db_movie_ticketingModel.payment" />
     <EntitySet Name="sysdiagrams" EntityType="db_movie_ticketingModel.sysdiagrams" />
+    <EntitySet Name="vw_list_movieShows" EntityType="db_movie_ticketingModel.vw_list_movieShows" />
     <AssociationSet Name="FK_payment_customerInfo" Association="db_movie_ticketingModel.FK_payment_customerInfo">
       <End Role="customerInfo" EntitySet="customerInfo" />
       <End Role="payment" EntitySet="payment" />
@@ -85,6 +86,20 @@
     <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="vw_list_movieShows">
+    <Key>
+      <PropertyRef Name="Movie_ID" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Genre" />
+      <PropertyRef Name="Showing_Date" />
+      <PropertyRef Name="Time_Slot" />
+    </Key>
+    <Property Name="Movie_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Genre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Showing_Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Time_Slot" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_payment_customerInfo">
     <End Type="db_movie_ticketingModel.customerInfo" Role="customerInfo" Multiplicity="1" />

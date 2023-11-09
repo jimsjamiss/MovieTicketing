@@ -35,3 +35,4 @@ C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTic
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.BookTicket.resources
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.Dashboard.resources
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.MovieRegistry.resources
+C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.DeleteMovie.resources

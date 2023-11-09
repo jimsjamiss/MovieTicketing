@@ -31,5 +31,6 @@ namespace MovieTicketing.AppData
         public DbSet<movieTicketing> movieTicketing { get; set; }
         public DbSet<payment> payment { get; set; }
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public DbSet<vw_list_movieShows> vw_list_movieShows { get; set; }
     }
 }

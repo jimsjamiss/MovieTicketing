@@ -67,5 +67,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="vw_list_movieShows">
+      <EntityTypeMapping TypeName="db_movie_ticketingModel.vw_list_movieShows">
+        <MappingFragment StoreEntitySet="vw_list_movieShows">
+          <ScalarProperty Name="Time_Slot" ColumnName="Time Slot" />
+          <ScalarProperty Name="Showing_Date" ColumnName="Showing Date" />
+          <ScalarProperty Name="Genre" ColumnName="Genre" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Movie_ID" ColumnName="Movie ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

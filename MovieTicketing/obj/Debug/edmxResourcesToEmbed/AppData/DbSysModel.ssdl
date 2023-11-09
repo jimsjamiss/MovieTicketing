@@ -60,6 +60,22 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'db_movie_ticketing.dbo.vw_list_movieShows' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_list_movieShows">
+    <Key>
+      <PropertyRef Name="Movie ID" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Genre" />
+      <PropertyRef Name="Showing Date" />
+      <PropertyRef Name="Time Slot" />
+    </Key>
+    <Property Name="Movie ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Genre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Showing Date" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Time Slot" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <Association Name="FK_movieTicketing_movieShows">
     <End Role="movieShows" Type="Self.movieShows" Multiplicity="1" />
     <End Role="movieTicketing" Type="Self.movieTicketing" Multiplicity="*" />
@@ -103,6 +119,15 @@
     <EntitySet Name="movieTicketing" EntityType="Self.movieTicketing" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="payment" EntityType="Self.payment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vw_list_movieShows" EntityType="Self.vw_list_movieShows" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[vw_list_movieShows].[Movie ID] AS [Movie ID], 
+[vw_list_movieShows].[Title] AS [Title], 
+[vw_list_movieShows].[Genre] AS [Genre], 
+[vw_list_movieShows].[Showing Date] AS [Showing Date], 
+[vw_list_movieShows].[Time Slot] AS [Time Slot]
+FROM [dbo].[vw_list_movieShows] AS [vw_list_movieShows]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_movieTicketing_movieShows" Association="Self.FK_movieTicketing_movieShows">
       <End Role="movieShows" EntitySet="movieShows" />
       <End Role="movieTicketing" EntitySet="movieTicketing" />

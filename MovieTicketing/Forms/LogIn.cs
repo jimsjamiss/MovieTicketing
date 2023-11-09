@@ -45,16 +45,17 @@ namespace MovieTicketing.Forms
                 errorProviderCustom.SetError(txtPassword, "Empty Field!");
                 return;
             }
-            var userLogged = userRepo.GetUserByUsername(txtUserName.Text);
+            var userName = userRepo.GetUserByUsername(txtUserName.Text);
+            var userPass = userRepo.GetUserByPassword(txtPassword.Text);
 
-            if (userLogged != null)
+            if (userName != null && userPass != null)
             {
-                if (userLogged.custPass.Equals(txtPassword.Text) && userLogged.custPass != "000" && userLogged.custName != "Jamis")
+                if (userName.custPass.Equals(txtPassword.Text) && userName.custName.Equals(txtUserName))
                 {
                     new BookTicket().Show();
                     this.Hide();
                 }
-                else if (userLogged.custName.Equals("Jamis") && userLogged.custPass.Equals("000"))
+                else if (userName.custPass == ("admin") && userName.custName.Equals("Admin"))
                 {
                     new ApprovedTicket().Show();    
                     this.Hide();
