@@ -171,6 +171,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pboxProfile);
             this.Name = "ApprovedTicket";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Dashboard";
             this.Load += new System.EventHandler(this.ApprovedTicket_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboxProfile)).EndInit();

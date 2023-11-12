@@ -43,12 +43,14 @@
             // 
             this.cboxGenre.FormattingEnabled = true;
             this.cboxGenre.Items.AddRange(new object[] {
-            " Comedy,",
-            " Action,",
-            " Animation,",
-            " Horror,",
-            " Suspense,",
-            " Thriller    "});
+            "Comedy",
+            "Action",
+            "Animation",
+            "Horror",
+            "Suspense",
+            "Thriller    ",
+            "18+",
+            " "});
             this.cboxGenre.Location = new System.Drawing.Point(201, 251);
             this.cboxGenre.Name = "cboxGenre";
             this.cboxGenre.Size = new System.Drawing.Size(134, 24);

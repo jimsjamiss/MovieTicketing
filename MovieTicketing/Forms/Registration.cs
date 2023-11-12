@@ -17,7 +17,7 @@ namespace MovieTicketing.Forms
     public partial class frmRegistration : Form
     {
         public string username = String.Empty;
-        db_movie_ticketingEntities db;
+        db_movie_ticketingEntities2 db;
        
         public frmRegistration()
         {
@@ -66,7 +66,7 @@ namespace MovieTicketing.Forms
             
            
             username = txtFName.Text;
-            db = new db_movie_ticketingEntities();
+            db = new db_movie_ticketingEntities2();
             db.customerInfo.Add(nUserAccount);
             db.SaveChanges();
 

@@ -17,7 +17,7 @@ namespace MovieTicketing.Forms
     public partial class MovieRegistry : Form
     {
         public string movieName;
-        db_movie_ticketingEntities db;
+        db_movie_ticketingEntities2 db;
         public MovieRegistry()
         {
             InitializeComponent();
@@ -82,7 +82,7 @@ namespace MovieTicketing.Forms
 
 
             movieName = txtMovieTitle.Text;
-            db = new db_movie_ticketingEntities();
+            db = new db_movie_ticketingEntities2();
             db.movieShows.Add(movieInfo);
             db.SaveChanges();
 

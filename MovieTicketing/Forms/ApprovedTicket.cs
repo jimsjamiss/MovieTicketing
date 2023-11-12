@@ -17,13 +17,13 @@ namespace MovieTicketing.Forms
 {
     public partial class ApprovedTicket : Form
     {
-        private db_movie_ticketingEntities db;
+        private db_movie_ticketingEntities2 db;
         UserRepo userRepo;
 
         public ApprovedTicket()
         {
             InitializeComponent();
-            db = new db_movie_ticketingEntities();
+            db = new db_movie_ticketingEntities2();
             
         }
 
@@ -46,7 +46,7 @@ namespace MovieTicketing.Forms
         public customerInfo GetUserByUsername(String username)
         {
             // re-initialize db object because sometimes data in the list not updated
-            using (db = new db_movie_ticketingEntities())
+            using (db = new db_movie_ticketingEntities2())
             {
                 // SELECT TOP 1 * FROM USERACCOUNT WHERE userName == username
                 return db.customerInfo.Where(s => s.custName == username).FirstOrDefault();

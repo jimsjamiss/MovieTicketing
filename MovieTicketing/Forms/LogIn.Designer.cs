@@ -63,7 +63,7 @@
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnLogin.Location = new System.Drawing.Point(94, 321);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(177, 23);
+            this.btnLogin.Size = new System.Drawing.Size(177, 30);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "LogIn";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -121,7 +121,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(144)))), ((int)(((byte)(223)))));
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(868, 508);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnRegister);

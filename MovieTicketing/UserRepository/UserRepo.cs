@@ -14,11 +14,11 @@ namespace MovieTicketing
 {
     internal class UserRepo
     {
-        private db_movie_ticketingEntities db;
+        private db_movie_ticketingEntities2 db;
 
         public UserRepo()
         {
-            db = new db_movie_ticketingEntities();
+            db = new db_movie_ticketingEntities2();
         }
         public ErrorCode NewUser(customerInfo custInfo, ref String outMessage)
         {
@@ -43,9 +43,9 @@ namespace MovieTicketing
             ErrorCode retValue = ErrorCode.Error;
             try
             {
-                 movieShows movie = db.movieShows.Where(m => m.movieId == movieId).FirstOrDefault();
+                 //movieShows movie = 
                 // Remove the user
-                db.movieShows.Remove(movie);
+                db.movieShows.Remove(db.movieShows.Where(m => m.movieId ==  movieId).FirstOrDefault());
                 db.SaveChanges();       // Execute the update
 
                 outMessage = "Movie Deleted Successfully!";
@@ -63,7 +63,7 @@ namespace MovieTicketing
         public customerInfo GetUserByUsername(String username)
         {
             // re-initialize db object because sometimes data in the list not updated
-            using (db = new db_movie_ticketingEntities())
+            using (db = new db_movie_ticketingEntities2())
             {
                 // SELECT TOP 1 * FROM USERACCOUNT WHERE userName == username
                 return db.customerInfo.Where(s => s.custName == username).FirstOrDefault();
@@ -72,7 +72,7 @@ namespace MovieTicketing
         public customerInfo GetUserByPassword (String pass)
         {
             // re-initialize db object because sometimes data in the list not updated
-            using (db = new db_movie_ticketingEntities())
+            using (db = new db_movie_ticketingEntities2())
             {
                 // SELECT TOP 1 * FROM USERACCOUNT WHERE userName == username
                 return db.customerInfo.Where(s => s.custPass == pass).FirstOrDefault();
@@ -81,7 +81,7 @@ namespace MovieTicketing
 
           public List<vw_list_movieShows> AllMovieShows()
         {
-            using (db = new db_movie_ticketingEntities())
+            using (db = new db_movie_ticketingEntities2())
             {
                 return db.vw_list_movieShows.ToList();
             }

@@ -9,13 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace MovieTicketing.Forms
 {
     public partial class DeleteMovie : Form
     {
-        db_movie_ticketingEntities db;
-       UserRepo userRepo;
-        int? selectedMovie = null;
+        db_movie_ticketingEntities2 db;
+        UserRepo userRepo;
+        int? selectedMovieId = null;
         public DeleteMovie()
         {
             InitializeComponent();
@@ -34,7 +35,20 @@ namespace MovieTicketing.Forms
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtSeachMovie.Text = dgvMovieShows.Rows[e.RowIndex].Cells["movieId"].Value.ToString();  
+            try
+            {
+                selectedMovieId = (Int32)dgvMovieShows.Rows[e.RowIndex].Cells[0].Value;
+                txtMvID.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Movie_ID"].Value.ToString();
+                txtMvTitle.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Title"].Value.ToString();
+                txtMvGenre.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Genre"].Value.ToString();
+                txtMvDate.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Showing_Date"].Value.ToString();
+                txtMvHrs.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Duration"].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception : {ex.Message}");
+            }
+           
         }
 
         private void DeleteMovie_Load(object sender, EventArgs e)
@@ -49,17 +63,18 @@ namespace MovieTicketing.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int movieId = int.Parse(txtSeachMovie.Text);
+            int movieId = int.Parse(txtMvID.Text);
+           
           
             String strOutputMsg = "";
 
-            if (selectedMovie == null)
+            if (selectedMovieId == null)
             {
                 MessageBox.Show("No Movie Selected", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            ErrorCode retValue = userRepo.RemoveMovie(int.Parse(txtSeachMovie.Text), ref strOutputMsg);
+            ErrorCode retValue = userRepo.RemoveMovie(movieId, ref strOutputMsg);
             if (retValue == ErrorCode.Success)
             {
                 //Clear the errors
@@ -67,9 +82,14 @@ namespace MovieTicketing.Forms
                 MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadMovieShows();
                 //reset the selected id
-                selectedMovie = null;
+                selectedMovieId = null;
 
-                txtSeachMovie.Clear();
+                txtMvTitle.Clear();
+                txtMvID.Clear();
+                txtMvTitle.Clear();
+                txtMvGenre.Clear(); 
+                txtMvDate.Clear();  
+                txtMvHrs.Clear();
                 
             }
             else
@@ -77,12 +97,6 @@ namespace MovieTicketing.Forms
                 // error 
                 MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            
-        }
-        
+        }        
     }
 }

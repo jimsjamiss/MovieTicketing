@@ -10,14 +10,10 @@
 namespace MovieTicketing.AppData
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class vw_list_movieShows
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int Movie_ID { get; set; }
-        public string Title { get; set; }
-        public string Genre { get; set; }
-        public string Showing_Date { get; set; }
-        public string Duration { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
