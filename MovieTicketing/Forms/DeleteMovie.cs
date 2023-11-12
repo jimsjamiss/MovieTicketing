@@ -41,7 +41,7 @@ namespace MovieTicketing.Forms
                 txtMvID.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Movie_ID"].Value.ToString();
                 txtMvTitle.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Title"].Value.ToString();
                 txtMvGenre.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Genre"].Value.ToString();
-                txtMvDate.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Showing_Date"].Value.ToString();
+                dtpDate.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Showing_Date"].Value.ToString();
                 txtMvHrs.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Duration"].Value.ToString();
             }
             catch (Exception ex)
@@ -88,7 +88,7 @@ namespace MovieTicketing.Forms
                 txtMvID.Clear();
                 txtMvTitle.Clear();
                 txtMvGenre.Clear(); 
-                txtMvDate.Clear();  
+                dtpDate.ResetText();
                 txtMvHrs.Clear();
                 
             }

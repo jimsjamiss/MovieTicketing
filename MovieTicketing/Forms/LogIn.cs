@@ -55,9 +55,9 @@ namespace MovieTicketing.Forms
                     new BookTicket().Show();
                     this.Hide();
                 }
-                else if (userName.custPass == ("admin") && userName.custName.Equals("Admin"))
+                else if (userPass.custPass == ("admin") && userName.custName.Equals("Admin"))
                 {
-                    new ApprovedTicket().Show();    
+                    new AdminDashboard().Show();    
                     this.Hide();
                 }
                 else

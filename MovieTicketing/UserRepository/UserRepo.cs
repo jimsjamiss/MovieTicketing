@@ -59,7 +59,35 @@ namespace MovieTicketing
             }
             return retValue;
         }
-      
+        public ErrorCode UpdateUser(int? movieId, movieShows cust, ref String outMessage)
+        {
+            ErrorCode retValue = ErrorCode.Error;
+            try
+            {
+                // Find the user with id
+                movieShows movies = db.movieShows.Where(m => m.movieId == movieId).FirstOrDefault();
+                // Update the value of the retrieved user
+                movies.movieId = cust.movieId;
+                movies.moviName = cust.moviName;
+                movies.movieDate = cust.movieDate;
+                movies.movieHour = cust.movieHour;
+                movies.movieType = cust.movieType;
+
+                db.SaveChanges();       // Execute the update
+
+                outMessage = "Updated";
+                retValue = ErrorCode.Success;
+            }
+            catch (Exception ex)
+            {
+                outMessage = ex.Message;
+                retValue = ErrorCode.Success;
+                MessageBox.Show(ex.Message);
+            }
+            return retValue;
+
+        }
+
         public customerInfo GetUserByUsername(String username)
         {
             // re-initialize db object because sometimes data in the list not updated
@@ -78,8 +106,17 @@ namespace MovieTicketing
                 return db.customerInfo.Where(s => s.custPass == pass).FirstOrDefault();
             }
         }
+        public movieShows GetMoviesByMovieId(int movieId)
+        {
+            // re-initialize db object because sometimes data in the list not updated
+            using (db = new db_movie_ticketingEntities2())
+            {
+                // SELECT TOP 1 * FROM USERACCOUNT WHERE userName == username
+                return db.movieShows.Where(s => s.movieId == movieId).FirstOrDefault();
+            }
+        }
 
-          public List<vw_list_movieShows> AllMovieShows()
+        public List<vw_list_movieShows> AllMovieShows()
         {
             using (db = new db_movie_ticketingEntities2())
             {

@@ -15,12 +15,12 @@ using MovieTicketing.AppData;
 
 namespace MovieTicketing.Forms
 {
-    public partial class ApprovedTicket : Form
+    public partial class AdminDashboard : Form
     {
         private db_movie_ticketingEntities2 db;
         UserRepo userRepo;
 
-        public ApprovedTicket()
+        public AdminDashboard()
         {
             InitializeComponent();
             db = new db_movie_ticketingEntities2();
@@ -61,6 +61,11 @@ namespace MovieTicketing.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             new DeleteMovie().Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new UpdateMovie().Show();
         }
     }
 }

@@ -115,6 +115,7 @@
             this.dtpMovieDate.Name = "dtpMovieDate";
             this.dtpMovieDate.Size = new System.Drawing.Size(200, 22);
             this.dtpMovieDate.TabIndex = 3;
+            this.dtpMovieDate.ValueChanged += new System.EventHandler(this.dtpMovieDate_ValueChanged);
             // 
             // btnAdd
             // 
@@ -141,6 +142,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
             this.Name = "MovieRegistry";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MovieRegistry";
             this.Load += new System.EventHandler(this.MovieRegistry_Load);
             this.ResumeLayout(false);

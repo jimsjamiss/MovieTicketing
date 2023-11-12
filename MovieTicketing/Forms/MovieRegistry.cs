@@ -94,5 +94,10 @@ namespace MovieTicketing.Forms
             
             MessageBox.Show("Registered!","",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
+
+        private void dtpMovieDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

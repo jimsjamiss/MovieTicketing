@@ -100,11 +100,11 @@
     <Compile Include="AppData\vw_list_movieShows.cs">
       <DependentUpon>db_movieTicketing.tt</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ApprovedTicket.cs">
+    <Compile Include="Forms\AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ApprovedTicket.Designer.cs">
-      <DependentUpon>ApprovedTicket.cs</DependentUpon>
+    <Compile Include="Forms\AdminDashboard.Designer.cs">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\BookTicket.cs">
       <SubType>Form</SubType>
@@ -142,6 +142,12 @@
     <Compile Include="Forms\Registration.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UpdateMovie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpdateMovie.Designer.cs">
+      <DependentUpon>UpdateMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\UserLogged.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -149,8 +155,8 @@
     <Compile Include="UserRepository\movieInfo.cs" />
     <Compile Include="UserRepository\UserRepo.cs" />
     <Compile Include="Utils\Constant.cs" />
-    <EmbeddedResource Include="Forms\ApprovedTicket.resx">
-      <DependentUpon>ApprovedTicket.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AdminDashboard.resx">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BookTicket.resx">
       <DependentUpon>BookTicket.cs</DependentUpon>
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UpdateMovie.resx">
+      <DependentUpon>UpdateMovie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

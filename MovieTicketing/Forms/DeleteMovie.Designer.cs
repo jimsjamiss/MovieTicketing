@@ -35,13 +35,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtMvID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtMvDate = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtMvTitle = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtMvHrs = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtMvGenre = new System.Windows.Forms.TextBox();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovieShows)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +77,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(442, 423);
+            this.btnDelete.Location = new System.Drawing.Point(552, 423);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(203, 36);
             this.btnDelete.TabIndex = 4;
@@ -110,17 +110,10 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Movie Date";
             // 
-            // txtMvDate
-            // 
-            this.txtMvDate.Location = new System.Drawing.Point(17, 437);
-            this.txtMvDate.Name = "txtMvDate";
-            this.txtMvDate.Size = new System.Drawing.Size(211, 22);
-            this.txtMvDate.TabIndex = 6;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(248, 327);
+            this.label4.Location = new System.Drawing.Point(287, 327);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 16);
             this.label4.TabIndex = 5;
@@ -128,15 +121,15 @@
             // 
             // txtMvTitle
             // 
-            this.txtMvTitle.Location = new System.Drawing.Point(251, 362);
+            this.txtMvTitle.Location = new System.Drawing.Point(290, 362);
             this.txtMvTitle.Name = "txtMvTitle";
-            this.txtMvTitle.Size = new System.Drawing.Size(145, 22);
+            this.txtMvTitle.Size = new System.Drawing.Size(216, 22);
             this.txtMvTitle.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(248, 402);
+            this.label5.Location = new System.Drawing.Point(287, 402);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 16);
             this.label5.TabIndex = 5;
@@ -144,15 +137,15 @@
             // 
             // txtMvHrs
             // 
-            this.txtMvHrs.Location = new System.Drawing.Point(251, 437);
+            this.txtMvHrs.Location = new System.Drawing.Point(290, 437);
             this.txtMvHrs.Name = "txtMvHrs";
-            this.txtMvHrs.Size = new System.Drawing.Size(145, 22);
+            this.txtMvHrs.Size = new System.Drawing.Size(216, 22);
             this.txtMvHrs.TabIndex = 6;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(439, 327);
+            this.label6.Location = new System.Drawing.Point(549, 327);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 16);
             this.label6.TabIndex = 5;
@@ -160,23 +153,30 @@
             // 
             // txtMvGenre
             // 
-            this.txtMvGenre.Location = new System.Drawing.Point(442, 362);
+            this.txtMvGenre.Location = new System.Drawing.Point(552, 362);
             this.txtMvGenre.Name = "txtMvGenre";
-            this.txtMvGenre.Size = new System.Drawing.Size(145, 22);
+            this.txtMvGenre.Size = new System.Drawing.Size(216, 22);
             this.txtMvGenre.TabIndex = 6;
+            // 
+            // dtpDate
+            // 
+            this.dtpDate.Location = new System.Drawing.Point(12, 437);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(246, 22);
+            this.dtpDate.TabIndex = 7;
             // 
             // DeleteMovie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 480);
+            this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.txtMvGenre);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtMvHrs);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtMvTitle);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtMvDate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtMvID);
             this.Controls.Add(this.label2);
@@ -185,7 +185,8 @@
             this.Controls.Add(this.txtSeachMovie);
             this.Controls.Add(this.label1);
             this.Name = "DeleteMovie";
-            this.Text = "l";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Delete Movie";
             this.Load += new System.EventHandler(this.DeleteMovie_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovieShows)).EndInit();
             this.ResumeLayout(false);
@@ -203,12 +204,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMvID;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtMvDate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtMvTitle;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtMvHrs;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtMvGenre;
+        private System.Windows.Forms.DateTimePicker dtpDate;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace MovieTicketing.Forms
 {
-    partial class ApprovedTicket
+    partial class AdminDashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -37,9 +37,9 @@
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDeleteMovie = new System.Windows.Forms.Button();
+            this.btnAddMovie = new System.Windows.Forms.Button();
+            this.btnUpdateMovie = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pboxProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -124,43 +124,44 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Approved TIckets";
             // 
-            // button1
+            // btnDeleteMovie
             // 
-            this.button1.Location = new System.Drawing.Point(212, 405);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 42);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Delete Movie/s";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnDeleteMovie.Location = new System.Drawing.Point(212, 405);
+            this.btnDeleteMovie.Name = "btnDeleteMovie";
+            this.btnDeleteMovie.Size = new System.Drawing.Size(116, 42);
+            this.btnDeleteMovie.TabIndex = 5;
+            this.btnDeleteMovie.Text = "Delete Movie/s";
+            this.btnDeleteMovie.UseVisualStyleBackColor = true;
+            this.btnDeleteMovie.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button3
+            // btnAddMovie
             // 
-            this.button3.Location = new System.Drawing.Point(212, 340);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(116, 42);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Add Movie/s";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnAddMovie.Location = new System.Drawing.Point(212, 340);
+            this.btnAddMovie.Name = "btnAddMovie";
+            this.btnAddMovie.Size = new System.Drawing.Size(116, 42);
+            this.btnAddMovie.TabIndex = 5;
+            this.btnAddMovie.Text = "Add Movie/s";
+            this.btnAddMovie.UseVisualStyleBackColor = true;
+            this.btnAddMovie.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // btnUpdateMovie
             // 
-            this.button2.Location = new System.Drawing.Point(212, 472);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(116, 42);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Update Movie/s";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnUpdateMovie.Location = new System.Drawing.Point(212, 472);
+            this.btnUpdateMovie.Name = "btnUpdateMovie";
+            this.btnUpdateMovie.Size = new System.Drawing.Size(116, 42);
+            this.btnUpdateMovie.TabIndex = 5;
+            this.btnUpdateMovie.Text = "Update Movie/s";
+            this.btnUpdateMovie.UseVisualStyleBackColor = true;
+            this.btnUpdateMovie.Click += new System.EventHandler(this.button2_Click);
             // 
-            // ApprovedTicket
+            // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1043, 610);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnUpdateMovie);
+            this.Controls.Add(this.btnAddMovie);
+            this.Controls.Add(this.btnDeleteMovie);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtPhone);
@@ -170,7 +171,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pboxProfile);
-            this.Name = "ApprovedTicket";
+            this.Name = "AdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Dashboard";
             this.Load += new System.EventHandler(this.ApprovedTicket_Load);
@@ -192,8 +193,8 @@
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDeleteMovie;
+        private System.Windows.Forms.Button btnAddMovie;
+        private System.Windows.Forms.Button btnUpdateMovie;
     }
 }
