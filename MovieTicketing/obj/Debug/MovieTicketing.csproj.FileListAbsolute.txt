@@ -37,3 +37,8 @@ C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTic
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.DeleteMovie.resources
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.AdminDashboard.resources
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.UpdateMovie.resources
+C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\bin\Debug\Interop.WMPLib.dll
+C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\Interop.WMPLib.dll
+C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.csproj.ResolveComReference.cache

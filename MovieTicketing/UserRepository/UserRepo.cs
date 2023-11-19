@@ -14,8 +14,10 @@ namespace MovieTicketing
 {
     internal class UserRepo
     {
-        private db_movie_ticketingEntities2 db;
+        public static int userId = 0;
 
+         db_movie_ticketingEntities2 db;
+        movieShows movies = new movieShows();
         public UserRepo()
         {
             db = new db_movie_ticketingEntities2();
@@ -28,7 +30,7 @@ namespace MovieTicketing
                 db.customerInfo.Add(custInfo);
                 db.SaveChanges();
 
-                outMessage = "Inserted";
+                outMessage = "Account Successfully Created";
                 retValue = ErrorCode.Success;
             }
             catch (Exception ex)
@@ -40,6 +42,7 @@ namespace MovieTicketing
         }
         public ErrorCode RemoveMovie(int? movieId, ref String outMessage)
         {
+            db = new db_movie_ticketingEntities2();
             ErrorCode retValue = ErrorCode.Error;
             try
             {
@@ -59,15 +62,19 @@ namespace MovieTicketing
             }
             return retValue;
         }
-        public ErrorCode UpdateUser(int? movieId, movieShows cust, ref String outMessage)
+        public ErrorCode UpdateUser(String title, movieShows cust, ref String outMessage)
         {
+            db = new db_movie_ticketingEntities2();
+            cust = new movieShows();
+            movies = new movieShows();
+
             ErrorCode retValue = ErrorCode.Error;
             try
             {
                 // Find the user with id
-                movieShows movies = db.movieShows.Where(m => m.movieId == movieId).FirstOrDefault();
+                movieShows movies = db.movieShows.Where(m => m.moviName == title).FirstOrDefault();
                 // Update the value of the retrieved user
-                movies.movieId = cust.movieId;
+               // movies.movieId = cust.movieId;
                 movies.moviName = cust.moviName;
                 movies.movieDate = cust.movieDate;
                 movies.movieHour = cust.movieHour;
@@ -88,31 +95,31 @@ namespace MovieTicketing
 
         }
 
-        public customerInfo GetUserByUsername(String username)
+        public customerInfo GetUserByUsername(String username, String password)
         {
             // re-initialize db object because sometimes data in the list not updated
             using (db = new db_movie_ticketingEntities2())
             {
                 // SELECT TOP 1 * FROM USERACCOUNT WHERE userName == username
-                return db.customerInfo.Where(s => s.custName == username).FirstOrDefault();
+                return db.customerInfo.Where(s => s.custName == username).FirstOrDefault();db.customerInfo.Where(s => s.custPass == password).FirstOrDefault();
             }
         }
-        public customerInfo GetUserByPassword (String pass)
+        //public customerInfo GetUserByPassword (String pass)
+        //{
+        //    // re-initialize db object because sometimes data in the list not updated
+        //    using (db = new db_movie_ticketingEntities2())
+        //    {
+        //        // SELECT TOP 1 * FROM USERACCOUNT WHERE userName == username
+        //        return db.customerInfo.Where(s => s.custPass == pass).FirstOrDefault();
+        //    }
+        //}
+        public movieShows GetMoviesByMovieId(String title)
         {
             // re-initialize db object because sometimes data in the list not updated
             using (db = new db_movie_ticketingEntities2())
             {
                 // SELECT TOP 1 * FROM USERACCOUNT WHERE userName == username
-                return db.customerInfo.Where(s => s.custPass == pass).FirstOrDefault();
-            }
-        }
-        public movieShows GetMoviesByMovieId(int movieId)
-        {
-            // re-initialize db object because sometimes data in the list not updated
-            using (db = new db_movie_ticketingEntities2())
-            {
-                // SELECT TOP 1 * FROM USERACCOUNT WHERE userName == username
-                return db.movieShows.Where(s => s.movieId == movieId).FirstOrDefault();
+                return db.movieShows.Where(s => s.moviName == title).FirstOrDefault();
             }
         }
 

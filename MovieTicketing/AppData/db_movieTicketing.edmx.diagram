@@ -5,16 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="66e6bd9fddb74e3c97b7ba983dfc26ec" Name="Diagram1">
-        <EntityTypeShape EntityType="db_movie_ticketingModel.customerInfo" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_movie_ticketingModel.empInfo" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_movie_ticketingModel.movieShows" Width="1.5" PointX="2.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_movie_ticketingModel.movieTicketing" Width="1.5" PointX="5" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_movie_ticketingModel.payment" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_movie_ticketingModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_movie_ticketingModel.vw_list_movieShows" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="db_movie_ticketingModel.FK_payment_customerInfo" ManuallyRouted="false" />
-        <AssociationConnector Association="db_movie_ticketingModel.FK_payment_empInfo" ManuallyRouted="false" />
-        <AssociationConnector Association="db_movie_ticketingModel.FK_movieTicketing_movieShows" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="db_movie_ticketingModel.customerInfo" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="db_movie_ticketingModel.empInfo" Width="1.5" PointX="0.75" PointY="5.25" />
+        <EntityTypeShape EntityType="db_movie_ticketingModel.movieShows" Width="1.5" PointX="2.75" PointY="5" />
+        <EntityTypeShape EntityType="db_movie_ticketingModel.movieTicketing" Width="1.5" PointX="5" PointY="5" />
+        <EntityTypeShape EntityType="db_movie_ticketingModel.payment" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="db_movie_ticketingModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="db_movie_ticketingModel.vw_list_movieShows" Width="1.5" PointX="7.75" PointY="0.75" />
+        <AssociationConnector Association="db_movie_ticketingModel.FK_payment_customerInfo" />
+        <AssociationConnector Association="db_movie_ticketingModel.FK_payment_empInfo" />
+        <AssociationConnector Association="db_movie_ticketingModel.FK_movieTicketing_movieShows" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

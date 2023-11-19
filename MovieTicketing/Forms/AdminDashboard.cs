@@ -12,45 +12,48 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using Dbsys;
 using MovieTicketing.AppData;
+using WMPLib;
 
 namespace MovieTicketing.Forms
 {
     public partial class AdminDashboard : Form
     {
+        WindowsMediaPlayer player = new WindowsMediaPlayer();   
         private db_movie_ticketingEntities2 db;
         UserRepo userRepo;
-
+        customerInfo customer;
         public AdminDashboard()
         {
             InitializeComponent();
+            player.URL = "caloocan.mp3";
+            db = new db_movie_ticketingEntities2();         
+        }
+        public AdminDashboard(customerInfo customerInfo)
+        {
+            InitializeComponent();
+            player.URL = "caloocan.mp3";
             db = new db_movie_ticketingEntities2();
-            
+              customer = customerInfo;
+            customer = db.customerInfo.Where(m => m.custId == UserRepo.userId).FirstOrDefault();
         }
 
         private void ApprovedTicket_Load(object sender, EventArgs e)
         {
+             
+            txtName.Text = customer.custName;
+            txtUserID.Text = customer.custId.ToString();
+            txtPhone.Text = customer.custPhone;
 
+            player.controls.play();
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
-            customerInfo cust = new customerInfo();
-            txtName.Text = GetUserByUsername(cust.custName).ToString();
-
+           
         }
         private void txtPhone_TextChanged(object sender, EventArgs e)
         {
 
-        }
-       
-        public customerInfo GetUserByUsername(String username)
-        {
-            // re-initialize db object because sometimes data in the list not updated
-            using (db = new db_movie_ticketingEntities2())
-            {
-                // SELECT TOP 1 * FROM USERACCOUNT WHERE userName == username
-                return db.customerInfo.Where(s => s.custName == username).FirstOrDefault();
-            }
         }
 
         private void button3_Click(object sender, EventArgs e)

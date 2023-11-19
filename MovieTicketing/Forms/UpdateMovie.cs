@@ -36,7 +36,7 @@ namespace MovieTicketing.Forms
             try
             {
               
-                txtID.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Movie_ID"].Value.ToString();
+               
                 txtTitle.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Title"].Value.ToString();
                 txtGenre.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Genre"].Value.ToString();
                 dtpDate.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Showing_Date"].Value.ToString();
@@ -53,18 +53,12 @@ namespace MovieTicketing.Forms
             ErrorProvider errorProviderCustom = new ErrorProvider();
 
             String title = txtTitle.Text;
-            String movieId = txtID.Text;
             String genre = txtGenre.Text;
             String duration = txtDuration.Text;
             String date = dtpDate.Text;
 
             String strOutputMsg = "";
             // Validation not allow empty or null value
-            if (String.IsNullOrEmpty(movieId.ToString()))
-            {
-                errorProviderCustom.SetError(txtID, "Empty Field!");
-                return;
-            }
 
             // Validation not allow empty or null value
              if(String.IsNullOrEmpty(title))
@@ -82,9 +76,9 @@ namespace MovieTicketing.Forms
                 errorProviderCustom.SetError(txtDuration, "Empty Field!");
                 return;
             }
-            var movies = userRepo.GetMoviesByMovieId(int.Parse(movieId)a);
+            var movies = userRepo.GetMoviesByMovieId(title);
 
-            ErrorCode retValue = userRepo.UpdateUser(selectedMovieId, movies, ref strOutputMsg);
+            ErrorCode retValue = userRepo.UpdateUser(title, movies, ref strOutputMsg);
             if (retValue == ErrorCode.Success)
             {
                 //Clear the errors
@@ -95,7 +89,7 @@ namespace MovieTicketing.Forms
                 selectedMovieId = null;
 
 
-                txtID.Clear();
+               
                 txtTitle.Clear();
                 txtGenre.Clear();
                 txtDuration.Clear();

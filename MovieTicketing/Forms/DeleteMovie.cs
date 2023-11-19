@@ -63,6 +63,7 @@ namespace MovieTicketing.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            errorProviderCustom = new ErrorProvider();
             int movieId = int.Parse(txtMvID.Text);
            
           
