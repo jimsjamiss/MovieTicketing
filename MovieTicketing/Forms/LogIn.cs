@@ -52,7 +52,7 @@ namespace MovieTicketing.Forms
             {
                 if (custInfo.custPass != "admin" && custInfo.custName != "Admin")
                 {
-                    new BookTicket().Show();
+                    new Dashboard().Show();
                     this.Hide();
                 }
                 else if (custInfo.custPass == ("admin") && custInfo.custName.Equals("Admin"))

@@ -16,10 +16,10 @@ namespace MovieTicketing.AppData
     using System.Data.Objects.DataClasses;
     using System.Linq;
     
-    public partial class db_movie_ticketingEntities2 : DbContext
+    public partial class db_movie_ticketingEntities3 : DbContext
     {
-        public db_movie_ticketingEntities2()
-            : base("name=db_movie_ticketingEntities2")
+        public db_movie_ticketingEntities3()
+            : base("name=db_movie_ticketingEntities3")
         {
         }
     
@@ -78,6 +78,31 @@ namespace MovieTicketing.AppData
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
         }
     
+        public virtual int sp_delete_movies(Nullable<int> id, string movieName, string movieDate, string movieHours, string movieGenre)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var movieNameParameter = movieName != null ?
+                new ObjectParameter("movieName", movieName) :
+                new ObjectParameter("movieName", typeof(string));
+    
+            var movieDateParameter = movieDate != null ?
+                new ObjectParameter("movieDate", movieDate) :
+                new ObjectParameter("movieDate", typeof(string));
+    
+            var movieHoursParameter = movieHours != null ?
+                new ObjectParameter("movieHours", movieHours) :
+                new ObjectParameter("movieHours", typeof(string));
+    
+            var movieGenreParameter = movieGenre != null ?
+                new ObjectParameter("movieGenre", movieGenre) :
+                new ObjectParameter("movieGenre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_delete_movies", idParameter, movieNameParameter, movieDateParameter, movieHoursParameter, movieGenreParameter);
+        }
+    
         public virtual int sp_dropdiagram(string diagramname, Nullable<int> owner_id)
         {
             var diagramnameParameter = diagramname != null ?
@@ -132,6 +157,31 @@ namespace MovieTicketing.AppData
                 new ObjectParameter("new_diagramname", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
+        }
+    
+        public virtual int sp_update_moviesInfo(Nullable<int> movieId, string movieName, string movieDate, string movieHours, string movieGenre)
+        {
+            var movieIdParameter = movieId.HasValue ?
+                new ObjectParameter("movieId", movieId) :
+                new ObjectParameter("movieId", typeof(int));
+    
+            var movieNameParameter = movieName != null ?
+                new ObjectParameter("movieName", movieName) :
+                new ObjectParameter("movieName", typeof(string));
+    
+            var movieDateParameter = movieDate != null ?
+                new ObjectParameter("movieDate", movieDate) :
+                new ObjectParameter("movieDate", typeof(string));
+    
+            var movieHoursParameter = movieHours != null ?
+                new ObjectParameter("movieHours", movieHours) :
+                new ObjectParameter("movieHours", typeof(string));
+    
+            var movieGenreParameter = movieGenre != null ?
+                new ObjectParameter("movieGenre", movieGenre) :
+                new ObjectParameter("movieGenre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_update_moviesInfo", movieIdParameter, movieNameParameter, movieDateParameter, movieHoursParameter, movieGenreParameter);
         }
     
         public virtual int sp_upgraddiagrams()

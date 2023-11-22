@@ -18,22 +18,22 @@ namespace MovieTicketing.Forms
 {
     public partial class AdminDashboard : Form
     {
-        WindowsMediaPlayer player = new WindowsMediaPlayer();   
-        private db_movie_ticketingEntities2 db;
+       // WindowsMediaPlayer player = new WindowsMediaPlayer();   
+        private db_movie_ticketingEntities3 db;
         UserRepo userRepo;
         customerInfo customer;
         public AdminDashboard()
         {
             InitializeComponent();
-            player.URL = "caloocan.mp3";
-            db = new db_movie_ticketingEntities2();         
+            //player.URL = "caloocan.mp3";
+            db = new db_movie_ticketingEntities3();         
         }
         public AdminDashboard(customerInfo customerInfo)
         {
             InitializeComponent();
-            player.URL = "caloocan.mp3";
-            db = new db_movie_ticketingEntities2();
-              customer = customerInfo;
+            //player.URL = "caloocan.mp3";
+            db = new db_movie_ticketingEntities3();
+            customer = customerInfo;
             customer = db.customerInfo.Where(m => m.custId == UserRepo.userId).FirstOrDefault();
         }
 
@@ -44,7 +44,7 @@ namespace MovieTicketing.Forms
             txtUserID.Text = customer.custId.ToString();
             txtPhone.Text = customer.custPhone;
 
-            player.controls.play();
+            //player.controls.play();
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)

@@ -25,6 +25,7 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="db_movie_ticketingModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="db_movie_ticketingModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_update_moviesInfo" FunctionName="db_movie_ticketingModel.Store.sp_update_moviesInfo" />
     <EntitySetMapping Name="customerInfo">
       <EntityTypeMapping TypeName="db_movie_ticketingModel.customerInfo">
         <MappingFragment StoreEntitySet="customerInfo">
@@ -94,9 +95,9 @@
     <EntitySetMapping Name="vw_list_movieShows">
       <EntityTypeMapping TypeName="db_movie_ticketingModel.vw_list_movieShows">
         <MappingFragment StoreEntitySet="vw_list_movieShows">
-          <ScalarProperty Name="Duration" ColumnName="Duration" />
-          <ScalarProperty Name="Showing_Date" ColumnName="Showing Date" />
+          <ScalarProperty Name="Time_Slot" ColumnName="Time Slot" />
           <ScalarProperty Name="Genre" ColumnName="Genre" />
+          <ScalarProperty Name="Showing_Date" ColumnName="Showing Date" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Movie_ID" ColumnName="Movie ID" />
         </MappingFragment>

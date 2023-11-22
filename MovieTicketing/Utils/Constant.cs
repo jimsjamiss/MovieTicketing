@@ -25,7 +25,9 @@ namespace MovieTicketing
         Animation,
         Horror,
         Suspense,
-        Thriller    
+        Thriller,
+        Sci_Fi,
+        Romantic_Comedy
     }
 
     public class Constant { }

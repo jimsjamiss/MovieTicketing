@@ -17,7 +17,7 @@ namespace MovieTicketing.Forms
     public partial class MovieRegistry : Form
     {
         public string movieName;
-        db_movie_ticketingEntities2 db;
+        db_movie_ticketingEntities3 db;
         public MovieRegistry()
         {
             InitializeComponent();
@@ -25,7 +25,8 @@ namespace MovieTicketing.Forms
 
         private void MovieRegistry_Load(object sender, EventArgs e)
         {
-
+            //adding enum to cbox 
+            cboxGenre.DataSource = Enum.GetValues(typeof(Genre));
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -76,13 +77,13 @@ namespace MovieTicketing.Forms
             movieShows movieInfo = new movieShows();
            // movieInfo.movieId = txtMovieId.Text;
             movieInfo.moviName = txtMovieTitle.Text;
-            movieInfo.movieType = cboxGenre.Text;
+            movieInfo.movieType = cboxGenre.SelectedValue.ToString();
             movieInfo.movieHour = txtDuration.Text;
             movieInfo.movieDate = dtpMovieDate.Text;
 
 
             movieName = txtMovieTitle.Text;
-            db = new db_movie_ticketingEntities2();
+            db = new db_movie_ticketingEntities3();
             db.movieShows.Add(movieInfo);
             db.SaveChanges();
 

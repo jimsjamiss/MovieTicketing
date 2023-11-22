@@ -59,58 +59,52 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppData\customerInfo.cs">
-      <DependentUpon>db_movieTicketing.tt</DependentUpon>
+      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
-    <Compile Include="AppData\db_movieTicketing.Context.cs">
+    <Compile Include="AppData\dbMovieTicketing.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>db_movieTicketing.Context.tt</DependentUpon>
+      <DependentUpon>dbMovieTicketing.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="AppData\db_movieTicketing.cs">
+    <Compile Include="AppData\dbMovieTicketing.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>db_movieTicketing.tt</DependentUpon>
+      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
-    <Compile Include="AppData\db_movieTicketing.Designer.cs">
+    <Compile Include="AppData\dbMovieTicketing.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>db_movieTicketing.edmx</DependentUpon>
+      <DependentUpon>dbMovieTicketing.edmx</DependentUpon>
     </Compile>
     <Compile Include="AppData\empInfo.cs">
-      <DependentUpon>db_movieTicketing.tt</DependentUpon>
+      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\movieShows.cs">
-      <DependentUpon>db_movieTicketing.tt</DependentUpon>
+      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\movieTicketing.cs">
-      <DependentUpon>db_movieTicketing.tt</DependentUpon>
+      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\payment.cs">
-      <DependentUpon>db_movieTicketing.tt</DependentUpon>
+      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>db_movieTicketing.tt</DependentUpon>
+      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\sp_helpdiagrams_Result.cs">
-      <DependentUpon>db_movieTicketing.tt</DependentUpon>
+      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\sysdiagrams.cs">
-      <DependentUpon>db_movieTicketing.tt</DependentUpon>
+      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\vw_list_movieShows.cs">
-      <DependentUpon>db_movieTicketing.tt</DependentUpon>
+      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
     <Compile Include="Forms\AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\BookTicket.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\BookTicket.Designer.cs">
-      <DependentUpon>BookTicket.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dashboard.cs">
       <SubType>Form</SubType>
@@ -158,9 +152,6 @@
     <EmbeddedResource Include="Forms\AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\BookTicket.resx">
-      <DependentUpon>BookTicket.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,12 +180,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="AppData\db_movieTicketing.edmx">
+    <EntityDeploy Include="AppData\dbMovieTicketing.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>db_movieTicketing.Designer.cs</LastGenOutput>
+      <LastGenOutput>dbMovieTicketing.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="AppData\db_movieTicketing.edmx.diagram">
-      <DependentUpon>db_movieTicketing.edmx</DependentUpon>
+    <None Include="AppData\dbMovieTicketing.edmx.diagram">
+      <DependentUpon>dbMovieTicketing.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -218,18 +209,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppData\db_movieTicketing.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>db_movieTicketing.edmx</DependentUpon>
-      <LastGenOutput>db_movieTicketing.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="AppData\db_movieTicketing.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>db_movieTicketing.edmx</DependentUpon>
-      <LastGenOutput>db_movieTicketing.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <COMReference Include="AxWMPLib">
       <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -247,6 +226,18 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppData\dbMovieTicketing.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbMovieTicketing.edmx</DependentUpon>
+      <LastGenOutput>dbMovieTicketing.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AppData\dbMovieTicketing.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbMovieTicketing.edmx</DependentUpon>
+      <LastGenOutput>dbMovieTicketing.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

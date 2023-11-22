@@ -66,15 +66,15 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_list_movieShows' does no
     <Key>
       <PropertyRef Name="Movie ID" />
       <PropertyRef Name="Title" />
-      <PropertyRef Name="Genre" />
       <PropertyRef Name="Showing Date" />
-      <PropertyRef Name="Duration" />
+      <PropertyRef Name="Genre" />
+      <PropertyRef Name="Time Slot" />
     </Key>
     <Property Name="Movie ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Genre" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Showing Date" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Duration" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Genre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Time Slot" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <Association Name="FK_movieTicketing_movieShows">
     <End Role="movieShows" Type="Self.movieShows" Multiplicity="1" />
@@ -142,6 +142,13 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_list_movieShows' does no
     <Parameter Name="owner_id" Type="int" Mode="In" />
     <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="sp_update_moviesInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="movieName" Type="varchar" Mode="In" />
+    <Parameter Name="movieDate" Type="varchar" Mode="In" />
+    <Parameter Name="movieHours" Type="varchar" Mode="In" />
+    <Parameter Name="movieGenre" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="db_movie_ticketingModelStoreContainer">
     <EntitySet Name="customerInfo" EntityType="Self.customerInfo" Schema="dbo" store:Type="Tables" />
@@ -154,9 +161,9 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_list_movieShows' does no
       <DefiningQuery>SELECT 
 [vw_list_movieShows].[Movie ID] AS [Movie ID], 
 [vw_list_movieShows].[Title] AS [Title], 
-[vw_list_movieShows].[Genre] AS [Genre], 
 [vw_list_movieShows].[Showing Date] AS [Showing Date], 
-[vw_list_movieShows].[Duration] AS [Duration]
+[vw_list_movieShows].[Genre] AS [Genre], 
+[vw_list_movieShows].[Time Slot] AS [Time Slot]
 FROM [dbo].[vw_list_movieShows] AS [vw_list_movieShows]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_movieTicketing_movieShows" Association="Self.FK_movieTicketing_movieShows">

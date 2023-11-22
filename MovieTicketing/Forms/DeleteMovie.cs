@@ -14,7 +14,7 @@ namespace MovieTicketing.Forms
 {
     public partial class DeleteMovie : Form
     {
-        db_movie_ticketingEntities2 db;
+        db_movie_ticketingEntities3 db;
         UserRepo userRepo;
         int? selectedMovieId = null;
         public DeleteMovie()
@@ -30,7 +30,13 @@ namespace MovieTicketing.Forms
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             
-            
+        }
+        public movieShows searchMovie(string movies)
+        {
+            using (db = new db_movie_ticketingEntities3())
+            {
+                return db.movieShows.Where(m => m.moviName == movies).FirstOrDefault();
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -38,11 +44,11 @@ namespace MovieTicketing.Forms
             try
             {
                 selectedMovieId = (Int32)dgvMovieShows.Rows[e.RowIndex].Cells[0].Value;
-                txtMvID.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Movie_ID"].Value.ToString();
+                txtMvID.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Movie_ID"].Value.ToString(); 
                 txtMvTitle.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Title"].Value.ToString();
                 txtMvGenre.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Genre"].Value.ToString();
                 dtpDate.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Showing_Date"].Value.ToString();
-                txtMvHrs.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Duration"].Value.ToString();
+                txtMvHrs.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Time_Slot"].Value.ToString();
             }
             catch (Exception ex)
             {
@@ -64,7 +70,7 @@ namespace MovieTicketing.Forms
         private void btnDelete_Click(object sender, EventArgs e)
         {
             errorProviderCustom = new ErrorProvider();
-            int movieId = int.Parse(txtMvID.Text);
+            var movieId = txtMvID.Text;
            
           
             String strOutputMsg = "";
@@ -75,7 +81,7 @@ namespace MovieTicketing.Forms
                 return;
             }
 
-            ErrorCode retValue = userRepo.RemoveMovie(movieId, ref strOutputMsg);
+            ErrorCode retValue = userRepo.RemoveMovie(int.Parse(movieId), ref strOutputMsg);
             if (retValue == ErrorCode.Success)
             {
                 //Clear the errors
@@ -98,6 +104,18 @@ namespace MovieTicketing.Forms
                 // error 
                 MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-        }        
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+          
+            if (searchMovie(txtMvTitle.Text).Equals(null))
+            {
+                MessageBox.Show("Please input Title to Search", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else 
+                searchMovie(txtMvTitle.Text);
+
+        }
     }
 }

@@ -69,17 +69,15 @@
 warning 6002: The table/view 'db_movie_ticketing.dbo.vw_list_movieShows' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_list_movieShows">
           <Key>
-            <PropertyRef Name="Movie ID" />
             <PropertyRef Name="Title" />
-            <PropertyRef Name="Genre" />
             <PropertyRef Name="Showing Date" />
-            <PropertyRef Name="Duration" />
+            <PropertyRef Name="Genre" />
+            <PropertyRef Name="Time Slot" />
           </Key>
-          <Property Name="Movie ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Genre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Showing Date" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Duration" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Genre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Time Slot" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_movieTicketing_movieShows">
           <End Role="movieShows" Type="Self.movieShows" Multiplicity="1" />
@@ -130,6 +128,13 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_list_movieShows' does no
           <Parameter Name="version" Type="int" Mode="In" />
           <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
         </Function>
+        <Function Name="sp_delete_movies" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="movieName" Type="varchar" Mode="In" />
+          <Parameter Name="movieDate" Type="varchar" Mode="In" />
+          <Parameter Name="movieHours" Type="varchar" Mode="In" />
+          <Parameter Name="movieGenre" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -147,6 +152,13 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_list_movieShows' does no
           <Parameter Name="owner_id" Type="int" Mode="In" />
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="sp_update_moviesInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="movieId" Type="int" Mode="In" />
+          <Parameter Name="movieName" Type="varchar" Mode="In" />
+          <Parameter Name="movieDate" Type="varchar" Mode="In" />
+          <Parameter Name="movieHours" Type="varchar" Mode="In" />
+          <Parameter Name="movieGenre" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="db_movie_ticketingModelStoreContainer">
           <EntitySet Name="customerInfo" EntityType="Self.customerInfo" Schema="dbo" store:Type="Tables" />
@@ -157,11 +169,10 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_list_movieShows' does no
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vw_list_movieShows" EntityType="Self.vw_list_movieShows" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-[vw_list_movieShows].[Movie ID] AS [Movie ID], 
 [vw_list_movieShows].[Title] AS [Title], 
-[vw_list_movieShows].[Genre] AS [Genre], 
 [vw_list_movieShows].[Showing Date] AS [Showing Date], 
-[vw_list_movieShows].[Duration] AS [Duration]
+[vw_list_movieShows].[Genre] AS [Genre], 
+[vw_list_movieShows].[Time Slot] AS [Time Slot]
 FROM [dbo].[vw_list_movieShows] AS [vw_list_movieShows]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_movieTicketing_movieShows" Association="Self.FK_movieTicketing_movieShows">
@@ -181,7 +192,7 @@ FROM [dbo].[vw_list_movieShows] AS [vw_list_movieShows]</DefiningQuery>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="db_movie_ticketingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="db_movie_ticketingEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="db_movie_ticketingEntities3" annotation:LazyLoadingEnabled="true">
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -193,6 +204,13 @@ FROM [dbo].[vw_list_movieShows] AS [vw_list_movieShows]</DefiningQuery>
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
             <Parameter Name="version" Mode="In" Type="Int32" />
             <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_delete_movies">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="movieName" Mode="In" Type="String" />
+            <Parameter Name="movieDate" Mode="In" Type="String" />
+            <Parameter Name="movieHours" Mode="In" Type="String" />
+            <Parameter Name="movieGenre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_dropdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -210,6 +228,13 @@ FROM [dbo].[vw_list_movieShows] AS [vw_list_movieShows]</DefiningQuery>
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_update_moviesInfo">
+            <Parameter Name="movieId" Mode="In" Type="Int32" />
+            <Parameter Name="movieName" Mode="In" Type="String" />
+            <Parameter Name="movieDate" Mode="In" Type="String" />
+            <Parameter Name="movieHours" Mode="In" Type="String" />
+            <Parameter Name="movieGenre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <EntitySet Name="customerInfo" EntityType="db_movie_ticketingModel.customerInfo" />
@@ -231,7 +256,7 @@ FROM [dbo].[vw_list_movieShows] AS [vw_list_movieShows]</DefiningQuery>
             <End Role="movieShows" EntitySet="movieShows" />
             <End Role="movieTicketing" EntitySet="movieTicketing" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -311,17 +336,15 @@ FROM [dbo].[vw_list_movieShows] AS [vw_list_movieShows]</DefiningQuery>
         </EntityType>
         <EntityType Name="vw_list_movieShows">
           <Key>
-            <PropertyRef Name="Movie_ID" />
             <PropertyRef Name="Title" />
-            <PropertyRef Name="Genre" />
             <PropertyRef Name="Showing_Date" />
-            <PropertyRef Name="Duration" />
+            <PropertyRef Name="Genre" />
+            <PropertyRef Name="Time_Slot" />
           </Key>
-          <Property Name="Movie_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Genre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Showing_Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Duration" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Genre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Time_Slot" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_payment_customerInfo">
           <End Type="db_movie_ticketingModel.customerInfo" Role="customerInfo" Multiplicity="1" />
@@ -359,14 +382,15 @@ FROM [dbo].[vw_list_movieShows] AS [vw_list_movieShows]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="db_movie_ticketingModelStoreContainer" CdmEntityContainer="db_movie_ticketingEntities2">
+        <EntityContainerMapping StorageEntityContainer="db_movie_ticketingModelStoreContainer" CdmEntityContainer="db_movie_ticketingEntities3">
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="db_movie_ticketingModel.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="db_movie_ticketingModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_delete_movies" FunctionName="db_movie_ticketingModel.Store.sp_delete_movies" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="db_movie_ticketingModel.Store.sp_dropdiagram" />
           <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="db_movie_ticketingModel.Store.sp_helpdiagramdefinition">
             <ResultMapping>
@@ -388,6 +412,7 @@ FROM [dbo].[vw_list_movieShows] AS [vw_list_movieShows]</DefiningQuery>
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="db_movie_ticketingModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_update_moviesInfo" FunctionName="db_movie_ticketingModel.Store.sp_update_moviesInfo" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="db_movie_ticketingModel.Store.sp_upgraddiagrams" />
           <EntitySetMapping Name="customerInfo">
             <EntityTypeMapping TypeName="db_movie_ticketingModel.customerInfo">
@@ -458,15 +483,14 @@ FROM [dbo].[vw_list_movieShows] AS [vw_list_movieShows]</DefiningQuery>
           <EntitySetMapping Name="vw_list_movieShows">
             <EntityTypeMapping TypeName="db_movie_ticketingModel.vw_list_movieShows">
               <MappingFragment StoreEntitySet="vw_list_movieShows">
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
-                <ScalarProperty Name="Showing_Date" ColumnName="Showing Date" />
+                <ScalarProperty Name="Time_Slot" ColumnName="Time Slot" />
                 <ScalarProperty Name="Genre" ColumnName="Genre" />
+                <ScalarProperty Name="Showing_Date" ColumnName="Showing Date" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Movie_ID" ColumnName="Movie ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

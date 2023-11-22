@@ -31,7 +31,6 @@ C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTic
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.csproj.CopyComplete
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.exe
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.pdb
-C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.BookTicket.resources
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.Dashboard.resources
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.MovieRegistry.resources
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.DeleteMovie.resources

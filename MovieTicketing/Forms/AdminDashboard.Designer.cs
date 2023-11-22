@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
             this.pboxProfile = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,10 +40,8 @@
             this.btnDeleteMovie = new System.Windows.Forms.Button();
             this.btnAddMovie = new System.Windows.Forms.Button();
             this.btnUpdateMovie = new System.Windows.Forms.Button();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.pboxProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // pboxProfile
@@ -164,23 +161,11 @@
             this.btnUpdateMovie.UseVisualStyleBackColor = true;
             this.btnUpdateMovie.Click += new System.EventHandler(this.button2_Click);
             // 
-            // axWindowsMediaPlayer1
-            // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(746, 102);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(108, 60);
-            this.axWindowsMediaPlayer1.TabIndex = 6;
-            this.axWindowsMediaPlayer1.UseWaitCursor = true;
-            this.axWindowsMediaPlayer1.Visible = false;
-            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1043, 610);
-            this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.btnUpdateMovie);
             this.Controls.Add(this.btnAddMovie);
             this.Controls.Add(this.btnDeleteMovie);
@@ -199,7 +184,6 @@
             this.Load += new System.EventHandler(this.ApprovedTicket_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboxProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,6 +203,5 @@
         private System.Windows.Forms.Button btnDeleteMovie;
         private System.Windows.Forms.Button btnAddMovie;
         private System.Windows.Forms.Button btnUpdateMovie;
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }

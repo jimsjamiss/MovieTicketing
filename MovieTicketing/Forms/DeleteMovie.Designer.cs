@@ -42,6 +42,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtMvGenre = new System.Windows.Forms.TextBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovieShows)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,11 +166,22 @@
             this.dtpDate.Size = new System.Drawing.Size(246, 22);
             this.dtpDate.TabIndex = 7;
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(290, 74);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(203, 36);
+            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // DeleteMovie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 480);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.txtMvGenre);
             this.Controls.Add(this.label6);
@@ -211,5 +223,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtMvGenre;
         private System.Windows.Forms.DateTimePicker dtpDate;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

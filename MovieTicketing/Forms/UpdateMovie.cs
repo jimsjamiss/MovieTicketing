@@ -14,7 +14,7 @@ namespace MovieTicketing.Forms
     public partial class UpdateMovie : Form
     {
         UserRepo userRepo;
-        db_movie_ticketingEntities2 db;
+        db_movie_ticketingEntities3 db;
         int? selectedMovieId = null;
         public UpdateMovie()
         {
@@ -33,73 +33,66 @@ namespace MovieTicketing.Forms
 
         private void dgvMovieShows_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             try
             {
-              
-               
+                selectedMovieId = (Int32)dgvMovieShows.Rows[e.RowIndex].Cells[0].Value;
+                txtID.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Movie_ID"].Value.ToString();
                 txtTitle.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Title"].Value.ToString();
                 txtGenre.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Genre"].Value.ToString();
                 dtpDate.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Showing_Date"].Value.ToString();
-                txtDuration.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Duration"].Value.ToString();
+                txtDuration.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Time_Slot"].Value.ToString();
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Exception : {ex.Message}");
             }
+
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            ErrorProvider errorProviderCustom = new ErrorProvider();
-
-            String title = txtTitle.Text;
-            String genre = txtGenre.Text;
-            String duration = txtDuration.Text;
-            String date = dtpDate.Text;
-
-            String strOutputMsg = "";
-            // Validation not allow empty or null value
-
-            // Validation not allow empty or null value
-             if(String.IsNullOrEmpty(title))
+            errorProviderCustom = new ErrorProvider();
+            try
             {
-                errorProviderCustom.SetError(txtTitle, "Empty Field!");
-                return;
-            }
-             if (String.IsNullOrEmpty(genre))
-            {
-                errorProviderCustom.SetError(txtGenre, "Empty Field!");
-                return;
-            }
-             if (String.IsNullOrEmpty(duration))
-            {
-                errorProviderCustom.SetError(txtDuration, "Empty Field!");
-                return;
-            }
-            var movies = userRepo.GetMoviesByMovieId(title);
+                int movieId = Convert.ToInt32(txtID.Text);
+                String strOutputMsg = "";
 
-            ErrorCode retValue = userRepo.UpdateUser(title, movies, ref strOutputMsg);
-            if (retValue == ErrorCode.Success)
-            {
-                //Clear the errors
-                errorProviderCustom.Clear();
-                MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                loadMovieShows();
-                //reset the selected id
-                selectedMovieId = null;
+                if (selectedMovieId == null)
+                {
+                    MessageBox.Show("No Movie Selected", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                var movieInfo = userRepo.GetMoviesByMovieId(movieId);
+                ErrorCode retValue = userRepo.UpdateMovie(movieId,movieInfo, ref strOutputMsg);
+                if (retValue == ErrorCode.Success)
+                {
+                    //Clear the errors
+                    errorProviderCustom.Clear();
+                    MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    loadMovieShows();
+                    //reset the selected id
+                    selectedMovieId = null;
 
 
-               
-                txtTitle.Clear();
-                txtGenre.Clear();
-                txtDuration.Clear();
-                dtpDate.ResetText();    
+                    txtID.Clear();
+                    txtTitle.Clear();
+                    txtGenre.Clear();
+                    dtpDate.ResetText();
+                    txtDuration.Clear();
+
+                }
+                else
+                {
+                    // error 
+                    MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                // error 
-                MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+
+                Console.WriteLine($"Exception : {ex.Message}");
+            }          
         }
     }
 }
