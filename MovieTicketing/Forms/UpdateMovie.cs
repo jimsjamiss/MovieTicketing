@@ -63,6 +63,7 @@ namespace MovieTicketing.Forms
                     MessageBox.Show("No Movie Selected", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
+                
                 var movieInfo = userRepo.GetMoviesByMovieId(movieId);
                 ErrorCode retValue = userRepo.UpdateMovie(movieId,movieInfo, ref strOutputMsg);
                 if (retValue == ErrorCode.Success)

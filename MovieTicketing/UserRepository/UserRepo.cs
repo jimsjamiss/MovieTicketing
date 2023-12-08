@@ -45,13 +45,10 @@ namespace MovieTicketing
             ErrorCode retValue = ErrorCode.Error;
             try
             {
-                //movieShows movie = 
-                // Remove the user
-                // db.movieShows.Remove(db.movieShows.Where(m => m.movieId ==  movieId).FirstOrDefault());
+
                 movieShows movies = db.movieShows.Where(m => m.movieId == movieId).FirstOrDefault();
                 db.sp_delete_movies(movies.movieId, movies.moviName, movies.movieDate, movies.movieHour, movies.movieType);
                 db.SaveChanges();       // Execute the update
-
                 outMessage = "Movie Deleted Successfully!";
                 retValue = ErrorCode.Success;
             }
@@ -66,13 +63,13 @@ namespace MovieTicketing
         public ErrorCode UpdateMovie(int? id, movieShows moviesinfo,ref String outMessage)
         {
             db = new db_movie_ticketingEntities3();
-                     
+            movieShows movies = new movieShows();
             ErrorCode retValue = ErrorCode.Error;
             try
             {
                 // Find the user with id
-                movieShows movies = db.movieShows.Where(m => m.movieId == id).FirstOrDefault();
-                db.sp_update_moviesInfo(movies.movieId,movies.moviName,movies.movieDate,movies.movieHour,movies.movieType);
+                moviesinfo = db.movieShows.Where(m => m.movieId == id).FirstOrDefault();
+                db.sp_update_moviesInfo(id, moviesinfo.moviName, moviesinfo.movieDate, moviesinfo.movieHour, moviesinfo.movieType);
                 db.SaveChanges();       // Execute the update
 
                 outMessage = "Updated";
@@ -116,6 +113,7 @@ namespace MovieTicketing
                 return db.vw_list_movieShows.ToList();
             }
         }
+       
 
     }
 }

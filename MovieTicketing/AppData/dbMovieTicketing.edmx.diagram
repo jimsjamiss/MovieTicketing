@@ -11,7 +11,8 @@
         <EntityTypeShape EntityType="db_movie_ticketingModel.movieTicketing" Width="1.5" PointX="5" PointY="5" />
         <EntityTypeShape EntityType="db_movie_ticketingModel.payment" Width="1.5" PointX="3" PointY="1" />
         <EntityTypeShape EntityType="db_movie_ticketingModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="db_movie_ticketingModel.vw_list_movieShows" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="db_movie_ticketingModel.vs_userList" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="db_movie_ticketingModel.vw_list_movieShows" Width="1.5" PointX="7.75" PointY="3.75" />
         <AssociationConnector Association="db_movie_ticketingModel.FK_payment_customerInfo" />
         <AssociationConnector Association="db_movie_ticketingModel.FK_payment_empInfo" />
         <AssociationConnector Association="db_movie_ticketingModel.FK_movieTicketing_movieShows" />

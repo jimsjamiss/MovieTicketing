@@ -38,9 +38,9 @@
             this.txtDuration = new System.Windows.Forms.TextBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovieShows)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,6 +129,16 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(152, 450);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(519, 25);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Note: *Click the Movie_ID of the movie you want to update.";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -145,16 +155,6 @@
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(216, 22);
             this.txtID.TabIndex = 6;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(152, 450);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(519, 25);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Note: *Click the Movie_ID of the movie you want to update.";
             // 
             // UpdateMovie
             // 
@@ -197,8 +197,8 @@
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.ErrorProvider errorProviderCustom;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Label label6;
     }
 }

@@ -76,6 +76,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbMovieTicketing.edmx</DependentUpon>
     </Compile>
+    <Compile Include="AppData\dbMovieTicketing1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppData\empInfo.cs">
       <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
@@ -95,6 +100,9 @@
       <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\sysdiagrams.cs">
+      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppData\vs_userList.cs">
       <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\vw_list_movieShows.cs">
@@ -236,7 +244,7 @@
     <Content Include="AppData\dbMovieTicketing.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>dbMovieTicketing.edmx</DependentUpon>
-      <LastGenOutput>dbMovieTicketing.cs</LastGenOutput>
+      <LastGenOutput>dbMovieTicketing1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

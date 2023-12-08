@@ -41,20 +41,23 @@ namespace MovieTicketing.Forms
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+           
             try
             {
                 selectedMovieId = (Int32)dgvMovieShows.Rows[e.RowIndex].Cells[0].Value;
-                txtMvID.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Movie_ID"].Value.ToString(); 
+                txtMvID.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Movie_ID"].Value.ToString();
                 txtMvTitle.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Title"].Value.ToString();
                 txtMvGenre.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Genre"].Value.ToString();
                 dtpDate.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Showing_Date"].Value.ToString();
                 txtMvHrs.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Time_Slot"].Value.ToString();
+                
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Exception : {ex.Message}");
             }
-           
+
+
         }
 
         private void DeleteMovie_Load(object sender, EventArgs e)
@@ -69,41 +72,49 @@ namespace MovieTicketing.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            errorProviderCustom = new ErrorProvider();
-            var movieId = txtMvID.Text;
-           
-          
-            String strOutputMsg = "";
-
-            if (selectedMovieId == null)
+            try
             {
-                MessageBox.Show("No Movie Selected", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
+                errorProviderCustom = new ErrorProvider();
+                int movieId = int.Parse(txtMvID.Text);
 
-            ErrorCode retValue = userRepo.RemoveMovie(int.Parse(movieId), ref strOutputMsg);
-            if (retValue == ErrorCode.Success)
-            {
-                //Clear the errors
-                errorProviderCustom.Clear();
-                MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                loadMovieShows();
-                //reset the selected id
-                selectedMovieId = null;
 
-                txtMvTitle.Clear();
-                txtMvID.Clear();
-                txtMvTitle.Clear();
-                txtMvGenre.Clear(); 
-                dtpDate.ResetText();
-                txtMvHrs.Clear();
-                
+                String strOutputMsg = "";
+
+                if (selectedMovieId == null)
+                {
+                    MessageBox.Show("No Movie Selected", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                ErrorCode retValue = userRepo.RemoveMovie(movieId, ref strOutputMsg);
+                if (retValue == ErrorCode.Success)
+                {
+                    //Clear the errors
+                    errorProviderCustom.Clear();
+                    MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    loadMovieShows();
+                    //reset the selected id
+                    selectedMovieId = null;
+
+
+                    txtMvID.Clear();
+                    txtMvTitle.Clear();
+                    txtMvGenre.Clear();
+                    dtpDate.ResetText();
+                    txtMvHrs.Clear();
+
+                }
+                else
+                {
+                    // error 
+                    MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                // error 
-                MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+                Console.WriteLine($"Exception : {ex.Message}");
+
+            }  
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

@@ -73,7 +73,7 @@
             this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 31.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(350, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(495, 65);
+            this.label1.Size = new System.Drawing.Size(486, 64);
             this.label1.TabIndex = 0;
             this.label1.Text = "Now Showing!";
             // 
@@ -245,12 +245,13 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(465, 567);
+            this.button1.Location = new System.Drawing.Point(472, 556);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(304, 38);
+            this.button1.Size = new System.Drawing.Size(298, 47);
             this.button1.TabIndex = 7;
             this.button1.Text = "Proceed";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Dashboard
             // 

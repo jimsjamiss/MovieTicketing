@@ -45,12 +45,19 @@
       <Parameter Name="movieGenre" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="sp_createMovies">
+      <Parameter Name="movieName" Mode="In" Type="String" />
+      <Parameter Name="movieDate" Mode="In" Type="String" />
+      <Parameter Name="movieHours" Mode="In" Type="String" />
+      <Parameter Name="movieGenre" Mode="In" Type="String" />
+    </FunctionImport>
     <EntitySet Name="customerInfo" EntityType="db_movie_ticketingModel.customerInfo" />
     <EntitySet Name="empInfo" EntityType="db_movie_ticketingModel.empInfo" />
     <EntitySet Name="movieShows" EntityType="db_movie_ticketingModel.movieShows" />
     <EntitySet Name="movieTicketing" EntityType="db_movie_ticketingModel.movieTicketing" />
     <EntitySet Name="payment" EntityType="db_movie_ticketingModel.payment" />
     <EntitySet Name="sysdiagrams" EntityType="db_movie_ticketingModel.sysdiagrams" />
+    <EntitySet Name="vs_userList" EntityType="db_movie_ticketingModel.vs_userList" />
     <EntitySet Name="vw_list_movieShows" EntityType="db_movie_ticketingModel.vw_list_movieShows" />
     <AssociationSet Name="FK_payment_customerInfo" Association="db_movie_ticketingModel.FK_payment_customerInfo">
       <End Role="customerInfo" EntitySet="customerInfo" />
@@ -142,13 +149,29 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
+  <EntityType Name="vs_userList">
+    <Key>
+      <PropertyRef Name="Fullname" />
+      <PropertyRef Name="Address" />
+      <PropertyRef Name="Email_Address" />
+      <PropertyRef Name="Phone_Number" />
+      <PropertyRef Name="Password" />
+    </Key>
+    <Property Name="Fullname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email_Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="vw_list_movieShows">
     <Key>
+      <PropertyRef Name="Movie_ID" />
       <PropertyRef Name="Title" />
       <PropertyRef Name="Showing_Date" />
       <PropertyRef Name="Genre" />
       <PropertyRef Name="Time_Slot" />
     </Key>
+    <Property Name="Movie_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Showing_Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Genre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />

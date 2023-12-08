@@ -35,13 +35,13 @@
             this.txtUserID = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvAdminMovies = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.btnDeleteMovie = new System.Windows.Forms.Button();
             this.btnAddMovie = new System.Windows.Forms.Button();
             this.btnUpdateMovie = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pboxProfile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdminMovies)).BeginInit();
             this.SuspendLayout();
             // 
             // pboxProfile
@@ -111,15 +111,16 @@
             this.txtPhone.TabIndex = 2;
             this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             // 
-            // dataGridView1
+            // dgvAdminMovies
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(340, 286);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(691, 274);
-            this.dataGridView1.TabIndex = 3;
+            this.dgvAdminMovies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAdminMovies.Location = new System.Drawing.Point(340, 286);
+            this.dgvAdminMovies.Name = "dgvAdminMovies";
+            this.dgvAdminMovies.RowHeadersWidth = 51;
+            this.dgvAdminMovies.RowTemplate.Height = 24;
+            this.dgvAdminMovies.Size = new System.Drawing.Size(691, 274);
+            this.dgvAdminMovies.TabIndex = 3;
+            this.dgvAdminMovies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label4
             // 
@@ -170,7 +171,7 @@
             this.Controls.Add(this.btnAddMovie);
             this.Controls.Add(this.btnDeleteMovie);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvAdminMovies);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtUserID);
@@ -183,7 +184,7 @@
             this.Text = "Admin Dashboard";
             this.Load += new System.EventHandler(this.ApprovedTicket_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboxProfile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdminMovies)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,7 +199,7 @@
         private System.Windows.Forms.TextBox txtUserID;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvAdminMovies;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnDeleteMovie;
         private System.Windows.Forms.Button btnAddMovie;

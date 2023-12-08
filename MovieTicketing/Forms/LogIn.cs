@@ -75,7 +75,7 @@ namespace MovieTicketing.Forms
         private void btnRegister_Click(object sender, EventArgs e)
         {
             new frmRegistration().Show();
-            this.Hide();
+            
         }
     }
 }

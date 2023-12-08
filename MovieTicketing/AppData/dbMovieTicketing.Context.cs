@@ -34,6 +34,7 @@ namespace MovieTicketing.AppData
         public DbSet<movieTicketing> movieTicketing { get; set; }
         public DbSet<payment> payment { get; set; }
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public DbSet<vs_userList> vs_userList { get; set; }
         public DbSet<vw_list_movieShows> vw_list_movieShows { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
@@ -187,6 +188,27 @@ namespace MovieTicketing.AppData
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual int sp_createMovies(string movieName, string movieDate, string movieHours, string movieGenre)
+        {
+            var movieNameParameter = movieName != null ?
+                new ObjectParameter("movieName", movieName) :
+                new ObjectParameter("movieName", typeof(string));
+    
+            var movieDateParameter = movieDate != null ?
+                new ObjectParameter("movieDate", movieDate) :
+                new ObjectParameter("movieDate", typeof(string));
+    
+            var movieHoursParameter = movieHours != null ?
+                new ObjectParameter("movieHours", movieHours) :
+                new ObjectParameter("movieHours", typeof(string));
+    
+            var movieGenreParameter = movieGenre != null ?
+                new ObjectParameter("movieGenre", movieGenre) :
+                new ObjectParameter("movieGenre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_createMovies", movieNameParameter, movieDateParameter, movieHoursParameter, movieGenreParameter);
         }
     }
 }

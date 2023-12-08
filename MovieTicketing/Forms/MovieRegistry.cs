@@ -84,7 +84,7 @@ namespace MovieTicketing.Forms
 
             movieName = txtMovieTitle.Text;
             db = new db_movie_ticketingEntities3();
-            db.movieShows.Add(movieInfo);
+            db.sp_createMovies(movieInfo.moviName,movieInfo.movieDate, movieInfo.movieHour,movieInfo.movieType);
             db.SaveChanges();
 
             txtMovieTitle.Clear();
