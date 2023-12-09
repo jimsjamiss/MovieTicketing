@@ -41,3 +41,4 @@ C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\bin\Debug\AxIntero
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\Interop.WMPLib.dll
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.csproj.ResolveComReference.cache
+C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.Dashboard_1.resources

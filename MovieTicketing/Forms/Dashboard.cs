@@ -158,7 +158,8 @@ namespace MovieTicketing.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            new Dashboard_1().Show();
+            this.Hide();
         }
     }
 }

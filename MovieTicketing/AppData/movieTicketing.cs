@@ -15,7 +15,6 @@ namespace MovieTicketing.AppData
     public partial class movieTicketing
     {
         public int movieId { get; set; }
-        public int tckNum { get; set; }
         public System.DateTime Date { get; set; }
         public string Time { get; set; }
         public string Venue { get; set; }

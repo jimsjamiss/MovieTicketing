@@ -65,7 +65,7 @@ namespace MovieTicketing.Forms
                 }
                 
                 var movieInfo = userRepo.GetMoviesByMovieId(movieId);
-                ErrorCode retValue = userRepo.UpdateMovie(movieId,movieInfo, ref strOutputMsg);
+                ErrorCode retValue = userRepo.UpdateMovie(movieId,txtTitle.Text,dtpDate.Text,txtDuration.Text,txtGenre.Text,Convert.ToDecimal(txtPrice.Text), ref strOutputMsg);
                 if (retValue == ErrorCode.Success)
                 {
                     //Clear the errors

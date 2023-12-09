@@ -24,6 +24,7 @@ namespace MovieTicketing.AppData
         public string movieType { get; set; }
         public string movieDate { get; set; }
         public string movieHour { get; set; }
+        public Nullable<decimal> moviePrice { get; set; }
     
         public virtual ICollection<movieTicketing> movieTicketing { get; set; }
     }

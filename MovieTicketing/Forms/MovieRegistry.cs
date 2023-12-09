@@ -36,8 +36,6 @@ namespace MovieTicketing.Forms
 
         private void cboxGenre_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
-
        
         }
 
@@ -80,11 +78,12 @@ namespace MovieTicketing.Forms
             movieInfo.movieType = cboxGenre.SelectedValue.ToString();
             movieInfo.movieHour = txtDuration.Text;
             movieInfo.movieDate = dtpMovieDate.Text;
+            movieInfo.moviePrice = Convert.ToDecimal(txtPrice.Text);
 
 
             movieName = txtMovieTitle.Text;
             db = new db_movie_ticketingEntities3();
-            db.sp_createMovies(movieInfo.moviName,movieInfo.movieDate, movieInfo.movieHour,movieInfo.movieType);
+            db.sp_createMovies(movieInfo.moviName,movieInfo.movieDate, movieInfo.movieHour,movieInfo.movieType,movieInfo.moviePrice);
             db.SaveChanges();
 
             txtMovieTitle.Clear();

@@ -52,6 +52,7 @@
     <EntitySetMapping Name="movieShows">
       <EntityTypeMapping TypeName="db_movie_ticketingModel.movieShows">
         <MappingFragment StoreEntitySet="movieShows">
+          <ScalarProperty Name="moviePrice" ColumnName="moviePrice" />
           <ScalarProperty Name="movieHour" ColumnName="movieHour" />
           <ScalarProperty Name="movieDate" ColumnName="movieDate" />
           <ScalarProperty Name="movieType" ColumnName="movieType" />
@@ -67,7 +68,6 @@
           <ScalarProperty Name="Venue" ColumnName="Venue" />
           <ScalarProperty Name="Time" ColumnName="Time" />
           <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="tckNum" ColumnName="tckNum" />
           <ScalarProperty Name="movieId" ColumnName="movieId" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -108,6 +108,7 @@
     <EntitySetMapping Name="vw_list_movieShows">
       <EntityTypeMapping TypeName="db_movie_ticketingModel.vw_list_movieShows">
         <MappingFragment StoreEntitySet="vw_list_movieShows">
+          <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Time_Slot" ColumnName="Time Slot" />
           <ScalarProperty Name="Genre" ColumnName="Genre" />
           <ScalarProperty Name="Showing_Date" ColumnName="Showing Date" />

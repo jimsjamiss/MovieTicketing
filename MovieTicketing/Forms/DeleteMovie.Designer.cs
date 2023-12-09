@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSeachMovie = new System.Windows.Forms.TextBox();
             this.dgvMovieShows = new System.Windows.Forms.DataGridView();
             this.btnDelete = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,33 +40,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtMvGenre = new System.Windows.Forms.TextBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtPrice = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovieShows)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(204, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Search Movie by Movie ID";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // txtSeachMovie
-            // 
-            this.txtSeachMovie.Location = new System.Drawing.Point(28, 88);
-            this.txtSeachMovie.Name = "txtSeachMovie";
-            this.txtSeachMovie.Size = new System.Drawing.Size(212, 22);
-            this.txtSeachMovie.TabIndex = 1;
-            this.txtSeachMovie.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // dgvMovieShows
             // 
             this.dgvMovieShows.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMovieShows.Location = new System.Drawing.Point(12, 122);
+            this.dgvMovieShows.Location = new System.Drawing.Point(12, 62);
             this.dgvMovieShows.Name = "dgvMovieShows";
             this.dgvMovieShows.RowHeadersWidth = 51;
             this.dgvMovieShows.RowTemplate.Height = 24;
@@ -78,7 +58,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(552, 423);
+            this.btnDelete.Location = new System.Drawing.Point(290, 432);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(203, 36);
             this.btnDelete.TabIndex = 4;
@@ -89,7 +69,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 327);
+            this.label2.Location = new System.Drawing.Point(14, 276);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 16);
             this.label2.TabIndex = 5;
@@ -97,7 +77,7 @@
             // 
             // txtMvID
             // 
-            this.txtMvID.Location = new System.Drawing.Point(12, 362);
+            this.txtMvID.Location = new System.Drawing.Point(12, 295);
             this.txtMvID.Name = "txtMvID";
             this.txtMvID.Size = new System.Drawing.Size(216, 22);
             this.txtMvID.TabIndex = 6;
@@ -105,7 +85,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 402);
+            this.label3.Location = new System.Drawing.Point(14, 351);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 16);
             this.label3.TabIndex = 5;
@@ -114,7 +94,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(287, 327);
+            this.label4.Location = new System.Drawing.Point(287, 276);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 16);
             this.label4.TabIndex = 5;
@@ -122,7 +102,7 @@
             // 
             // txtMvTitle
             // 
-            this.txtMvTitle.Location = new System.Drawing.Point(290, 362);
+            this.txtMvTitle.Location = new System.Drawing.Point(290, 295);
             this.txtMvTitle.Name = "txtMvTitle";
             this.txtMvTitle.Size = new System.Drawing.Size(216, 22);
             this.txtMvTitle.TabIndex = 6;
@@ -130,7 +110,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(287, 402);
+            this.label5.Location = new System.Drawing.Point(287, 351);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 16);
             this.label5.TabIndex = 5;
@@ -138,7 +118,7 @@
             // 
             // txtMvHrs
             // 
-            this.txtMvHrs.Location = new System.Drawing.Point(290, 437);
+            this.txtMvHrs.Location = new System.Drawing.Point(290, 372);
             this.txtMvHrs.Name = "txtMvHrs";
             this.txtMvHrs.Size = new System.Drawing.Size(216, 22);
             this.txtMvHrs.TabIndex = 6;
@@ -146,7 +126,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(549, 327);
+            this.label6.Location = new System.Drawing.Point(549, 276);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 16);
             this.label6.TabIndex = 5;
@@ -154,34 +134,41 @@
             // 
             // txtMvGenre
             // 
-            this.txtMvGenre.Location = new System.Drawing.Point(552, 362);
+            this.txtMvGenre.Location = new System.Drawing.Point(552, 295);
             this.txtMvGenre.Name = "txtMvGenre";
             this.txtMvGenre.Size = new System.Drawing.Size(216, 22);
             this.txtMvGenre.TabIndex = 6;
             // 
             // dtpDate
             // 
-            this.dtpDate.Location = new System.Drawing.Point(12, 437);
+            this.dtpDate.Location = new System.Drawing.Point(12, 370);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(246, 22);
             this.dtpDate.TabIndex = 7;
             // 
-            // btnSearch
+            // label1
             // 
-            this.btnSearch.Location = new System.Drawing.Point(290, 74);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(203, 36);
-            this.btnSearch.TabIndex = 8;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(549, 351);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 16);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Movie Price";
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.Location = new System.Drawing.Point(552, 372);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(216, 22);
+            this.txtPrice.TabIndex = 9;
             // 
             // DeleteMovie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 480);
-            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtPrice);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.txtMvGenre);
             this.Controls.Add(this.label6);
@@ -194,8 +181,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.dgvMovieShows);
-            this.Controls.Add(this.txtSeachMovie);
-            this.Controls.Add(this.label1);
             this.Name = "DeleteMovie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Delete Movie";
@@ -207,9 +192,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSeachMovie;
         private System.Windows.Forms.DataGridView dgvMovieShows;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.ErrorProvider errorProviderCustom;
@@ -223,6 +205,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtMvGenre;
         private System.Windows.Forms.DateTimePicker dtpDate;
-        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtPrice;
     }
 }

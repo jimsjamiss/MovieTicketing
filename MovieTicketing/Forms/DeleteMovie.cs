@@ -99,9 +99,11 @@ namespace MovieTicketing.Forms
 
                     txtMvID.Clear();
                     txtMvTitle.Clear();
+                    txtPrice.Clear();
                     txtMvGenre.Clear();
                     dtpDate.ResetText();
                     txtMvHrs.Clear();
+                   
 
                 }
                 else
@@ -115,18 +117,6 @@ namespace MovieTicketing.Forms
                 Console.WriteLine($"Exception : {ex.Message}");
 
             }  
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-          
-            if (searchMovie(txtMvTitle.Text).Equals(null))
-            {
-                MessageBox.Show("Please input Title to Search", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else 
-                searchMovie(txtMvTitle.Text);
-
         }
     }
 }

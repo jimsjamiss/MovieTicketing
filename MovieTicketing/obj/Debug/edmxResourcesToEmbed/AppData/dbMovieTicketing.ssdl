@@ -24,21 +24,21 @@
       <PropertyRef Name="movieId" />
     </Key>
     <Property Name="movieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="moviName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="moviName" Type="varchar" MaxLength="50" />
     <Property Name="movieType" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="movieDate" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="movieHour" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="moviePrice" Type="decimal" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="movieTicketing">
     <Key>
       <PropertyRef Name="tckId" />
     </Key>
     <Property Name="movieId" Type="int" Nullable="false" />
-    <Property Name="tckNum" Type="int" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="Time" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Venue" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="tckId" Type="int" Nullable="false" />
+    <Property Name="tckId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <EntityType Name="payment">
     <Key>
@@ -81,16 +81,17 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_list_movieShows' does no
   <EntityType Name="vw_list_movieShows">
     <Key>
       <PropertyRef Name="Movie ID" />
-      <PropertyRef Name="Title" />
       <PropertyRef Name="Showing Date" />
       <PropertyRef Name="Genre" />
       <PropertyRef Name="Time Slot" />
+      <PropertyRef Name="Price" />
     </Key>
-    <Property Name="Movie ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Movie ID" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
     <Property Name="Showing Date" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Genre" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Time Slot" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Price" Type="varchar" MaxLength="45" Nullable="false" />
   </EntityType>
   <Association Name="FK_movieTicketing_movieShows">
     <End Role="movieShows" Type="Self.movieShows" Multiplicity="1" />
@@ -146,6 +147,7 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_list_movieShows' does no
     <Parameter Name="movieDate" Type="varchar" Mode="In" />
     <Parameter Name="movieHours" Type="varchar" Mode="In" />
     <Parameter Name="movieGenre" Type="varchar" Mode="In" />
+    <Parameter Name="moviePrice" Type="decimal" Mode="In" />
   </Function>
   <Function Name="sp_delete_movies" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
@@ -153,6 +155,7 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_list_movieShows' does no
     <Parameter Name="movieDate" Type="varchar" Mode="In" />
     <Parameter Name="movieHours" Type="varchar" Mode="In" />
     <Parameter Name="movieGenre" Type="varchar" Mode="In" />
+    <Parameter Name="moviePrice" Type="decimal" Mode="In" />
   </Function>
   <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -177,6 +180,7 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_list_movieShows' does no
     <Parameter Name="movieDate" Type="varchar" Mode="In" />
     <Parameter Name="movieHours" Type="varchar" Mode="In" />
     <Parameter Name="movieGenre" Type="varchar" Mode="In" />
+    <Parameter Name="moviePrice" Type="decimal" Mode="In" />
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="db_movie_ticketingModelStoreContainer">
@@ -201,7 +205,8 @@ FROM [dbo].[vs_userList] AS [vs_userList]</DefiningQuery>
 [vw_list_movieShows].[Title] AS [Title], 
 [vw_list_movieShows].[Showing Date] AS [Showing Date], 
 [vw_list_movieShows].[Genre] AS [Genre], 
-[vw_list_movieShows].[Time Slot] AS [Time Slot]
+[vw_list_movieShows].[Time Slot] AS [Time Slot], 
+[vw_list_movieShows].[Price] AS [Price]
 FROM [dbo].[vw_list_movieShows] AS [vw_list_movieShows]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_movieTicketing_movieShows" Association="Self.FK_movieTicketing_movieShows">

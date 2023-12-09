@@ -47,7 +47,7 @@ namespace MovieTicketing
             {
 
                 movieShows movies = db.movieShows.Where(m => m.movieId == movieId).FirstOrDefault();
-                db.sp_delete_movies(movies.movieId, movies.moviName, movies.movieDate, movies.movieHour, movies.movieType);
+                db.sp_delete_movies(movies.movieId, movies.moviName, movies.movieDate, movies.movieHour, movies.movieType,movies.moviePrice);
                 db.SaveChanges();       // Execute the update
                 outMessage = "Movie Deleted Successfully!";
                 retValue = ErrorCode.Success;
@@ -60,29 +60,24 @@ namespace MovieTicketing
             }
             return retValue;
         }
-        public ErrorCode UpdateMovie(int? id, movieShows moviesinfo,ref String outMessage)
+        public ErrorCode UpdateMovie(int? id, string title, string date, string hrs, string genre,decimal price,ref String outMessage)
         {
-            db = new db_movie_ticketingEntities3();
-            movieShows movies = new movieShows();
-            ErrorCode retValue = ErrorCode.Error;
-            try
+            using (db = new db_movie_ticketingEntities3())
             {
-                // Find the user with id
-                moviesinfo = db.movieShows.Where(m => m.movieId == id).FirstOrDefault();
-                db.sp_update_moviesInfo(id, moviesinfo.moviName, moviesinfo.movieDate, moviesinfo.movieHour, moviesinfo.movieType);
-                db.SaveChanges();       // Execute the update
+                try
+                {
+                    db.sp_update_moviesInfo(id,title,date,hrs,genre,price);
+                    outMessage = "Movie Updated!";
+                    return ErrorCode.Success;   
+                }
+                catch (Exception ex)
+                {
 
-                outMessage = "Updated";
-                retValue = ErrorCode.Success;
+                    outMessage = ex.Message;
+                    return ErrorCode.Error;
+                }
             }
-            catch (Exception ex)
-            {
-                outMessage = ex.Message;
-                retValue = ErrorCode.Success;
-                MessageBox.Show(ex.Message);
-            }
-            return retValue;
-
+           
         }
 
         public customerInfo GetUserByUsername(String username, String password)

@@ -79,7 +79,7 @@ namespace MovieTicketing.AppData
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
         }
     
-        public virtual int sp_delete_movies(Nullable<int> id, string movieName, string movieDate, string movieHours, string movieGenre)
+        public virtual int sp_delete_movies(Nullable<int> id, string movieName, string movieDate, string movieHours, string movieGenre, Nullable<decimal> moviePrice)
         {
             var idParameter = id.HasValue ?
                 new ObjectParameter("id", id) :
@@ -101,7 +101,11 @@ namespace MovieTicketing.AppData
                 new ObjectParameter("movieGenre", movieGenre) :
                 new ObjectParameter("movieGenre", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_delete_movies", idParameter, movieNameParameter, movieDateParameter, movieHoursParameter, movieGenreParameter);
+            var moviePriceParameter = moviePrice.HasValue ?
+                new ObjectParameter("moviePrice", moviePrice) :
+                new ObjectParameter("moviePrice", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_delete_movies", idParameter, movieNameParameter, movieDateParameter, movieHoursParameter, movieGenreParameter, moviePriceParameter);
         }
     
         public virtual int sp_dropdiagram(string diagramname, Nullable<int> owner_id)
@@ -160,7 +164,7 @@ namespace MovieTicketing.AppData
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
         }
     
-        public virtual int sp_update_moviesInfo(Nullable<int> movieId, string movieName, string movieDate, string movieHours, string movieGenre)
+        public virtual int sp_update_moviesInfo(Nullable<int> movieId, string movieName, string movieDate, string movieHours, string movieGenre, Nullable<decimal> moviePrice)
         {
             var movieIdParameter = movieId.HasValue ?
                 new ObjectParameter("movieId", movieId) :
@@ -182,7 +186,11 @@ namespace MovieTicketing.AppData
                 new ObjectParameter("movieGenre", movieGenre) :
                 new ObjectParameter("movieGenre", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_update_moviesInfo", movieIdParameter, movieNameParameter, movieDateParameter, movieHoursParameter, movieGenreParameter);
+            var moviePriceParameter = moviePrice.HasValue ?
+                new ObjectParameter("moviePrice", moviePrice) :
+                new ObjectParameter("moviePrice", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_update_moviesInfo", movieIdParameter, movieNameParameter, movieDateParameter, movieHoursParameter, movieGenreParameter, moviePriceParameter);
         }
     
         public virtual int sp_upgraddiagrams()
@@ -190,7 +198,7 @@ namespace MovieTicketing.AppData
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
     
-        public virtual int sp_createMovies(string movieName, string movieDate, string movieHours, string movieGenre)
+        public virtual int sp_createMovies(string movieName, string movieDate, string movieHours, string movieGenre, Nullable<decimal> moviePrice)
         {
             var movieNameParameter = movieName != null ?
                 new ObjectParameter("movieName", movieName) :
@@ -208,7 +216,11 @@ namespace MovieTicketing.AppData
                 new ObjectParameter("movieGenre", movieGenre) :
                 new ObjectParameter("movieGenre", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_createMovies", movieNameParameter, movieDateParameter, movieHoursParameter, movieGenreParameter);
+            var moviePriceParameter = moviePrice.HasValue ?
+                new ObjectParameter("moviePrice", moviePrice) :
+                new ObjectParameter("moviePrice", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_createMovies", movieNameParameter, movieDateParameter, movieHoursParameter, movieGenreParameter, moviePriceParameter);
         }
     }
 }

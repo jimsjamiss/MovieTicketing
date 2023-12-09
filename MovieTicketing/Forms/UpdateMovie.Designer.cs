@@ -41,6 +41,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtPrice = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovieShows)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +60,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(64, 95);
+            this.label2.Location = new System.Drawing.Point(64, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 16);
             this.label2.TabIndex = 1;
@@ -66,7 +68,7 @@
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(67, 114);
+            this.txtTitle.Location = new System.Drawing.Point(67, 95);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(216, 22);
             this.txtTitle.TabIndex = 2;
@@ -74,7 +76,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(434, 11);
+            this.label3.Location = new System.Drawing.Point(373, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 16);
             this.label3.TabIndex = 1;
@@ -82,7 +84,7 @@
             // 
             // txtGenre
             // 
-            this.txtGenre.Location = new System.Drawing.Point(437, 30);
+            this.txtGenre.Location = new System.Drawing.Point(376, 30);
             this.txtGenre.Name = "txtGenre";
             this.txtGenre.Size = new System.Drawing.Size(216, 22);
             this.txtGenre.TabIndex = 2;
@@ -90,7 +92,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(64, 160);
+            this.label4.Location = new System.Drawing.Point(64, 147);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 16);
             this.label4.TabIndex = 1;
@@ -99,7 +101,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(434, 95);
+            this.label5.Location = new System.Drawing.Point(373, 76);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 16);
             this.label5.TabIndex = 1;
@@ -107,21 +109,21 @@
             // 
             // txtDuration
             // 
-            this.txtDuration.Location = new System.Drawing.Point(437, 114);
+            this.txtDuration.Location = new System.Drawing.Point(376, 95);
             this.txtDuration.Name = "txtDuration";
             this.txtDuration.Size = new System.Drawing.Size(216, 22);
             this.txtDuration.TabIndex = 2;
             // 
             // dtpDate
             // 
-            this.dtpDate.Location = new System.Drawing.Point(67, 179);
+            this.dtpDate.Location = new System.Drawing.Point(67, 166);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(240, 22);
             this.dtpDate.TabIndex = 3;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(456, 175);
+            this.btnUpdate.Location = new System.Drawing.Point(619, 166);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(181, 35);
             this.btnUpdate.TabIndex = 4;
@@ -156,11 +158,29 @@
             this.txtID.Size = new System.Drawing.Size(216, 22);
             this.txtID.TabIndex = 6;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(373, 148);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(84, 16);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Movie Price: ";
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.Location = new System.Drawing.Point(376, 172);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(216, 22);
+            this.txtPrice.TabIndex = 9;
+            // 
             // UpdateMovie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 484);
+            this.Controls.Add(this.txtPrice);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label1);
@@ -200,5 +220,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtPrice;
     }
 }

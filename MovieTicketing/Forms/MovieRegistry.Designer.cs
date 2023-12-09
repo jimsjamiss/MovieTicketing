@@ -37,6 +37,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dtpMovieDate = new System.Windows.Forms.DateTimePicker();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtPrice = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // cboxGenre
@@ -85,7 +87,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(278, 141);
+            this.label4.Location = new System.Drawing.Point(278, 51);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 16);
             this.label4.TabIndex = 0;
@@ -93,7 +95,7 @@
             // 
             // txtDuration
             // 
-            this.txtDuration.Location = new System.Drawing.Point(281, 174);
+            this.txtDuration.Location = new System.Drawing.Point(281, 84);
             this.txtDuration.Name = "txtDuration";
             this.txtDuration.Size = new System.Drawing.Size(198, 22);
             this.txtDuration.TabIndex = 1;
@@ -127,11 +129,29 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(291, 141);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 16);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Movie Price: ";
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.Location = new System.Drawing.Point(281, 186);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(198, 22);
+            this.txtPrice.TabIndex = 6;
+            // 
             // MovieRegistry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(526, 403);
+            this.Controls.Add(this.txtPrice);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dtpMovieDate);
             this.Controls.Add(this.cboxGenre);
@@ -161,5 +181,7 @@
         private System.Windows.Forms.ErrorProvider errorProviderCustom;
         private System.Windows.Forms.Button btnAdd;
         public System.Windows.Forms.ComboBox cboxGenre;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtPrice;
     }
 }
