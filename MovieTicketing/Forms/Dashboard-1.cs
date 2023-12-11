@@ -15,6 +15,7 @@ namespace MovieTicketing.Forms
     {
         db_movie_ticketingEntities3 db;
         movieShows movies = new movieShows();
+        UserRepo userRepo;
         public Dashboard_1()
         {
             InitializeComponent();
@@ -28,6 +29,9 @@ namespace MovieTicketing.Forms
             cboxCinema.DataSource = Enum.GetValues(typeof(cinema));
             cboxTitle.Text = "--------------Select--------------";
             cboxCinema.Text = "--------------Select--------------";
+            userRepo = new UserRepo();
+            loadMovies();
+
 
         }
 
@@ -55,6 +59,10 @@ namespace MovieTicketing.Forms
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+        private void loadMovies()
+        {
+            dtgBrowseMovie.DataSource = userRepo.browseMovies();
         }
     }
 }

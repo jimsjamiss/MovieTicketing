@@ -108,7 +108,19 @@ namespace MovieTicketing
                 return db.vw_list_movieShows.ToList();
             }
         }
-       
-
+       public List<vw_userList> custList()
+        {
+            using (db =new db_movie_ticketingEntities3())
+            {
+                return db.vw_userList.ToList();
+            }
+        }
+        public List<vw_browseMovies> browseMovies()
+        {
+            using (db = new db_movie_ticketingEntities3())
+            {
+                return db.vw_browseMovies.ToList(); 
+            }
+        }
     }
 }

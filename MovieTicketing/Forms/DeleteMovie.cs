@@ -21,24 +21,6 @@ namespace MovieTicketing.Forms
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-        public movieShows searchMovie(string movies)
-        {
-            using (db = new db_movie_ticketingEntities3())
-            {
-                return db.movieShows.Where(m => m.moviName == movies).FirstOrDefault();
-            }
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
            
@@ -56,8 +38,6 @@ namespace MovieTicketing.Forms
             {
                 Console.WriteLine($"Exception : {ex.Message}");
             }
-
-
         }
 
         private void DeleteMovie_Load(object sender, EventArgs e)

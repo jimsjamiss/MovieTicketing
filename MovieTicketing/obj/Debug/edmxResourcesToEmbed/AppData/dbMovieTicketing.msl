@@ -94,14 +94,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="vs_userList">
-      <EntityTypeMapping TypeName="db_movie_ticketingModel.vs_userList">
-        <MappingFragment StoreEntitySet="vs_userList">
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
-          <ScalarProperty Name="Email_Address" ColumnName="Email Address" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+    <EntitySetMapping Name="vw_browseMovies">
+      <EntityTypeMapping TypeName="db_movie_ticketingModel.vw_browseMovies">
+        <MappingFragment StoreEntitySet="vw_browseMovies">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Time_Slot" ColumnName="Time Slot" />
+          <ScalarProperty Name="Genre" ColumnName="Genre" />
+          <ScalarProperty Name="Showing_Date" ColumnName="Showing Date" />
+          <ScalarProperty Name="Movie" ColumnName="Movie" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -114,6 +114,18 @@
           <ScalarProperty Name="Showing_Date" ColumnName="Showing Date" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Movie_ID" ColumnName="Movie ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_userList">
+      <EntityTypeMapping TypeName="db_movie_ticketingModel.vw_userList">
+        <MappingFragment StoreEntitySet="vw_userList">
+          <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
+          <ScalarProperty Name="Email_Address" ColumnName="Email Address" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -34,8 +34,9 @@ namespace MovieTicketing.AppData
         public DbSet<movieTicketing> movieTicketing { get; set; }
         public DbSet<payment> payment { get; set; }
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public DbSet<vs_userList> vs_userList { get; set; }
+        public DbSet<vw_browseMovies> vw_browseMovies { get; set; }
         public DbSet<vw_list_movieShows> vw_list_movieShows { get; set; }
+        public DbSet<vw_userList> vw_userList { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

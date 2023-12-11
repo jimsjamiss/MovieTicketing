@@ -9,10 +9,19 @@ movieHour  'Time Slot',
 CONCAT('Php ',moviePrice) AS 'Price'
 FROM movieShows 
 
-Create VIEW vs_userList AS 
-Select custName 'Fullname', 
+Alter VIEW vw_userList AS 
+Select CONCAT ('CC-', custId,'-000') AS 'Id', 
+custName 'Name',
+custPass 'Password',
 custAddress 'Address', 
 custEmail 'Email Address', 
-custPhone 'Phone Number', 
-custPass 'Password'
+custPhone 'Phone Number'
 from customerInfo
+
+Alter view vw_browseMovies AS
+SELECT CONCAT('(','MV-',movieId,'-000',')',moviName) AS 'Movie',
+movieDate  'Showing Date', 
+movieType  'Genre', 
+movieHour  'Time Slot', 
+CONCAT('Php ',moviePrice) AS 'Price'
+from movieShows
