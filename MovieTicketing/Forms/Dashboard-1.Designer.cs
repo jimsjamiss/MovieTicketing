@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard_1));
             this.cboxTitle = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cboxCinema = new System.Windows.Forms.ComboBox();
@@ -40,7 +41,7 @@
             // cboxTitle
             // 
             this.cboxTitle.FormattingEnabled = true;
-            this.cboxTitle.Location = new System.Drawing.Point(41, 94);
+            this.cboxTitle.Location = new System.Drawing.Point(162, 75);
             this.cboxTitle.Name = "cboxTitle";
             this.cboxTitle.Size = new System.Drawing.Size(182, 24);
             this.cboxTitle.TabIndex = 0;
@@ -49,16 +50,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
             this.label1.Location = new System.Drawing.Point(38, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 16);
+            this.label1.Size = new System.Drawing.Size(107, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Movie Title";
             // 
             // cboxCinema
             // 
             this.cboxCinema.FormattingEnabled = true;
-            this.cboxCinema.Location = new System.Drawing.Point(41, 165);
+            this.cboxCinema.Location = new System.Drawing.Point(162, 146);
             this.cboxCinema.Name = "cboxCinema";
             this.cboxCinema.Size = new System.Drawing.Size(182, 24);
             this.cboxCinema.TabIndex = 0;
@@ -67,32 +70,37 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
             this.label3.Location = new System.Drawing.Point(38, 146);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 16);
+            this.label3.Size = new System.Drawing.Size(91, 25);
             this.label3.TabIndex = 1;
             this.label3.Text = "Cinema: ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
             this.label4.Location = new System.Drawing.Point(38, 221);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 16);
+            this.label4.Size = new System.Drawing.Size(175, 25);
             this.label4.TabIndex = 1;
             this.label4.Text = "Number of Person:\r\n";
             // 
             // nupNumPerson
             // 
-            this.nupNumPerson.Location = new System.Drawing.Point(162, 219);
+            this.nupNumPerson.Location = new System.Drawing.Point(219, 221);
             this.nupNumPerson.Name = "nupNumPerson";
-            this.nupNumPerson.Size = new System.Drawing.Size(61, 22);
+            this.nupNumPerson.Size = new System.Drawing.Size(125, 22);
             this.nupNumPerson.TabIndex = 2;
             // 
             // Dashboard_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(67)))));
             this.ClientSize = new System.Drawing.Size(965, 545);
             this.Controls.Add(this.nupNumPerson);
             this.Controls.Add(this.label4);
@@ -100,6 +108,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboxCinema);
             this.Controls.Add(this.cboxTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard_1";
             this.Text = "Dashboard_1";
             this.Load += new System.EventHandler(this.Dashboard_1_Load);

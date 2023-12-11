@@ -19,11 +19,16 @@ namespace MovieTicketing.Forms
         {
             InitializeComponent();
             loadDataToCBox();
+            
         }
 
         private void Dashboard_1_Load(object sender, EventArgs e)
         {
+           
             cboxCinema.DataSource = Enum.GetValues(typeof(cinema));
+            cboxTitle.Text = "--------------Select--------------";
+            cboxCinema.Text = "--------------Select--------------";
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -36,7 +41,7 @@ namespace MovieTicketing.Forms
             try
             {
                 db = new db_movie_ticketingEntities3();
-                var title = db.movieShows.Select(m => m.moviName).ToList();
+                var title = db.movieShows.Select(m => m.moviName).ToList();              
                 cboxTitle.DataSource = title;
                
             }

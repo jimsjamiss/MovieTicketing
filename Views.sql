@@ -1,7 +1,7 @@
 use db_movie_ticketing
 
 ALter VIEW vw_list_movieShows AS 
-SELECT CONCAT('MV-',movieId,'000')AS 'Movie ID', 
+SELECT CONCAT('MV-',movieId,'-000')AS 'Movie ID', 
 moviName  'Title',  
 movieDate  'Showing Date', 
 movieType  'Genre', 
