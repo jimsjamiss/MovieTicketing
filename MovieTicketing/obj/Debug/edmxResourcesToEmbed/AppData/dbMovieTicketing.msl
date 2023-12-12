@@ -102,10 +102,9 @@
       <EntityTypeMapping TypeName="db_movie_ticketingModel.vw_browseMovies">
         <MappingFragment StoreEntitySet="vw_browseMovies">
           <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Time_Slot" ColumnName="Time Slot" />
           <ScalarProperty Name="Genre" ColumnName="Genre" />
-          <ScalarProperty Name="Showing_Date" ColumnName="Showing Date" />
-          <ScalarProperty Name="Movie" ColumnName="Movie" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Movie_Id" ColumnName="Movie Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -123,7 +122,7 @@
       <EntityTypeMapping TypeName="db_movie_ticketingModel.vw_list_movieShows">
         <MappingFragment StoreEntitySet="vw_list_movieShows">
           <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Time_Slot" ColumnName="Time Slot" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
           <ScalarProperty Name="Genre" ColumnName="Genre" />
           <ScalarProperty Name="Showing_Date" ColumnName="Showing Date" />
           <ScalarProperty Name="Title" ColumnName="Title" />

@@ -66,16 +66,13 @@
 warning 6002: The table/view 'db_movie_ticketing.dbo.vw_browseMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vw_browseMovies">
     <Key>
-      <PropertyRef Name="Movie" />
-      <PropertyRef Name="Showing Date" />
+      <PropertyRef Name="Movie Id" />
       <PropertyRef Name="Genre" />
-      <PropertyRef Name="Time Slot" />
       <PropertyRef Name="Price" />
     </Key>
-    <Property Name="Movie" Type="varchar" MaxLength="71" Nullable="false" />
-    <Property Name="Showing Date" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Movie Id" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
     <Property Name="Genre" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Time Slot" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Price" Type="varchar" MaxLength="45" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
@@ -99,14 +96,14 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_list_movieShows' does no
       <PropertyRef Name="Movie ID" />
       <PropertyRef Name="Showing Date" />
       <PropertyRef Name="Genre" />
-      <PropertyRef Name="Time Slot" />
+      <PropertyRef Name="Duration" />
       <PropertyRef Name="Price" />
     </Key>
-    <Property Name="Movie ID" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="Movie ID" Type="varchar" MaxLength="19" Nullable="false" />
     <Property Name="Title" Type="varchar" MaxLength="50" />
     <Property Name="Showing Date" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Genre" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Time Slot" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Duration" Type="varchar" MaxLength="54" Nullable="false" />
     <Property Name="Price" Type="varchar" MaxLength="45" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
@@ -238,10 +235,9 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_userList' does not have 
     <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="vw_browseMovies" EntityType="Self.vw_browseMovies" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
-[vw_browseMovies].[Movie] AS [Movie], 
-[vw_browseMovies].[Showing Date] AS [Showing Date], 
+[vw_browseMovies].[Movie Id] AS [Movie Id], 
+[vw_browseMovies].[Title] AS [Title], 
 [vw_browseMovies].[Genre] AS [Genre], 
-[vw_browseMovies].[Time Slot] AS [Time Slot], 
 [vw_browseMovies].[Price] AS [Price]
 FROM [dbo].[vw_browseMovies] AS [vw_browseMovies]</DefiningQuery>
     </EntitySet>
@@ -259,7 +255,7 @@ FROM [dbo].[vw_empList] AS [vw_empList]</DefiningQuery>
 [vw_list_movieShows].[Title] AS [Title], 
 [vw_list_movieShows].[Showing Date] AS [Showing Date], 
 [vw_list_movieShows].[Genre] AS [Genre], 
-[vw_list_movieShows].[Time Slot] AS [Time Slot], 
+[vw_list_movieShows].[Duration] AS [Duration], 
 [vw_list_movieShows].[Price] AS [Price]
 FROM [dbo].[vw_list_movieShows] AS [vw_list_movieShows]</DefiningQuery>
     </EntitySet>

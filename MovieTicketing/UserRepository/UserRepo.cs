@@ -139,7 +139,15 @@ namespace MovieTicketing
                 return db.movieShows.Where(s => s.movieId == movieId).FirstOrDefault();
             }
         }
-       
+        public movieShows GetMoviesByTitle(string title)
+        {
+            // re-initialize db object because sometimes data in the list not updated
+            using (db = new db_movie_ticketingEntities3())
+            {
+                // SELECT TOP 1 * FROM USERACCOUNT WHERE userName == username
+                return db.movieShows.Where(s => s.moviName == title).FirstOrDefault();
+            }
+        }
 
         public List<vw_list_movieShows> AllMovieShows()
         {

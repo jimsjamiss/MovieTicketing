@@ -5,7 +5,7 @@ SELECT CONCAT('MV-',movieId,'-000')AS 'Movie ID',
 moviName  'Title',  
 movieDate  'Showing Date', 
 movieType  'Genre', 
-movieHour  'Time Slot', 
+CONCAT(movieHour,'mins') AS 'Duration', 
 CONCAT('Php ',moviePrice) AS 'Price'
 FROM movieShows 
 
@@ -18,11 +18,10 @@ custEmail 'Email Address',
 custPhone 'Phone Number'
 from UserInfo
 
-Create view vw_browseMovies AS
-SELECT CONCAT('(','MV-',movieId,'-000',')',moviName) AS 'Movie',
-movieDate  'Showing Date', 
+Alter view vw_browseMovies AS
+SELECT CONCAT('MV-',movieId,'000') AS 'Movie Id',
+moviName 'Title',
 movieType  'Genre', 
-movieHour  'Time Slot', 
 CONCAT('Php ',moviePrice) AS 'Price'
 from movieShows
 

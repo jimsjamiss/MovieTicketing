@@ -170,16 +170,13 @@
   </EntityType>
   <EntityType Name="vw_browseMovies">
     <Key>
-      <PropertyRef Name="Movie" />
-      <PropertyRef Name="Showing_Date" />
+      <PropertyRef Name="Movie_Id" />
       <PropertyRef Name="Genre" />
-      <PropertyRef Name="Time_Slot" />
       <PropertyRef Name="Price" />
     </Key>
-    <Property Name="Movie" Type="String" Nullable="false" MaxLength="71" FixedLength="false" Unicode="false" />
-    <Property Name="Showing_Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Movie_Id" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Genre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Time_Slot" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Price" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="vw_empList">
@@ -199,14 +196,14 @@
       <PropertyRef Name="Movie_ID" />
       <PropertyRef Name="Showing_Date" />
       <PropertyRef Name="Genre" />
-      <PropertyRef Name="Time_Slot" />
+      <PropertyRef Name="Duration" />
       <PropertyRef Name="Price" />
     </Key>
-    <Property Name="Movie_ID" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="Movie_ID" Type="String" Nullable="false" MaxLength="19" FixedLength="false" Unicode="false" />
     <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Showing_Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Genre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Time_Slot" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Duration" Type="String" Nullable="false" MaxLength="54" FixedLength="false" Unicode="false" />
     <Property Name="Price" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="vw_userList">

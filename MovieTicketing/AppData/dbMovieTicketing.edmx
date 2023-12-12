@@ -71,16 +71,13 @@
 warning 6002: The table/view 'db_movie_ticketing.dbo.vw_browseMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_browseMovies">
           <Key>
-            <PropertyRef Name="Movie" />
-            <PropertyRef Name="Showing Date" />
+            <PropertyRef Name="Movie Id" />
             <PropertyRef Name="Genre" />
-            <PropertyRef Name="Time Slot" />
             <PropertyRef Name="Price" />
           </Key>
-          <Property Name="Movie" Type="varchar" MaxLength="71" Nullable="false" />
-          <Property Name="Showing Date" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Movie Id" Type="varchar" MaxLength="18" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
           <Property Name="Genre" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Time Slot" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Price" Type="varchar" MaxLength="45" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -104,14 +101,14 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_list_movieShows' does no
             <PropertyRef Name="Movie ID" />
             <PropertyRef Name="Showing Date" />
             <PropertyRef Name="Genre" />
-            <PropertyRef Name="Time Slot" />
+            <PropertyRef Name="Duration" />
             <PropertyRef Name="Price" />
           </Key>
-          <Property Name="Movie ID" Type="varchar" MaxLength="18" Nullable="false" />
+          <Property Name="Movie ID" Type="varchar" MaxLength="19" Nullable="false" />
           <Property Name="Title" Type="varchar" MaxLength="50" />
           <Property Name="Showing Date" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Genre" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Time Slot" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Duration" Type="varchar" MaxLength="54" Nullable="false" />
           <Property Name="Price" Type="varchar" MaxLength="45" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -243,10 +240,9 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_userList' does not have 
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vw_browseMovies" EntityType="Self.vw_browseMovies" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-[vw_browseMovies].[Movie] AS [Movie], 
-[vw_browseMovies].[Showing Date] AS [Showing Date], 
+[vw_browseMovies].[Movie Id] AS [Movie Id], 
+[vw_browseMovies].[Title] AS [Title], 
 [vw_browseMovies].[Genre] AS [Genre], 
-[vw_browseMovies].[Time Slot] AS [Time Slot], 
 [vw_browseMovies].[Price] AS [Price]
 FROM [dbo].[vw_browseMovies] AS [vw_browseMovies]</DefiningQuery>
           </EntitySet>
@@ -264,7 +260,7 @@ FROM [dbo].[vw_empList] AS [vw_empList]</DefiningQuery>
 [vw_list_movieShows].[Title] AS [Title], 
 [vw_list_movieShows].[Showing Date] AS [Showing Date], 
 [vw_list_movieShows].[Genre] AS [Genre], 
-[vw_list_movieShows].[Time Slot] AS [Time Slot], 
+[vw_list_movieShows].[Duration] AS [Duration], 
 [vw_list_movieShows].[Price] AS [Price]
 FROM [dbo].[vw_list_movieShows] AS [vw_list_movieShows]</DefiningQuery>
           </EntitySet>
@@ -465,16 +461,13 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
         </EntityType>
         <EntityType Name="vw_browseMovies">
           <Key>
-            <PropertyRef Name="Movie" />
-            <PropertyRef Name="Showing_Date" />
+            <PropertyRef Name="Movie_Id" />
             <PropertyRef Name="Genre" />
-            <PropertyRef Name="Time_Slot" />
             <PropertyRef Name="Price" />
           </Key>
-          <Property Name="Movie" Type="String" Nullable="false" MaxLength="71" FixedLength="false" Unicode="false" />
-          <Property Name="Showing_Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Movie_Id" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Genre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Time_Slot" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Price" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vw_empList">
@@ -494,14 +487,14 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
             <PropertyRef Name="Movie_ID" />
             <PropertyRef Name="Showing_Date" />
             <PropertyRef Name="Genre" />
-            <PropertyRef Name="Time_Slot" />
+            <PropertyRef Name="Duration" />
             <PropertyRef Name="Price" />
           </Key>
-          <Property Name="Movie_ID" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="Movie_ID" Type="String" Nullable="false" MaxLength="19" FixedLength="false" Unicode="false" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Showing_Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Genre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Time_Slot" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Duration" Type="String" Nullable="false" MaxLength="54" FixedLength="false" Unicode="false" />
           <Property Name="Price" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vw_userList">
@@ -663,10 +656,9 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
             <EntityTypeMapping TypeName="db_movie_ticketingModel.vw_browseMovies">
               <MappingFragment StoreEntitySet="vw_browseMovies">
                 <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Time_Slot" ColumnName="Time Slot" />
                 <ScalarProperty Name="Genre" ColumnName="Genre" />
-                <ScalarProperty Name="Showing_Date" ColumnName="Showing Date" />
-                <ScalarProperty Name="Movie" ColumnName="Movie" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Movie_Id" ColumnName="Movie Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -684,7 +676,7 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
             <EntityTypeMapping TypeName="db_movie_ticketingModel.vw_list_movieShows">
               <MappingFragment StoreEntitySet="vw_list_movieShows">
                 <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Time_Slot" ColumnName="Time Slot" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
                 <ScalarProperty Name="Genre" ColumnName="Genre" />
                 <ScalarProperty Name="Showing_Date" ColumnName="Showing Date" />
                 <ScalarProperty Name="Title" ColumnName="Title" />

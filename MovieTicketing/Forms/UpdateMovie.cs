@@ -41,7 +41,7 @@ namespace MovieTicketing.Forms
                 txtTitle.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Title"].Value.ToString();
                 txtGenre.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Genre"].Value.ToString();
                 dtpDate.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Showing_Date"].Value.ToString();
-                txtDuration.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Time_Slot"].Value.ToString();
+                txtDuration.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Duration"].Value.ToString();
             }
             catch (Exception ex)
             {

@@ -18,7 +18,7 @@ namespace MovieTicketing.AppData
         public string Title { get; set; }
         public string Showing_Date { get; set; }
         public string Genre { get; set; }
-        public string Time_Slot { get; set; }
+        public string Duration { get; set; }
         public string Price { get; set; }
     }
 }
