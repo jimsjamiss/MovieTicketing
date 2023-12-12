@@ -71,7 +71,7 @@
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(67, 95);
+            this.txtTitle.Location = new System.Drawing.Point(69, 104);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(216, 22);
             this.txtTitle.TabIndex = 2;
@@ -89,7 +89,7 @@
             // 
             // txtGenre
             // 
-            this.txtGenre.Location = new System.Drawing.Point(336, 30);
+            this.txtGenre.Location = new System.Drawing.Point(338, 39);
             this.txtGenre.Name = "txtGenre";
             this.txtGenre.Size = new System.Drawing.Size(216, 22);
             this.txtGenre.TabIndex = 2;
@@ -118,14 +118,14 @@
             // 
             // txtDuration
             // 
-            this.txtDuration.Location = new System.Drawing.Point(336, 95);
+            this.txtDuration.Location = new System.Drawing.Point(338, 104);
             this.txtDuration.Name = "txtDuration";
             this.txtDuration.Size = new System.Drawing.Size(216, 22);
             this.txtDuration.TabIndex = 2;
             // 
             // dtpDate
             // 
-            this.dtpDate.Location = new System.Drawing.Point(67, 166);
+            this.dtpDate.Location = new System.Drawing.Point(69, 175);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(240, 22);
             this.dtpDate.TabIndex = 3;
@@ -176,7 +176,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
-            this.label7.Location = new System.Drawing.Point(603, 6);
+            this.label7.Location = new System.Drawing.Point(601, 11);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(125, 25);
             this.label7.TabIndex = 8;
@@ -184,7 +184,7 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(606, 30);
+            this.txtPrice.Location = new System.Drawing.Point(606, 40);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(216, 22);
             this.txtPrice.TabIndex = 9;

@@ -28,13 +28,14 @@ namespace MovieTicketing.AppData
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<customerInfo> customerInfo { get; set; }
         public DbSet<empInfo> empInfo { get; set; }
         public DbSet<movieShows> movieShows { get; set; }
         public DbSet<movieTicketing> movieTicketing { get; set; }
         public DbSet<payment> payment { get; set; }
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public DbSet<UserInfo> UserInfo { get; set; }
         public DbSet<vw_browseMovies> vw_browseMovies { get; set; }
+        public DbSet<vw_empList> vw_empList { get; set; }
         public DbSet<vw_list_movieShows> vw_list_movieShows { get; set; }
         public DbSet<vw_userList> vw_userList { get; set; }
     
@@ -222,6 +223,48 @@ namespace MovieTicketing.AppData
                 new ObjectParameter("moviePrice", typeof(decimal));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_createMovies", movieNameParameter, movieDateParameter, movieHoursParameter, movieGenreParameter, moviePriceParameter);
+        }
+    
+        public virtual int sp_delete_user(Nullable<int> empId, string empName, string empAddress, string empRole)
+        {
+            var empIdParameter = empId.HasValue ?
+                new ObjectParameter("empId", empId) :
+                new ObjectParameter("empId", typeof(int));
+    
+            var empNameParameter = empName != null ?
+                new ObjectParameter("empName", empName) :
+                new ObjectParameter("empName", typeof(string));
+    
+            var empAddressParameter = empAddress != null ?
+                new ObjectParameter("empAddress", empAddress) :
+                new ObjectParameter("empAddress", typeof(string));
+    
+            var empRoleParameter = empRole != null ?
+                new ObjectParameter("empRole", empRole) :
+                new ObjectParameter("empRole", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_delete_user", empIdParameter, empNameParameter, empAddressParameter, empRoleParameter);
+        }
+    
+        public virtual int sp_updateUser(Nullable<int> empId, string empName, string empAddress, string empRole)
+        {
+            var empIdParameter = empId.HasValue ?
+                new ObjectParameter("empId", empId) :
+                new ObjectParameter("empId", typeof(int));
+    
+            var empNameParameter = empName != null ?
+                new ObjectParameter("empName", empName) :
+                new ObjectParameter("empName", typeof(string));
+    
+            var empAddressParameter = empAddress != null ?
+                new ObjectParameter("empAddress", empAddress) :
+                new ObjectParameter("empAddress", typeof(string));
+    
+            var empRoleParameter = empRole != null ?
+                new ObjectParameter("empRole", empRole) :
+                new ObjectParameter("empRole", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateUser", empIdParameter, empNameParameter, empAddressParameter, empRoleParameter);
         }
     }
 }

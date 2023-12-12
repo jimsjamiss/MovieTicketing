@@ -21,20 +21,20 @@ namespace MovieTicketing.Forms
        // WindowsMediaPlayer player = new WindowsMediaPlayer();   
         private db_movie_ticketingEntities3 db;
         UserRepo userRepo;
-        customerInfo customer;
+        UserInfo customer;
         public staffDashboard()
         {
             InitializeComponent();
             //player.URL = "caloocan.mp3";
             db = new db_movie_ticketingEntities3();         
         }
-        public staffDashboard(customerInfo customerInfo)
+        public staffDashboard(UserInfo customerInfo)
         {
             InitializeComponent();
             //player.URL = "caloocan.mp3";
             db = new db_movie_ticketingEntities3();
             customer = customerInfo;
-            customer = db.customerInfo.Where(m => m.custId == UserRepo.userId).FirstOrDefault();
+            customer = db.UserInfo.Where(m => m.custId == UserRepo.userId).FirstOrDefault();
         }
 
         private void ApprovedTicket_Load(object sender, EventArgs e)

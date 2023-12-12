@@ -58,9 +58,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppData\customerInfo.cs">
-      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
-    </Compile>
     <Compile Include="AppData\dbMovieTicketing.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -102,7 +99,13 @@
     <Compile Include="AppData\sysdiagrams.cs">
       <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppData\UserInfo.cs">
+      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppData\vw_browseMovies.cs">
+      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppData\vw_empList.cs">
       <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\vw_list_movieShows.cs">
@@ -116,6 +119,24 @@
     </Compile>
     <Compile Include="Forms\Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DeleteEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeleteEmp.Designer.cs">
+      <DependentUpon>DeleteEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RegisterStaffAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RegisterStaffAdmin.Designer.cs">
+      <DependentUpon>RegisterStaffAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StaffAdminLogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StaffAdminLogIn.Designer.cs">
+      <DependentUpon>StaffAdminLogIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\staffDashboard.cs">
       <SubType>Form</SubType>
@@ -159,6 +180,12 @@
     <Compile Include="Forms\Registration.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UpdateEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpdateEmp.Designer.cs">
+      <DependentUpon>UpdateEmp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UpdateMovie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +201,15 @@
     <Compile Include="Utils\Constant.cs" />
     <EmbeddedResource Include="Forms\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeleteEmp.resx">
+      <DependentUpon>DeleteEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RegisterStaffAdmin.resx">
+      <DependentUpon>RegisterStaffAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StaffAdminLogIn.resx">
+      <DependentUpon>StaffAdminLogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\staffDashboard.resx">
       <DependentUpon>staffDashboard.cs</DependentUpon>
@@ -195,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UpdateEmp.resx">
+      <DependentUpon>UpdateEmp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UpdateMovie.resx">
       <DependentUpon>UpdateMovie.cs</DependentUpon>

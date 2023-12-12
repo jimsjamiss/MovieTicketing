@@ -28,21 +28,12 @@
     <FunctionImportMapping FunctionImportName="sp_update_moviesInfo" FunctionName="db_movie_ticketingModel.Store.sp_update_moviesInfo" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="db_movie_ticketingModel.Store.sp_upgraddiagrams" />
     <FunctionImportMapping FunctionImportName="sp_createMovies" FunctionName="db_movie_ticketingModel.Store.sp_createMovies" />
-    <EntitySetMapping Name="customerInfo">
-      <EntityTypeMapping TypeName="db_movie_ticketingModel.customerInfo">
-        <MappingFragment StoreEntitySet="customerInfo">
-          <ScalarProperty Name="custPass" ColumnName="custPass" />
-          <ScalarProperty Name="custEmail" ColumnName="custEmail" />
-          <ScalarProperty Name="custPhone" ColumnName="custPhone" />
-          <ScalarProperty Name="custAddress" ColumnName="custAddress" />
-          <ScalarProperty Name="custName" ColumnName="custName" />
-          <ScalarProperty Name="custId" ColumnName="custId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_delete_user" FunctionName="db_movie_ticketingModel.Store.sp_delete_user" />
+    <FunctionImportMapping FunctionImportName="sp_updateUser" FunctionName="db_movie_ticketingModel.Store.sp_updateUser" />
     <EntitySetMapping Name="empInfo">
       <EntityTypeMapping TypeName="db_movie_ticketingModel.empInfo">
         <MappingFragment StoreEntitySet="empInfo">
+          <ScalarProperty Name="empRole" ColumnName="empRole" />
           <ScalarProperty Name="empAddress" ColumnName="empAddress" />
           <ScalarProperty Name="empName" ColumnName="empName" />
           <ScalarProperty Name="empId" ColumnName="empId" />
@@ -94,6 +85,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="UserInfo">
+      <EntityTypeMapping TypeName="db_movie_ticketingModel.UserInfo">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="roles" ColumnName="roles" />
+          <ScalarProperty Name="custPass" ColumnName="custPass" />
+          <ScalarProperty Name="custEmail" ColumnName="custEmail" />
+          <ScalarProperty Name="custPhone" ColumnName="custPhone" />
+          <ScalarProperty Name="custAddress" ColumnName="custAddress" />
+          <ScalarProperty Name="custName" ColumnName="custName" />
+          <ScalarProperty Name="custId" ColumnName="custId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="vw_browseMovies">
       <EntityTypeMapping TypeName="db_movie_ticketingModel.vw_browseMovies">
         <MappingFragment StoreEntitySet="vw_browseMovies">
@@ -102,6 +106,16 @@
           <ScalarProperty Name="Genre" ColumnName="Genre" />
           <ScalarProperty Name="Showing_Date" ColumnName="Showing Date" />
           <ScalarProperty Name="Movie" ColumnName="Movie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_empList">
+      <EntityTypeMapping TypeName="db_movie_ticketingModel.vw_empList">
+        <MappingFragment StoreEntitySet="vw_empList">
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Employee_Address" ColumnName="Employee Address" />
+          <ScalarProperty Name="Employee_Name" ColumnName="Employee Name" />
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -55,18 +55,6 @@ namespace MovieTicketing.Forms
                     new Dashboard().Show();
                     this.Hide();
                 }
-                else if (custInfo.custPass == "admin" && custInfo.custName == "Admin")
-                {
-                    UserRepo.userId = custInfo.custId;
-                    new Admin(custInfo).Show();
-                    this.Hide();
-                }
-                else if (custInfo.custPass == ("staff") && custInfo.custName.Equals("staff"))
-                {
-                    UserRepo.userId = custInfo.custId;
-                    new staffDashboard(custInfo).Show();    
-                    this.Hide();
-                }
                 else
                 {
                     MessageBox.Show("Incorrect Password","Incorrect",MessageBoxButtons.OK,MessageBoxIcon.Warning);
@@ -82,6 +70,12 @@ namespace MovieTicketing.Forms
         {
             new frmRegistration().Show();
             
+        }
+
+        private void btnStaffAdmin_Click(object sender, EventArgs e)
+        {
+            new StaffAdminLogIn().Show();
+            this.Hide();
         }
     }
 }

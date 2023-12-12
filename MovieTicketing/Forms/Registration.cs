@@ -57,17 +57,18 @@ namespace MovieTicketing.Forms
                 return;
             }
            
-            customerInfo nUserAccount = new customerInfo();
+            UserInfo nUserAccount = new UserInfo();
             nUserAccount.custName = txtFName.Text;
             nUserAccount.custPass = txtPass.Text;
             nUserAccount.custEmail = txtEmail.Text; 
             nUserAccount.custPhone = txtPhone.Text; 
             nUserAccount.custAddress = txtAddress.Text;
+            nUserAccount.roles = "User";
             
            
             username = txtFName.Text;
             db = new db_movie_ticketingEntities3();
-            db.customerInfo.Add(nUserAccount);
+            db.UserInfo.Add(nUserAccount);
             db.SaveChanges();
 
             txtFName.Clear();
@@ -89,5 +90,9 @@ namespace MovieTicketing.Forms
 
         }
 
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

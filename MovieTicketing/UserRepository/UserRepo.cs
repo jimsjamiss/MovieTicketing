@@ -21,12 +21,12 @@ namespace MovieTicketing
         {
             db = new db_movie_ticketingEntities3();
         }
-        public ErrorCode NewUser(customerInfo custInfo, ref String outMessage)
+        public ErrorCode NewUser(UserInfo custInfo, ref String outMessage)
         {
             ErrorCode retValue = ErrorCode.Error;
             try
             {
-                db.customerInfo.Add(custInfo);
+                db.UserInfo.Add(custInfo);
                 db.SaveChanges();
 
                 outMessage = "Account Successfully Created";
@@ -79,14 +79,53 @@ namespace MovieTicketing
             }
            
         }
+        public ErrorCode RemoveEmp(int? empId, ref String outMessage)
+        {
+            db = new db_movie_ticketingEntities3();
+            ErrorCode retValue = ErrorCode.Error;
+            try
+            {
+                empInfo emp = db.empInfo.Where(m => m.empId == empId).FirstOrDefault();
+                db.sp_delete_user(emp.empId,emp.empName, emp.empAddress, emp.empRole);
+                db.SaveChanges();
+                outMessage = "Employee Deleted Successfully!";
+                retValue = ErrorCode.Success;
 
-        public customerInfo GetUserByUsername(String username, String password)
+            }
+            catch (Exception ex)
+            {
+                outMessage = ex.Message;
+                retValue = ErrorCode.Error;
+                MessageBox.Show(ex.Message);
+            }
+            return retValue;
+        }
+        public ErrorCode UpdateEmp(int? id, string name, string address, string role, ref String outMessage)
+        {
+            using (db = new db_movie_ticketingEntities3())
+            {
+                try
+                {
+                    db.sp_updateUser(id, name, address, role);
+                    outMessage = "Employee Updated!";
+                    return ErrorCode.Success;
+                }
+                catch (Exception ex)
+                {
+
+                    outMessage = ex.Message;
+                    return ErrorCode.Error;
+                }
+            }
+
+        }
+        public UserInfo GetUserByUsername(String username, String password)
         {
             // re-initialize db object because sometimes data in the list not updated
             using (db = new db_movie_ticketingEntities3())
             {
                 // SELECT TOP 1 * FROM USERACCOUNT WHERE userName == username
-                return db.customerInfo.Where(s => s.custName == username && s.custPass == password).FirstOrDefault();
+                return db.UserInfo.Where(s => s.custName == username && s.custPass == password).FirstOrDefault();
           
             }
         }
@@ -100,6 +139,7 @@ namespace MovieTicketing
                 return db.movieShows.Where(s => s.movieId == movieId).FirstOrDefault();
             }
         }
+       
 
         public List<vw_list_movieShows> AllMovieShows()
         {
@@ -120,6 +160,13 @@ namespace MovieTicketing
             using (db = new db_movie_ticketingEntities3())
             {
                 return db.vw_browseMovies.ToList(); 
+            }
+        }
+        public List<vw_empList> empList()
+        {
+            using (db = new db_movie_ticketingEntities3())
+            {
+                return db.vw_empList.ToList();
             }
         }
     }

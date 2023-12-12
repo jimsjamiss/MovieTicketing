@@ -43,3 +43,7 @@ C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTic
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.Dashboard_1.resources
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.Admin.resources
 C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.staffDashboard.resources
+C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.DeleteEmp.resources
+C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.UpdateEmp.resources
+C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.StaffAdminLogIn.resources
+C:\Users\embud\OneDrive\Desktop\MovieTicketing\MovieTicketing\obj\Debug\MovieTicketing.Forms.RegisterStaffAdmin.resources

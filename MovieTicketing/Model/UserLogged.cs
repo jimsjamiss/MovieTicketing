@@ -14,7 +14,7 @@ namespace Dbsys
 
 
         // *********** Member 
-        public customerInfo UserAccount { get; set; }
+        public UserInfo UserAccount { get; set; }
 
 
         //************

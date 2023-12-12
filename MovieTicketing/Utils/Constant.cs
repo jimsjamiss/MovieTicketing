@@ -13,11 +13,10 @@ namespace MovieTicketing
         Error = 1
     }
 
-    public enum Role { 
-    
-        Customer = 1,
-        Staff =2,
-        Admin = 3
+    public enum Role 
+    {
+        Staff,
+        Admin
     }
     public enum Genre { 
         Comedy,

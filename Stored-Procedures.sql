@@ -37,3 +37,24 @@ Alter Procedure sp_createMovies
 AS
 INSERT INTO movieShows(moviName,movieType,movieDate,movieHour,moviePrice) 
 VALUES (@movieName,@movieGenre,@movieDate, @movieHours,@moviePrice)
+
+Alter Procedure sp_delete_user 
+@empId int,
+@empName varchar(50),
+@empAddress varchar(50),
+@empRole varchar(50)
+AS
+Delete from empInfo WHERE empId = @empId
+
+Create Procedure sp_updateUser
+@empId int,
+@empName varchar(50),
+@empAddress varchar(50),
+@empRole varchar(50)
+AS
+Update empInfo
+Set
+empName = @empName,
+empAddress = @empAddress,
+empRole = @empRole
+WHERE empId = @empId

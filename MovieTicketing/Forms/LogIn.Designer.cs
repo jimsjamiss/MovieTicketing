@@ -37,6 +37,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnStaffAdmin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,12 +123,24 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // btnStaffAdmin
+            // 
+            this.btnStaffAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(188)))), ((int)(((byte)(96)))));
+            this.btnStaffAdmin.Location = new System.Drawing.Point(194, 416);
+            this.btnStaffAdmin.Name = "btnStaffAdmin";
+            this.btnStaffAdmin.Size = new System.Drawing.Size(137, 35);
+            this.btnStaffAdmin.TabIndex = 5;
+            this.btnStaffAdmin.Text = "&Staff/Admin Sign-In";
+            this.btnStaffAdmin.UseVisualStyleBackColor = false;
+            this.btnStaffAdmin.Click += new System.EventHandler(this.btnStaffAdmin_Click);
+            // 
             // frmLogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(67)))));
             this.ClientSize = new System.Drawing.Size(868, 508);
+            this.Controls.Add(this.btnStaffAdmin);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnLogin);
@@ -158,5 +171,6 @@
         public System.Windows.Forms.TextBox txtUserName;
         public System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnStaffAdmin;
     }
 }

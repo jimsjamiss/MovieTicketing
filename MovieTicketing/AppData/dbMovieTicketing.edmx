@@ -5,24 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="db_movie_ticketingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="customerInfo">
-          <Key>
-            <PropertyRef Name="custId" />
-          </Key>
-          <Property Name="custId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="custName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="custAddress" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="custPhone" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="custEmail" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="custPass" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
         <EntityType Name="empInfo">
           <Key>
             <PropertyRef Name="empId" />
           </Key>
-          <Property Name="empId" Type="int" Nullable="false" />
+          <Property Name="empId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="empName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="empAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="empRole" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="movieShows">
           <Key>
@@ -65,6 +55,18 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="custId" />
+          </Key>
+          <Property Name="custId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="custName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="custAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="custPhone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="custEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="custPass" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="roles" Type="varchar" MaxLength="50" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'db_movie_ticketing.dbo.vw_browseMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_browseMovies">
@@ -82,6 +84,20 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_browseMovies' does not h
           <Property Name="Price" Type="varchar" MaxLength="45" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'db_movie_ticketing.dbo.vw_empList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_empList">
+          <Key>
+            <PropertyRef Name="Employee ID" />
+            <PropertyRef Name="Employee Name" />
+            <PropertyRef Name="Employee Address" />
+            <PropertyRef Name="Role" />
+          </Key>
+          <Property Name="Employee ID" Type="int" Nullable="false" />
+          <Property Name="Employee Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Employee Address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'db_movie_ticketing.dbo.vw_list_movieShows' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_list_movieShows">
           <Key>
@@ -91,7 +107,7 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_list_movieShows' does no
             <PropertyRef Name="Time Slot" />
             <PropertyRef Name="Price" />
           </Key>
-          <Property Name="Movie ID" Type="varchar" MaxLength="19" Nullable="false" />
+          <Property Name="Movie ID" Type="varchar" MaxLength="18" Nullable="false" />
           <Property Name="Title" Type="varchar" MaxLength="50" />
           <Property Name="Showing Date" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Genre" Type="varchar" MaxLength="50" Nullable="false" />
@@ -129,10 +145,10 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_userList' does not have 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_payment_customerInfo">
-          <End Role="customerInfo" Type="Self.customerInfo" Multiplicity="1" />
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
           <End Role="payment" Type="Self.payment" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="customerInfo">
+            <Principal Role="UserInfo">
               <PropertyRef Name="custId" />
             </Principal>
             <Dependent Role="payment">
@@ -180,6 +196,12 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_userList' does not have 
           <Parameter Name="movieGenre" Type="varchar" Mode="In" />
           <Parameter Name="moviePrice" Type="decimal" Mode="In" />
         </Function>
+        <Function Name="sp_delete_user" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="empId" Type="int" Mode="In" />
+          <Parameter Name="empName" Type="varchar" Mode="In" />
+          <Parameter Name="empAddress" Type="varchar" Mode="In" />
+          <Parameter Name="empRole" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -205,14 +227,20 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_userList' does not have 
           <Parameter Name="movieGenre" Type="varchar" Mode="In" />
           <Parameter Name="moviePrice" Type="decimal" Mode="In" />
         </Function>
+        <Function Name="sp_updateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="empId" Type="int" Mode="In" />
+          <Parameter Name="empName" Type="varchar" Mode="In" />
+          <Parameter Name="empAddress" Type="varchar" Mode="In" />
+          <Parameter Name="empRole" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="db_movie_ticketingModelStoreContainer">
-          <EntitySet Name="customerInfo" EntityType="Self.customerInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="empInfo" EntityType="Self.empInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="movieShows" EntityType="Self.movieShows" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="movieTicketing" EntityType="Self.movieTicketing" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="payment" EntityType="Self.payment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vw_browseMovies" EntityType="Self.vw_browseMovies" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [vw_browseMovies].[Movie] AS [Movie], 
@@ -221,6 +249,14 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_userList' does not have 
 [vw_browseMovies].[Time Slot] AS [Time Slot], 
 [vw_browseMovies].[Price] AS [Price]
 FROM [dbo].[vw_browseMovies] AS [vw_browseMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_empList" EntityType="Self.vw_empList" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[vw_empList].[Employee ID] AS [Employee ID], 
+[vw_empList].[Employee Name] AS [Employee Name], 
+[vw_empList].[Employee Address] AS [Employee Address], 
+[vw_empList].[Role] AS [Role]
+FROM [dbo].[vw_empList] AS [vw_empList]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_list_movieShows" EntityType="Self.vw_list_movieShows" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -247,7 +283,7 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
             <End Role="movieTicketing" EntitySet="movieTicketing" />
           </AssociationSet>
           <AssociationSet Name="FK_payment_customerInfo" Association="Self.FK_payment_customerInfo">
-            <End Role="customerInfo" EntitySet="customerInfo" />
+            <End Role="UserInfo" EntitySet="UserInfo" />
             <End Role="payment" EntitySet="payment" />
           </AssociationSet>
           <AssociationSet Name="FK_payment_empInfo" Association="Self.FK_payment_empInfo">
@@ -313,19 +349,28 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
             <Parameter Name="movieGenre" Mode="In" Type="String" />
             <Parameter Name="moviePrice" Mode="In" Type="Decimal" />
           </FunctionImport>
-          <EntitySet Name="customerInfo" EntityType="db_movie_ticketingModel.customerInfo" />
+          <FunctionImport Name="sp_delete_user">
+            <Parameter Name="empId" Mode="In" Type="Int32" />
+            <Parameter Name="empName" Mode="In" Type="String" />
+            <Parameter Name="empAddress" Mode="In" Type="String" />
+            <Parameter Name="empRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_updateUser">
+            <Parameter Name="empId" Mode="In" Type="Int32" />
+            <Parameter Name="empName" Mode="In" Type="String" />
+            <Parameter Name="empAddress" Mode="In" Type="String" />
+            <Parameter Name="empRole" Mode="In" Type="String" />
+          </FunctionImport>
           <EntitySet Name="empInfo" EntityType="db_movie_ticketingModel.empInfo" />
           <EntitySet Name="movieShows" EntityType="db_movie_ticketingModel.movieShows" />
           <EntitySet Name="movieTicketing" EntityType="db_movie_ticketingModel.movieTicketing" />
           <EntitySet Name="payment" EntityType="db_movie_ticketingModel.payment" />
           <EntitySet Name="sysdiagrams" EntityType="db_movie_ticketingModel.sysdiagrams" />
+          <EntitySet Name="UserInfo" EntityType="db_movie_ticketingModel.UserInfo" />
           <EntitySet Name="vw_browseMovies" EntityType="db_movie_ticketingModel.vw_browseMovies" />
+          <EntitySet Name="vw_empList" EntityType="db_movie_ticketingModel.vw_empList" />
           <EntitySet Name="vw_list_movieShows" EntityType="db_movie_ticketingModel.vw_list_movieShows" />
           <EntitySet Name="vw_userList" EntityType="db_movie_ticketingModel.vw_userList" />
-          <AssociationSet Name="FK_payment_customerInfo" Association="db_movie_ticketingModel.FK_payment_customerInfo">
-            <End Role="customerInfo" EntitySet="customerInfo" />
-            <End Role="payment" EntitySet="payment" />
-          </AssociationSet>
           <AssociationSet Name="FK_payment_empInfo" Association="db_movie_ticketingModel.FK_payment_empInfo">
             <End Role="empInfo" EntitySet="empInfo" />
             <End Role="payment" EntitySet="payment" />
@@ -333,6 +378,10 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
           <AssociationSet Name="FK_movieTicketing_movieShows" Association="db_movie_ticketingModel.FK_movieTicketing_movieShows">
             <End Role="movieShows" EntitySet="movieShows" />
             <End Role="movieTicketing" EntitySet="movieTicketing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_payment_customerInfo" Association="db_movie_ticketingModel.FK_payment_customerInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="payment" EntitySet="payment" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -346,25 +395,14 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="customerInfo">
-          <Key>
-            <PropertyRef Name="custId" />
-          </Key>
-          <Property Name="custId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="custName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="custAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="custPhone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="custEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="custPass" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="payment" Relationship="db_movie_ticketingModel.FK_payment_customerInfo" FromRole="customerInfo" ToRole="payment" />
-        </EntityType>
         <EntityType Name="empInfo">
           <Key>
             <PropertyRef Name="empId" />
           </Key>
-          <Property Name="empId" Type="Int32" Nullable="false" />
+          <Property Name="empId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="empName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="empAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="empRole" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="payment" Relationship="db_movie_ticketingModel.FK_payment_empInfo" FromRole="empInfo" ToRole="payment" />
         </EntityType>
         <EntityType Name="movieShows">
@@ -399,8 +437,8 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
           <Property Name="custId" Type="Int32" Nullable="false" />
           <Property Name="movieId" Type="Int32" Nullable="false" />
           <Property Name="empId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="customerInfo" Relationship="db_movie_ticketingModel.FK_payment_customerInfo" FromRole="payment" ToRole="customerInfo" />
           <NavigationProperty Name="empInfo" Relationship="db_movie_ticketingModel.FK_payment_empInfo" FromRole="payment" ToRole="empInfo" />
+          <NavigationProperty Name="UserInfo" Relationship="db_movie_ticketingModel.FK_payment_customerInfo" FromRole="payment" ToRole="UserInfo" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -411,6 +449,19 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="custId" />
+          </Key>
+          <Property Name="custId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="custName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="custAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="custPhone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="custEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="custPass" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="roles" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="payment" Relationship="db_movie_ticketingModel.FK_payment_customerInfo" FromRole="UserInfo" ToRole="payment" />
         </EntityType>
         <EntityType Name="vw_browseMovies">
           <Key>
@@ -426,6 +477,18 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
           <Property Name="Time_Slot" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Price" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="vw_empList">
+          <Key>
+            <PropertyRef Name="Employee_ID" />
+            <PropertyRef Name="Employee_Name" />
+            <PropertyRef Name="Employee_Address" />
+            <PropertyRef Name="Role" />
+          </Key>
+          <Property Name="Employee_ID" Type="Int32" Nullable="false" />
+          <Property Name="Employee_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Employee_Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="vw_list_movieShows">
           <Key>
             <PropertyRef Name="Movie_ID" />
@@ -434,7 +497,7 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
             <PropertyRef Name="Time_Slot" />
             <PropertyRef Name="Price" />
           </Key>
-          <Property Name="Movie_ID" Type="String" Nullable="false" MaxLength="19" FixedLength="false" Unicode="false" />
+          <Property Name="Movie_ID" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Showing_Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Genre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -457,18 +520,6 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
           <Property Name="Email_Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Phone_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK_payment_customerInfo">
-          <End Type="db_movie_ticketingModel.customerInfo" Role="customerInfo" Multiplicity="1" />
-          <End Type="db_movie_ticketingModel.payment" Role="payment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="customerInfo">
-              <PropertyRef Name="custId" />
-            </Principal>
-            <Dependent Role="payment">
-              <PropertyRef Name="custId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_payment_empInfo">
           <End Type="db_movie_ticketingModel.empInfo" Role="empInfo" Multiplicity="1" />
           <End Type="db_movie_ticketingModel.payment" Role="payment" Multiplicity="*" />
@@ -490,6 +541,18 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
             </Principal>
             <Dependent Role="movieTicketing">
               <PropertyRef Name="movieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_payment_customerInfo">
+          <End Type="db_movie_ticketingModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="db_movie_ticketingModel.payment" Role="payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="custId" />
+            </Principal>
+            <Dependent Role="payment">
+              <PropertyRef Name="custId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -526,21 +589,12 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
           <FunctionImportMapping FunctionImportName="sp_update_moviesInfo" FunctionName="db_movie_ticketingModel.Store.sp_update_moviesInfo" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="db_movie_ticketingModel.Store.sp_upgraddiagrams" />
           <FunctionImportMapping FunctionImportName="sp_createMovies" FunctionName="db_movie_ticketingModel.Store.sp_createMovies" />
-          <EntitySetMapping Name="customerInfo">
-            <EntityTypeMapping TypeName="db_movie_ticketingModel.customerInfo">
-              <MappingFragment StoreEntitySet="customerInfo">
-                <ScalarProperty Name="custPass" ColumnName="custPass" />
-                <ScalarProperty Name="custEmail" ColumnName="custEmail" />
-                <ScalarProperty Name="custPhone" ColumnName="custPhone" />
-                <ScalarProperty Name="custAddress" ColumnName="custAddress" />
-                <ScalarProperty Name="custName" ColumnName="custName" />
-                <ScalarProperty Name="custId" ColumnName="custId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_delete_user" FunctionName="db_movie_ticketingModel.Store.sp_delete_user" />
+          <FunctionImportMapping FunctionImportName="sp_updateUser" FunctionName="db_movie_ticketingModel.Store.sp_updateUser" />
           <EntitySetMapping Name="empInfo">
             <EntityTypeMapping TypeName="db_movie_ticketingModel.empInfo">
               <MappingFragment StoreEntitySet="empInfo">
+                <ScalarProperty Name="empRole" ColumnName="empRole" />
                 <ScalarProperty Name="empAddress" ColumnName="empAddress" />
                 <ScalarProperty Name="empName" ColumnName="empName" />
                 <ScalarProperty Name="empId" ColumnName="empId" />
@@ -592,6 +646,19 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="UserInfo">
+            <EntityTypeMapping TypeName="db_movie_ticketingModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="roles" ColumnName="roles" />
+                <ScalarProperty Name="custPass" ColumnName="custPass" />
+                <ScalarProperty Name="custEmail" ColumnName="custEmail" />
+                <ScalarProperty Name="custPhone" ColumnName="custPhone" />
+                <ScalarProperty Name="custAddress" ColumnName="custAddress" />
+                <ScalarProperty Name="custName" ColumnName="custName" />
+                <ScalarProperty Name="custId" ColumnName="custId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vw_browseMovies">
             <EntityTypeMapping TypeName="db_movie_ticketingModel.vw_browseMovies">
               <MappingFragment StoreEntitySet="vw_browseMovies">
@@ -600,6 +667,16 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
                 <ScalarProperty Name="Genre" ColumnName="Genre" />
                 <ScalarProperty Name="Showing_Date" ColumnName="Showing Date" />
                 <ScalarProperty Name="Movie" ColumnName="Movie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_empList">
+            <EntityTypeMapping TypeName="db_movie_ticketingModel.vw_empList">
+              <MappingFragment StoreEntitySet="vw_empList">
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Employee_Address" ColumnName="Employee Address" />
+                <ScalarProperty Name="Employee_Name" ColumnName="Employee Name" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

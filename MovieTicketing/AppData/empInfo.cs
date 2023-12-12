@@ -22,6 +22,7 @@ namespace MovieTicketing.AppData
         public int empId { get; set; }
         public string empName { get; set; }
         public string empAddress { get; set; }
+        public string empRole { get; set; }
     
         public virtual ICollection<payment> payment { get; set; }
     }
