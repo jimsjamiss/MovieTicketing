@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteEmp));
             this.dtgEmpList = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtEmpId = new System.Windows.Forms.TextBox();
@@ -56,6 +57,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
             this.label1.Location = new System.Drawing.Point(292, 267);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 24);
@@ -74,6 +76,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
             this.label2.Location = new System.Drawing.Point(292, 363);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(168, 24);
@@ -92,6 +95,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
             this.label3.Location = new System.Drawing.Point(589, 363);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(186, 24);
@@ -110,6 +114,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
             this.label4.Location = new System.Drawing.Point(589, 267);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 24);
@@ -126,19 +131,21 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(188)))), ((int)(((byte)(96)))));
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Location = new System.Drawing.Point(614, 479);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(161, 40);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // DeleteEmp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(67)))));
             this.ClientSize = new System.Drawing.Size(830, 546);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.txtEmpRole);
@@ -150,6 +157,8 @@
             this.Controls.Add(this.txtEmpId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtgEmpList);
+            this.ForeColor = System.Drawing.Color.Black;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DeleteEmp";
             this.Text = "DeleteEmp";
             this.Load += new System.EventHandler(this.DeleteEmp_Load);

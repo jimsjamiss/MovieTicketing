@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateEmp));
             this.btnUpdate = new System.Windows.Forms.Button();
             this.txtEmpRole = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,13 +44,14 @@
             // 
             // btnUpdate
             // 
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(188)))), ((int)(((byte)(96)))));
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Location = new System.Drawing.Point(605, 456);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(161, 40);
             this.btnUpdate.TabIndex = 13;
             this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // txtEmpRole
@@ -64,6 +66,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
             this.label4.Location = new System.Drawing.Point(580, 244);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 24);
@@ -82,6 +85,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
             this.label3.Location = new System.Drawing.Point(580, 340);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(186, 24);
@@ -100,6 +104,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
             this.label2.Location = new System.Drawing.Point(283, 340);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(168, 24);
@@ -118,6 +123,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
             this.label1.Location = new System.Drawing.Point(283, 244);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 24);
@@ -139,6 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(67)))));
             this.ClientSize = new System.Drawing.Size(816, 511);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.txtEmpRole);
@@ -150,6 +157,7 @@
             this.Controls.Add(this.txtEmpId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtgEmpList);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UpdateEmp";
             this.Text = "UpdateEmp";
             this.Load += new System.EventHandler(this.UpdateEmp_Load);
