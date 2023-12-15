@@ -30,6 +30,7 @@
     <FunctionImportMapping FunctionImportName="sp_createMovies" FunctionName="db_movie_ticketingModel.Store.sp_createMovies" />
     <FunctionImportMapping FunctionImportName="sp_delete_user" FunctionName="db_movie_ticketingModel.Store.sp_delete_user" />
     <FunctionImportMapping FunctionImportName="sp_updateUser" FunctionName="db_movie_ticketingModel.Store.sp_updateUser" />
+    <FunctionImportMapping FunctionImportName="sp_ticketing" FunctionName="db_movie_ticketingModel.Store.sp_ticketing" />
     <EntitySetMapping Name="empInfo">
       <EntityTypeMapping TypeName="db_movie_ticketingModel.empInfo">
         <MappingFragment StoreEntitySet="empInfo">
@@ -55,9 +56,9 @@
     <EntitySetMapping Name="movieTicketing">
       <EntityTypeMapping TypeName="db_movie_ticketingModel.movieTicketing">
         <MappingFragment StoreEntitySet="movieTicketing">
+          <ScalarProperty Name="custId" ColumnName="custId" />
           <ScalarProperty Name="tckId" ColumnName="tckId" />
           <ScalarProperty Name="Venue" ColumnName="Venue" />
-          <ScalarProperty Name="Time" ColumnName="Time" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="movieId" ColumnName="movieId" />
         </MappingFragment>

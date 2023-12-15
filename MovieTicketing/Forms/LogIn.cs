@@ -52,7 +52,8 @@ namespace MovieTicketing.Forms
             {
                 if (custInfo.custName != "admin" && custInfo.custName !="staff" && custInfo.custPass != "admin" && custInfo.custPass != ("staff"))
                 {
-                    new Dashboard().Show();
+                    UserRepo.userId = custInfo.custId;
+                    new Dashboard(custInfo).Show();
                     this.Hide();
                 }
                 else

@@ -16,10 +16,11 @@ namespace MovieTicketing.AppData
     {
         public int movieId { get; set; }
         public System.DateTime Date { get; set; }
-        public string Time { get; set; }
         public string Venue { get; set; }
         public int tckId { get; set; }
+        public int custId { get; set; }
     
         public virtual movieShows movieShows { get; set; }
+        public virtual UserInfo UserInfo { get; set; }
     }
 }

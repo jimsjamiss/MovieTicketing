@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieTicketing.AppData;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,19 @@ namespace MovieTicketing.Forms
 {
     public partial class Dashboard : Form
     {
+        UserInfo userInfo;
+        UserRepo userRepo;
+        db_movie_ticketingEntities3 db;
         public Dashboard()
         {
             InitializeComponent();
+        }
+        public Dashboard(UserInfo user)
+        {
+            InitializeComponent();
+            db = new db_movie_ticketingEntities3();
+            userInfo = user;
+            userInfo = db.UserInfo.Where(m => m.custId == UserRepo.userId).FirstOrDefault();
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -158,7 +169,8 @@ namespace MovieTicketing.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new Dashboard_1().Show();
+            UserRepo.userId = userInfo.custId;
+            new Dashboard_1(userInfo).Show();
             this.Hide();
         }
     }

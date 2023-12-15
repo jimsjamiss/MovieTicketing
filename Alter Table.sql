@@ -9,5 +9,6 @@ Add  empRole varchar(50) NOT NULL;
 Alter table UserInfo
 add roles varchar(50);
 
-
+Alter table movieTicketing
+add custId int NOT NULL;
 

@@ -266,5 +266,26 @@ namespace MovieTicketing.AppData
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateUser", empIdParameter, empNameParameter, empAddressParameter, empRoleParameter);
         }
+    
+        public virtual int sp_ticketing(Nullable<int> movieId, Nullable<int> custId, string venue, Nullable<System.DateTime> date)
+        {
+            var movieIdParameter = movieId.HasValue ?
+                new ObjectParameter("movieId", movieId) :
+                new ObjectParameter("movieId", typeof(int));
+    
+            var custIdParameter = custId.HasValue ?
+                new ObjectParameter("custId", custId) :
+                new ObjectParameter("custId", typeof(int));
+    
+            var venueParameter = venue != null ?
+                new ObjectParameter("venue", venue) :
+                new ObjectParameter("venue", typeof(string));
+    
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ticketing", movieIdParameter, custIdParameter, venueParameter, dateParameter);
+        }
     }
 }

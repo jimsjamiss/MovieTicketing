@@ -32,3 +32,12 @@ empName 'Employee Name',
 empAddress 'Employee Address',
 empRole 'Role'
 From empInfo
+
+Create view vw_tickets AS
+Select 
+m.tckId 'TicketId',
+m.custId 'UserId',
+m.movieId 'MovieId',
+m.Venue 'Cinema',
+m.Date 'Date'
+From movieTicketing m

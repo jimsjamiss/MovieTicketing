@@ -26,9 +26,9 @@
     </Key>
     <Property Name="movieId" Type="int" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
-    <Property Name="Time" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Venue" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="tckId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="custId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="payment">
     <Key>
@@ -136,14 +136,14 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_userList' does not have 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_payment_customerInfo">
+  <Association Name="FK_movieTicketing_UserInfo">
     <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
-    <End Role="payment" Type="Self.payment" Multiplicity="*" />
+    <End Role="movieTicketing" Type="Self.movieTicketing" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="UserInfo">
         <PropertyRef Name="custId" />
       </Principal>
-      <Dependent Role="payment">
+      <Dependent Role="movieTicketing">
         <PropertyRef Name="custId" />
       </Dependent>
     </ReferentialConstraint>
@@ -157,6 +157,18 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_userList' does not have 
       </Principal>
       <Dependent Role="payment">
         <PropertyRef Name="empId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_movieShows">
+    <End Role="movieShows" Type="Self.movieShows" Multiplicity="1" />
+    <End Role="payment" Type="Self.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movieShows">
+        <PropertyRef Name="movieId" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="movieId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -210,6 +222,12 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_userList' does not have 
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
     <Parameter Name="owner_id" Type="int" Mode="In" />
     <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_ticketing" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="movieId" Type="int" Mode="In" />
+    <Parameter Name="custId" Type="int" Mode="In" />
+    <Parameter Name="venue" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
   </Function>
   <Function Name="sp_update_moviesInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="movieId" Type="int" Mode="In" />
@@ -273,12 +291,16 @@ FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
       <End Role="movieShows" EntitySet="movieShows" />
       <End Role="movieTicketing" EntitySet="movieTicketing" />
     </AssociationSet>
-    <AssociationSet Name="FK_payment_customerInfo" Association="Self.FK_payment_customerInfo">
+    <AssociationSet Name="FK_movieTicketing_UserInfo" Association="Self.FK_movieTicketing_UserInfo">
       <End Role="UserInfo" EntitySet="UserInfo" />
-      <End Role="payment" EntitySet="payment" />
+      <End Role="movieTicketing" EntitySet="movieTicketing" />
     </AssociationSet>
     <AssociationSet Name="FK_payment_empInfo" Association="Self.FK_payment_empInfo">
       <End Role="empInfo" EntitySet="empInfo" />
+      <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_movieShows" Association="Self.FK_payment_movieShows">
+      <End Role="movieShows" EntitySet="movieShows" />
       <End Role="payment" EntitySet="payment" />
     </AssociationSet>
   </EntityContainer>

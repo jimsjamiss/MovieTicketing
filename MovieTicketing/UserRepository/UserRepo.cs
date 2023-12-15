@@ -7,6 +7,7 @@ using MovieTicketing.AppData;
 using System.Windows.Forms;
 using log4net.Core;
 using System.Data.SqlClient;
+using System.Runtime.Remoting.Messaging;
 
 
 namespace MovieTicketing
@@ -119,6 +120,7 @@ namespace MovieTicketing
             }
 
         }
+      
         public UserInfo GetUserByUsername(String username, String password)
         {
             // re-initialize db object because sometimes data in the list not updated

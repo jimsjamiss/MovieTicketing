@@ -21,6 +21,6 @@ namespace MovieTicketing.AppData
         public int empId { get; set; }
     
         public virtual empInfo empInfo { get; set; }
-        public virtual UserInfo UserInfo { get; set; }
+        public virtual movieShows movieShows { get; set; }
     }
 }

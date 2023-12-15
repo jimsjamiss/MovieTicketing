@@ -58,3 +58,13 @@ empName = @empName,
 empAddress = @empAddress,
 empRole = @empRole
 WHERE empId = @empId
+
+Alter Procedure sp_ticketing 
+@movieId int,
+@custId int,
+@venue varchar(50),
+@date date
+AS
+INSERT INTO vw_tickets(movieId,UserId,Cinema,Date)
+VALUES (@movieId,@custId,@venue,@date)
+

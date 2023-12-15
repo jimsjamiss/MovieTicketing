@@ -16,7 +16,7 @@ namespace MovieTicketing.AppData
     {
         public UserInfo()
         {
-            this.payment = new HashSet<payment>();
+            this.movieTicketing = new HashSet<movieTicketing>();
         }
     
         public int custId { get; set; }
@@ -27,6 +27,6 @@ namespace MovieTicketing.AppData
         public string custPass { get; set; }
         public string roles { get; set; }
     
-        public virtual ICollection<payment> payment { get; set; }
+        public virtual ICollection<movieTicketing> movieTicketing { get; set; }
     }
 }

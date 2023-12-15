@@ -17,6 +17,7 @@ namespace MovieTicketing.AppData
         public movieShows()
         {
             this.movieTicketing = new HashSet<movieTicketing>();
+            this.payment = new HashSet<payment>();
         }
     
         public int movieId { get; set; }
@@ -27,5 +28,6 @@ namespace MovieTicketing.AppData
         public Nullable<decimal> moviePrice { get; set; }
     
         public virtual ICollection<movieTicketing> movieTicketing { get; set; }
+        public virtual ICollection<payment> payment { get; set; }
     }
 }

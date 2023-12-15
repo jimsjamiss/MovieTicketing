@@ -11,12 +11,21 @@ namespace MovieTicketing.Forms
         db_movie_ticketingEntities3 db;
         movieShows movies;
         UserRepo userRepo;
+        UserInfo userInfo;
 
         public Dashboard_1()
         {
             InitializeComponent();
             loadDataToCBox();
 
+        }
+        public Dashboard_1(UserInfo user)
+        {
+            InitializeComponent();
+            loadDataToCBox();
+            db = new db_movie_ticketingEntities3();
+            userInfo = user;
+            userInfo = db.UserInfo.Where(m => m.custId == UserRepo.userId).FirstOrDefault();
         }
 
         private void Dashboard_1_Load(object sender, EventArgs e)
@@ -27,7 +36,8 @@ namespace MovieTicketing.Forms
             cboxCinema.Text = "--------------Select--------------";
             userRepo = new UserRepo();
             loadMovies();
-
+            txtName.Text = userInfo.custName;
+            txtID.Text = userInfo.custId.ToString();
         }
         private void cboxTitle_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -35,24 +45,17 @@ namespace MovieTicketing.Forms
             {
                 movieShows movie = new movieShows();
                 var title = db.movieShows.Where(m => m.moviName == cboxTitle.Text).FirstOrDefault();
-              
+
                 if (title != null)
                 {
                     txtMvID.Text = title.movieId.ToString();
-                    txtTitle.Text = title.moviName.ToString();
                     txtGenre.Text = title.movieType.ToString();
-                    txtDate.Text = title.movieDate.ToString();
                     txtDuration.Text = title.movieHour.ToString();
                     txtPrice.Text = title.moviePrice.ToString();
-                    txtMvID.Visible = true;
-                    txtTitle.Visible = true;
-                    txtGenre.Visible = true;
-                    txtDate.Visible = true;
-                    txtDuration.Visible = true;
-                    txtPrice.Visible = true;
+
                 }
             }
-                
+
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -85,7 +88,38 @@ namespace MovieTicketing.Forms
         private void cboxTitle_SelectedValueChanged(object sender, EventArgs e)
         {
 
+
         }
-     
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            errorProviderCustom = new ErrorProvider();
+            userInfo = new UserInfo();
+            if (String.IsNullOrEmpty(txtMvID.Text))
+            {
+                errorProviderCustom.Clear();
+                errorProviderCustom.SetError(txtMvID, "Empty field");
+                return;
+            }
+            if (String.IsNullOrEmpty(txtDuration.Text))
+            {
+                errorProviderCustom.SetError(txtDuration, "Empty field");
+                return;
+            }
+            if (String.IsNullOrEmpty(txtGenre.Text))
+            {
+                errorProviderCustom.Clear();
+                errorProviderCustom.SetError(txtGenre, "Empty field");
+                return;
+            }
+            if (String.IsNullOrEmpty(txtPrice.Text))
+            {
+                errorProviderCustom.Clear();
+                errorProviderCustom.SetError(txtPrice, "Empty field");
+                return;
+            }
+                    
+            
+        }
     }
 }
