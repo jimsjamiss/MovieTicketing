@@ -14,14 +14,13 @@ namespace MovieTicketing.AppData
     
     public partial class movieTicketing
     {
-        public int movieId { get; set; }
-        public System.DateTime Date { get; set; }
-        public string Venue { get; set; }
         public int tckId { get; set; }
         public int custId { get; set; }
+        public int movieId { get; set; }
+        public string Venue { get; set; }
+        public System.DateTime Date { get; set; }
+        public Nullable<int> quantity { get; set; }
         public Nullable<decimal> total { get; set; }
-        public Nullable<decimal> change { get; set; }
-        public Nullable<int> numOfPerson { get; set; }
     
         public virtual movieShows movieShows { get; set; }
         public virtual UserInfo UserInfo { get; set; }

@@ -14,24 +14,22 @@ namespace MovieTicketing.Forms
 {
     public partial class Reciept : Form
     {
-        UserLogged user;
         movieTicketing movie;
         db_movie_ticketingEntities3 db;
-        UserRepo userRepo;
         movieShows mv;
         
         public Reciept()
         {
             InitializeComponent();
         }
-        public Reciept(movieShows movies,movieTicketing mvTickets)
+        public Reciept(movieShows movies/*,movieTicketing ticket*/)
         {
             InitializeComponent();
             db = new db_movie_ticketingEntities3();
             mv = movies;
-            movie = mvTickets;
+            //movie = ticket;
             mv = db.movieShows.Where(m => m.movieId == UserRepo.mvId).FirstOrDefault();
-            movie = db.movieTicketing.Where(s => s.tckId == UserRepo.tckId).FirstOrDefault();
+            //movie = db.movieTicketing.Where(s => s.tckId == UserRepo.tckId).FirstOrDefault();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -43,7 +41,7 @@ namespace MovieTicketing.Forms
         {
             using (db = new db_movie_ticketingEntities3())
             {
-                
+                movie = new movieTicketing();
 
                 lblUsername.Text = UserLogged.GetInstance().UserAccount.custName;
                 lblId.Text = UserLogged.GetInstance().UserAccount.custId.ToString();

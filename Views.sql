@@ -48,10 +48,10 @@ mv.moviName 'Title',
 mv.movieType 'Genre',
 mv.movieHour 'Duration',
 mv.moviePrice 'Price',
+m.quantity 'Quantity',
+mv.moviePrice * m.quantity AS 'Total',
 m.Venue 'Cinema',
-m.Date 'Date',
-m.numOfPerson 'Quantity',
-mv.moviePrice * m.numOfPerson AS 'Total'
+m.Date 'Date'
 From movieTicketing m
 INNER JOIN UserInfo u ON u.custId = m.custId
 INNER JOIN movieShows mv ON mv.movieId = m.movieId 

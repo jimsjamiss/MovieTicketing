@@ -46,14 +46,13 @@
     <EntitySetMapping Name="movieTicketing">
       <EntityTypeMapping TypeName="db_movie_ticketingModel.movieTicketing">
         <MappingFragment StoreEntitySet="movieTicketing">
-          <ScalarProperty Name="numOfPerson" ColumnName="numOfPerson" />
-          <ScalarProperty Name="change" ColumnName="change" />
           <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Venue" ColumnName="Venue" />
+          <ScalarProperty Name="movieId" ColumnName="movieId" />
           <ScalarProperty Name="custId" ColumnName="custId" />
           <ScalarProperty Name="tckId" ColumnName="tckId" />
-          <ScalarProperty Name="Venue" ColumnName="Venue" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="movieId" ColumnName="movieId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -118,10 +117,10 @@
     <EntitySetMapping Name="vw_tickets">
       <EntityTypeMapping TypeName="db_movie_ticketingModel.vw_tickets">
         <MappingFragment StoreEntitySet="vw_tickets">
-          <ScalarProperty Name="Total" ColumnName="Total" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Cinema" ColumnName="Cinema" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Duration" ColumnName="Duration" />
           <ScalarProperty Name="Genre" ColumnName="Genre" />

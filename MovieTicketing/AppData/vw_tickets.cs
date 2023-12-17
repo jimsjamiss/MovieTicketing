@@ -24,9 +24,9 @@ namespace MovieTicketing.AppData
         public string Genre { get; set; }
         public string Duration { get; set; }
         public Nullable<decimal> Price { get; set; }
-        public string Cinema { get; set; }
-        public System.DateTime Date { get; set; }
         public Nullable<int> Quantity { get; set; }
         public Nullable<decimal> Total { get; set; }
+        public string Cinema { get; set; }
+        public System.DateTime Date { get; set; }
     }
 }

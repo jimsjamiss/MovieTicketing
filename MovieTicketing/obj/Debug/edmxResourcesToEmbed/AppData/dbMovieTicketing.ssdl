@@ -15,14 +15,13 @@
     <Key>
       <PropertyRef Name="tckId" />
     </Key>
-    <Property Name="movieId" Type="int" Nullable="false" />
-    <Property Name="Date" Type="date" Nullable="false" />
-    <Property Name="Venue" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="tckId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="custId" Type="int" Nullable="false" />
+    <Property Name="movieId" Type="int" Nullable="false" />
+    <Property Name="Venue" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="quantity" Type="int" />
     <Property Name="total" Type="decimal" Precision="18" Scale="0" />
-    <Property Name="change" Type="decimal" Precision="18" Scale="0" />
-    <Property Name="numOfPerson" Type="int" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -116,10 +115,10 @@ warning 6002: The table/view 'db_movie_ticketing.dbo.vw_tickets' does not have a
     <Property Name="Genre" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Duration" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
-    <Property Name="Cinema" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="Quantity" Type="int" />
     <Property Name="Total" Type="decimal" Precision="29" Scale="0" />
+    <Property Name="Cinema" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'db_movie_ticketing.dbo.vw_userList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -284,10 +283,10 @@ FROM [dbo].[vw_list_movieShows] AS [vw_list_movieShows]</DefiningQuery>
 [vw_tickets].[Genre] AS [Genre], 
 [vw_tickets].[Duration] AS [Duration], 
 [vw_tickets].[Price] AS [Price], 
-[vw_tickets].[Cinema] AS [Cinema], 
-[vw_tickets].[Date] AS [Date], 
 [vw_tickets].[Quantity] AS [Quantity], 
-[vw_tickets].[Total] AS [Total]
+[vw_tickets].[Total] AS [Total], 
+[vw_tickets].[Cinema] AS [Cinema], 
+[vw_tickets].[Date] AS [Date]
 FROM [dbo].[vw_tickets] AS [vw_tickets]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="vw_userList" EntityType="Self.vw_userList" store:Type="Views" store:Schema="dbo">

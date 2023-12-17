@@ -122,14 +122,13 @@
     <Key>
       <PropertyRef Name="tckId" />
     </Key>
-    <Property Name="movieId" Type="Int32" Nullable="false" />
-    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Venue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="tckId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="custId" Type="Int32" Nullable="false" />
+    <Property Name="movieId" Type="Int32" Nullable="false" />
+    <Property Name="Venue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="quantity" Type="Int32" />
     <Property Name="total" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="change" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="numOfPerson" Type="Int32" />
     <NavigationProperty Name="movieShows" Relationship="db_movie_ticketingModel.FK_movieTicketing_movieShows" FromRole="movieTicketing" ToRole="movieShows" />
     <NavigationProperty Name="UserInfo" Relationship="db_movie_ticketingModel.FK_movieTicketing_UserInfo" FromRole="movieTicketing" ToRole="UserInfo" />
   </EntityType>
@@ -218,10 +217,10 @@
     <Property Name="Genre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Duration" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="Cinema" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Quantity" Type="Int32" />
     <Property Name="Total" Type="Decimal" Precision="29" Scale="0" />
+    <Property Name="Cinema" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
   </EntityType>
   <EntityType Name="vw_userList">
     <Key>

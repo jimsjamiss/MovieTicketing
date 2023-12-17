@@ -13,8 +13,8 @@ namespace MovieTicketing.Forms
         movieShows movies;
         UserRepo userRepo;
         UserInfo userInfo;
-        MovieLogged movie;
         movieTicketing mvTickets;
+        
        
 
         public Dashboard_1()
@@ -36,6 +36,7 @@ namespace MovieTicketing.Forms
             userInfo = db.UserInfo.Where(m => m.custId == UserRepo.userId).FirstOrDefault();
             movies = movie;
             movies = db.movieShows.Where(m => m.movieId == UserRepo.mvId).FirstOrDefault();
+
         }
 
         private void Dashboard_1_Load(object sender, EventArgs e)
@@ -108,8 +109,10 @@ namespace MovieTicketing.Forms
             userInfo = new UserInfo();
             mvTickets = new movieTicketing();
             errorProviderCustom = new ErrorProvider();
+            movies = new movieShows();
             
-           
+
+
 
             if (String.IsNullOrEmpty(txtMvID.Text))
             {
@@ -134,29 +137,33 @@ namespace MovieTicketing.Forms
                 errorProviderCustom.SetError(txtPrice, "Empty field");
                 return;
             }
+            if (nupNumPerson.Value == 0)
+            {
+                errorProviderCustom.Clear();
+                errorProviderCustom.SetError(nupNumPerson, "Empty field");
+                return;
+            }
             int createdBy = UserLogged.GetInstance().UserAccount.custId;
-            int mvs = MovieLogged.GetInstance().movieAccount.movieId;
 
-            //var user = db.UserInfo.Where(m => m.custId == id).FirstOrDefault();
-            var movie = db.movieShows.Where(c => c.movieId == mvs).FirstOrDefault();
-            var ticks = db.movieTicketing.Where(s => s.tckId == mvTickets.tckId).FirstOrDefault();
+            var movie = userRepo.GetMoviesByMovieId(int.Parse(txtMvID.Text));
+            var ticks = userRepo.getTicketsById(int.Parse(txtID.Text));
 
             mvTickets.custId = userInfo.custId;
             mvTickets.movieId = movie.movieId;
             mvTickets.Venue = cboxCinema.SelectedValue.ToString();
             mvTickets.Date = DateTime.Now;
+            mvTickets.quantity = (int?)(decimal)nupNumPerson.Value;
 
             MovieLogged.GetInstance().movieAccount = movie;
             TicketLogged.GetInstance().movieTickets = mvTickets;
-            UserRepo.mvId = MovieLogged.GetInstance().movieAccount.movieId;
+            UserRepo.tckId = mvTickets.tckId;
 
-            TicketLogged.GetInstance().movieTickets = ticks;
             db = new db_movie_ticketingEntities3();
-            db.sp_ticketing(mvs, createdBy, mvTickets.Venue,mvTickets.Date,Convert.ToInt32(nupNumPerson.Value));
+            db.sp_ticketing(movie.movieId, createdBy, mvTickets.Venue,mvTickets.Date,Convert.ToInt32(nupNumPerson.Value));
             db.SaveChanges();
 
-            UserRepo.tckId = mvTickets.tckId;
-            new Reciept(movie,ticks).Show();
+            
+            new Reciept(movie/*,ticks*/).Show();
         }
     }
 }

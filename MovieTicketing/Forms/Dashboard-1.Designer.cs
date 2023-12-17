@@ -105,17 +105,18 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
-            this.label4.Location = new System.Drawing.Point(484, 284);
+            this.label4.Location = new System.Drawing.Point(484, 335);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(175, 25);
+            this.label4.Size = new System.Drawing.Size(91, 25);
             this.label4.TabIndex = 1;
-            this.label4.Text = "Number of Person:\r\n";
+            this.label4.Text = "Quantity:";
             // 
             // nupNumPerson
             // 
-            this.nupNumPerson.Location = new System.Drawing.Point(665, 287);
+            this.nupNumPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nupNumPerson.Location = new System.Drawing.Point(581, 333);
             this.nupNumPerson.Name = "nupNumPerson";
-            this.nupNumPerson.Size = new System.Drawing.Size(182, 22);
+            this.nupNumPerson.Size = new System.Drawing.Size(182, 27);
             this.nupNumPerson.TabIndex = 2;
             // 
             // dtgBrowseMovie
@@ -180,9 +181,9 @@
             // 
             this.txtPrice.Enabled = false;
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrice.Location = new System.Drawing.Point(158, 514);
+            this.txtPrice.Location = new System.Drawing.Point(581, 284);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(290, 28);
+            this.txtPrice.Size = new System.Drawing.Size(182, 28);
             this.txtPrice.TabIndex = 4;
             // 
             // btnNext
@@ -234,7 +235,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
-            this.label9.Location = new System.Drawing.Point(88, 514);
+            this.label9.Location = new System.Drawing.Point(514, 284);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 22);
             this.label9.TabIndex = 6;

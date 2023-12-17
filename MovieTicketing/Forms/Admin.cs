@@ -60,5 +60,10 @@ namespace MovieTicketing.Forms
         {
             new UpdateEmp().Show();
         }
+
+        private void btnTickes_Click(object sender, EventArgs e)
+        {
+            new Tickets().Show();   
+        }
     }
 }

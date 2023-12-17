@@ -37,6 +37,7 @@
             this.dtgCustInfo = new System.Windows.Forms.DataGridView();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnTickes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCustInfo)).BeginInit();
             this.SuspendLayout();
@@ -104,7 +105,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(210, 361);
+            this.btnDelete.Location = new System.Drawing.Point(223, 289);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(107, 33);
             this.btnDelete.TabIndex = 5;
@@ -114,7 +115,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(210, 427);
+            this.btnUpdate.Location = new System.Drawing.Point(223, 355);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(107, 33);
             this.btnUpdate.TabIndex = 6;
@@ -122,12 +123,23 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // btnTickes
+            // 
+            this.btnTickes.Location = new System.Drawing.Point(59, 289);
+            this.btnTickes.Name = "btnTickes";
+            this.btnTickes.Size = new System.Drawing.Size(107, 33);
+            this.btnTickes.TabIndex = 7;
+            this.btnTickes.Text = "View Tickets";
+            this.btnTickes.UseVisualStyleBackColor = true;
+            this.btnTickes.Click += new System.EventHandler(this.btnTickes_Click);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(67)))));
             this.ClientSize = new System.Drawing.Size(1067, 571);
+            this.Controls.Add(this.btnTickes);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.dtgCustInfo);
@@ -159,5 +171,6 @@
         private System.Windows.Forms.DataGridView dtgCustInfo;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnTickes;
     }
 }

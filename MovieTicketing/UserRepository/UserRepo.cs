@@ -133,7 +133,13 @@ namespace MovieTicketing
           
             }
         }
-
+        public movieTicketing getTicketsById(int ticketId)
+        {
+            using (db = new db_movie_ticketingEntities3())
+            {
+                return db.movieTicketing.Where(m => m.tckId == ticketId).FirstOrDefault();
+            }
+        }
         public movieShows GetMoviesByMovieId(int movieId)
         {
             // re-initialize db object because sometimes data in the list not updated
@@ -182,12 +188,13 @@ namespace MovieTicketing
                 return db.vw_empList.ToList();
             }
         }
-        public List<vw_tickets> tickets()
+      public List<vw_tickets> ticketList()
         {
             using (db = new db_movie_ticketingEntities3())
             {
-                return db.vw_tickets.ToList();  
+                return db.vw_tickets.ToList();
             }
         }
+        
     }
 }

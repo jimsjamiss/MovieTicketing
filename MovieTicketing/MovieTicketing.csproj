@@ -114,6 +114,11 @@
     <Compile Include="AppData\vw_userList.cs">
       <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
+    <Compile Include="db_movie_ticketingDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_movie_ticketingDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Admin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +191,12 @@
     <Compile Include="Forms\Registration.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Tickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tickets.Designer.cs">
+      <DependentUpon>Tickets.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UpdateEmp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +254,9 @@
     <EmbeddedResource Include="Forms\Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tickets.resx">
+      <DependentUpon>Tickets.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\UpdateEmp.resx">
       <DependentUpon>UpdateEmp.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +279,17 @@
     </EntityDeploy>
     <None Include="AppData\dbMovieTicketing.edmx.diagram">
       <DependentUpon>dbMovieTicketing.edmx</DependentUpon>
+    </None>
+    <None Include="db_movie_ticketingDataSet.xsc">
+      <DependentUpon>db_movie_ticketingDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db_movie_ticketingDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_movie_ticketingDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_movie_ticketingDataSet.xss">
+      <DependentUpon>db_movie_ticketingDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
