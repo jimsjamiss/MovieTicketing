@@ -25,19 +25,33 @@ movieType  'Genre',
 CONCAT('Php ',moviePrice) AS 'Price'
 from movieShows
 
-Create view vw_empList AS
+Alter view vw_empList AS
 Select 
-empId 'Employee ID',
-empName 'Employee Name',
-empAddress 'Employee Address',
-empRole 'Role'
-From empInfo
+custId 'ID',
+custName 'Username',
+custAddress 'Address',
+custEmail 'Email',
+custPhone 'Phone',
+roles 'Roles'
+From UserInfo
 
-Create view vw_tickets AS
+
+Alter view vw_tickets AS
 Select 
 m.tckId 'TicketId',
 m.custId 'UserId',
+u.custName 'Name',
+u.custAddress 'Address',
+u.custEmail 'Email',
 m.movieId 'MovieId',
+mv.moviName 'Title',
+mv.movieType 'Genre',
+mv.movieHour 'Duration',
+mv.moviePrice 'Price',
 m.Venue 'Cinema',
-m.Date 'Date'
+m.Date 'Date',
+m.numOfPerson 'Quantity',
+mv.moviePrice * m.numOfPerson AS 'Total'
 From movieTicketing m
+INNER JOIN UserInfo u ON u.custId = m.custId
+INNER JOIN movieShows mv ON mv.movieId = m.movieId 

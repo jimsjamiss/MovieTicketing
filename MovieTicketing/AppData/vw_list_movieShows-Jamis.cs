@@ -12,18 +12,13 @@ namespace MovieTicketing.AppData
     using System;
     using System.Collections.Generic;
     
-    public partial class empInfo
+    public partial class vw_list_movieShows
     {
-        public empInfo()
-        {
-            this.payment = new HashSet<payment>();
-        }
-    
-        public int empId { get; set; }
-        public string empName { get; set; }
-        public string empAddress { get; set; }
-        public string empRole { get; set; }
-    
-        public virtual ICollection<payment> payment { get; set; }
+        public int Movie_ID { get; set; }
+        public string Title { get; set; }
+        public string Showing_Date { get; set; }
+        public string Genre { get; set; }
+        public string Duration { get; set; }
+        public Nullable<decimal> Price { get; set; }
     }
 }

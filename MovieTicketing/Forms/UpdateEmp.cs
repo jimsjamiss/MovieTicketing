@@ -32,10 +32,12 @@ namespace MovieTicketing.Forms
             try
             {
                 selectedMovieId = (Int32)dtgEmpList.Rows[e.RowIndex].Cells[0].Value;
-                txtEmpId.Text = dtgEmpList.Rows[e.RowIndex].Cells["Employee_ID"].Value.ToString();
-                txtEmpName.Text = dtgEmpList.Rows[e.RowIndex].Cells["Employee_Name"].Value.ToString();
-                txtEmpAddress.Text = dtgEmpList.Rows[e.RowIndex].Cells["Employee_Address"].Value.ToString();
+                txtEmpId.Text = dtgEmpList.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+                txtEmpName.Text = dtgEmpList.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+                txtEmpAddress.Text = dtgEmpList.Rows[e.RowIndex].Cells["Address"].Value.ToString();
                 txtEmpRole.Text = dtgEmpList.Rows[e.RowIndex].Cells["Role"].Value.ToString();
+                txtEmail.Text = dtgEmpList.Rows[e.RowIndex].Cells["Email_Address"].Value.ToString();
+                txtPhone.Text = dtgEmpList.Rows[e.RowIndex].Cells["Phone_Number"].Value.ToString();
 
             }
             catch (Exception ex)
@@ -59,7 +61,7 @@ namespace MovieTicketing.Forms
                 }
 
                 var movieInfo = userRepo.GetMoviesByMovieId(empId);
-                ErrorCode retValue = userRepo.UpdateEmp(empId,txtEmpName.Text,txtEmpAddress.Text,txtEmpRole.Text, ref strOutputMsg);
+                ErrorCode retValue = userRepo.UpdateEmp(empId,txtEmpName.Text,txtEmpAddress.Text,txtEmail.Text,txtPhone.Text,txtEmpRole.Text, ref strOutputMsg);
                 if (retValue == ErrorCode.Success)
                 {
                     //Clear the errors
@@ -88,7 +90,7 @@ namespace MovieTicketing.Forms
         }
         private void loadEmpList()
         {
-            dtgEmpList.DataSource = userRepo.empList();
+            dtgEmpList.DataSource = userRepo.custList();
         }
     }
 }

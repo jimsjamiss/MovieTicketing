@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_movie_ticketingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="movieShows">
+    <Key>
+      <PropertyRef Name="movieId" />
+    </Key>
+    <Property Name="movieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="moviName" Type="varchar" MaxLength="50" />
+    <Property Name="movieType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="movieDate" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="movieHour" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="moviePrice" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="movieTicketing">
+    <Key>
+      <PropertyRef Name="tckId" />
+    </Key>
+    <Property Name="movieId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Venue" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tckId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="custId" Type="int" Nullable="false" />
+    <Property Name="total" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="change" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="numOfPerson" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="custId" />
+    </Key>
+    <Property Name="custId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="custName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="custAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="custPhone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="custEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="custPass" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="roles" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'db_movie_ticketing.dbo.vw_browseMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_browseMovies">
+    <Key>
+      <PropertyRef Name="Movie Id" />
+      <PropertyRef Name="Genre" />
+    </Key>
+    <Property Name="Movie Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Genre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="moviePrice" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'db_movie_ticketing.dbo.vw_empList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_empList">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Address" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Phone" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Roles" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'db_movie_ticketing.dbo.vw_list_movieShows' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_list_movieShows">
+    <Key>
+      <PropertyRef Name="Movie ID" />
+      <PropertyRef Name="Showing Date" />
+      <PropertyRef Name="Genre" />
+      <PropertyRef Name="Duration" />
+    </Key>
+    <Property Name="Movie ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Showing Date" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Genre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Duration" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'db_movie_ticketing.dbo.vw_tickets' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_tickets">
+    <Key>
+      <PropertyRef Name="TicketId" />
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Address" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="MovieId" />
+      <PropertyRef Name="Genre" />
+      <PropertyRef Name="Duration" />
+      <PropertyRef Name="Cinema" />
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="TicketId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MovieId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Genre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Duration" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Cinema" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Total" Type="decimal" Precision="29" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'db_movie_ticketing.dbo.vw_userList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_userList">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Address" />
+      <PropertyRef Name="Email Address" />
+      <PropertyRef Name="Phone Number" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email Address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone Number" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Role" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_movieTicketing_movieShows">
+    <End Role="movieShows" Type="Self.movieShows" Multiplicity="1" />
+    <End Role="movieTicketing" Type="Self.movieTicketing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movieShows">
+        <PropertyRef Name="movieId" />
+      </Principal>
+      <Dependent Role="movieTicketing">
+        <PropertyRef Name="movieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movieTicketing_UserInfo">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+    <End Role="movieTicketing" Type="Self.movieTicketing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="custId" />
+      </Principal>
+      <Dependent Role="movieTicketing">
+        <PropertyRef Name="custId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_createMovies" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="movieName" Type="varchar" Mode="In" />
+    <Parameter Name="movieDate" Type="varchar" Mode="In" />
+    <Parameter Name="movieHours" Type="varchar" Mode="In" />
+    <Parameter Name="movieGenre" Type="varchar" Mode="In" />
+    <Parameter Name="moviePrice" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="sp_delete_movies" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="movieName" Type="varchar" Mode="In" />
+    <Parameter Name="movieDate" Type="varchar" Mode="In" />
+    <Parameter Name="movieHours" Type="varchar" Mode="In" />
+    <Parameter Name="movieGenre" Type="varchar" Mode="In" />
+    <Parameter Name="moviePrice" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="sp_delete_user" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="empId" Type="int" Mode="In" />
+    <Parameter Name="empName" Type="varchar" Mode="In" />
+    <Parameter Name="empAddress" Type="varchar" Mode="In" />
+    <Parameter Name="empEmail" Type="varchar" Mode="In" />
+    <Parameter Name="empPhone" Type="varchar" Mode="In" />
+    <Parameter Name="empRole" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_ticketing" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="movieId" Type="int" Mode="In" />
+    <Parameter Name="custId" Type="int" Mode="In" />
+    <Parameter Name="venue" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+    <Parameter Name="numPerson" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_update_moviesInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="movieId" Type="int" Mode="In" />
+    <Parameter Name="movieName" Type="varchar" Mode="In" />
+    <Parameter Name="movieDate" Type="varchar" Mode="In" />
+    <Parameter Name="movieHours" Type="varchar" Mode="In" />
+    <Parameter Name="movieGenre" Type="varchar" Mode="In" />
+    <Parameter Name="moviePrice" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="sp_updateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="empId" Type="int" Mode="In" />
+    <Parameter Name="empName" Type="varchar" Mode="In" />
+    <Parameter Name="empAddress" Type="varchar" Mode="In" />
+    <Parameter Name="empRole" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="db_movie_ticketingModelStoreContainer">
+    <EntitySet Name="movieShows" EntityType="Self.movieShows" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="movieTicketing" EntityType="Self.movieTicketing" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vw_browseMovies" EntityType="Self.vw_browseMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[vw_browseMovies].[Movie Id] AS [Movie Id], 
+[vw_browseMovies].[Title] AS [Title], 
+[vw_browseMovies].[Genre] AS [Genre], 
+[vw_browseMovies].[moviePrice] AS [moviePrice]
+FROM [dbo].[vw_browseMovies] AS [vw_browseMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_empList" EntityType="Self.vw_empList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[vw_empList].[ID] AS [ID], 
+[vw_empList].[Username] AS [Username], 
+[vw_empList].[Address] AS [Address], 
+[vw_empList].[Email] AS [Email], 
+[vw_empList].[Phone] AS [Phone], 
+[vw_empList].[Roles] AS [Roles]
+FROM [dbo].[vw_empList] AS [vw_empList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_list_movieShows" EntityType="Self.vw_list_movieShows" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[vw_list_movieShows].[Movie ID] AS [Movie ID], 
+[vw_list_movieShows].[Title] AS [Title], 
+[vw_list_movieShows].[Showing Date] AS [Showing Date], 
+[vw_list_movieShows].[Genre] AS [Genre], 
+[vw_list_movieShows].[Duration] AS [Duration], 
+[vw_list_movieShows].[Price] AS [Price]
+FROM [dbo].[vw_list_movieShows] AS [vw_list_movieShows]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_tickets" EntityType="Self.vw_tickets" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[vw_tickets].[TicketId] AS [TicketId], 
+[vw_tickets].[UserId] AS [UserId], 
+[vw_tickets].[Name] AS [Name], 
+[vw_tickets].[Address] AS [Address], 
+[vw_tickets].[Email] AS [Email], 
+[vw_tickets].[MovieId] AS [MovieId], 
+[vw_tickets].[Title] AS [Title], 
+[vw_tickets].[Genre] AS [Genre], 
+[vw_tickets].[Duration] AS [Duration], 
+[vw_tickets].[Price] AS [Price], 
+[vw_tickets].[Cinema] AS [Cinema], 
+[vw_tickets].[Date] AS [Date], 
+[vw_tickets].[Quantity] AS [Quantity], 
+[vw_tickets].[Total] AS [Total]
+FROM [dbo].[vw_tickets] AS [vw_tickets]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_userList" EntityType="Self.vw_userList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[vw_userList].[Id] AS [Id], 
+[vw_userList].[Name] AS [Name], 
+[vw_userList].[Address] AS [Address], 
+[vw_userList].[Email Address] AS [Email Address], 
+[vw_userList].[Phone Number] AS [Phone Number], 
+[vw_userList].[Role] AS [Role]
+FROM [dbo].[vw_userList] AS [vw_userList]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_movieTicketing_movieShows" Association="Self.FK_movieTicketing_movieShows">
+      <End Role="movieShows" EntitySet="movieShows" />
+      <End Role="movieTicketing" EntitySet="movieTicketing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movieTicketing_UserInfo" Association="Self.FK_movieTicketing_UserInfo">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="movieTicketing" EntitySet="movieTicketing" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

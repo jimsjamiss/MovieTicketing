@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
+using Dbsys;
 using MovieTicketing.AppData;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
@@ -73,14 +74,14 @@ namespace MovieTicketing.Forms
             }
 
             movieShows movieInfo = new movieShows();
-           // movieInfo.movieId = txtMovieId.Text;
             movieInfo.moviName = txtMovieTitle.Text;
             movieInfo.movieType = cboxGenre.SelectedValue.ToString();
             movieInfo.movieHour = txtDuration.Text;
             movieInfo.movieDate = dtpMovieDate.Text;
             movieInfo.moviePrice = Convert.ToDecimal(txtPrice.Text);
 
-
+            
+            MovieLogged.GetInstance().movieAccount = movieInfo;
             movieName = txtMovieTitle.Text;
             db = new db_movie_ticketingEntities3();
             db.sp_createMovies(movieInfo.moviName,movieInfo.movieDate, movieInfo.movieHour,movieInfo.movieType,movieInfo.moviePrice);

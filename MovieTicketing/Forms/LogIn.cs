@@ -45,6 +45,7 @@ namespace MovieTicketing.Forms
                 errorProviderCustom.SetError(txtPassword, "Empty Field!");
                 return;
             }
+
             var custInfo = userRepo.GetUserByUsername(txtUserName.Text,txtPassword.Text);
             //var userPass = userRepo.GetUserByPassword(txtPassword.Text);
 
@@ -52,6 +53,7 @@ namespace MovieTicketing.Forms
             {
                 if (custInfo.custName != "admin" && custInfo.custName !="staff" && custInfo.custPass != "admin" && custInfo.custPass != ("staff"))
                 {
+                    UserLogged.GetInstance().UserAccount = custInfo;
                     UserRepo.userId = custInfo.custId;
                     new Dashboard(custInfo).Show();
                     this.Hide();

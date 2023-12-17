@@ -14,9 +14,9 @@ namespace MovieTicketing.AppData
     
     public partial class vw_browseMovies
     {
-        public string Movie_Id { get; set; }
+        public int Movie_Id { get; set; }
         public string Title { get; set; }
         public string Genre { get; set; }
-        public string Price { get; set; }
+        public Nullable<decimal> moviePrice { get; set; }
     }
 }

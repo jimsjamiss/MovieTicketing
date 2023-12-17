@@ -42,29 +42,36 @@ Alter Procedure sp_delete_user
 @empId int,
 @empName varchar(50),
 @empAddress varchar(50),
+@empEmail varchar(50),
+@empPhone varchar(50),
 @empRole varchar(50)
 AS
-Delete from empInfo WHERE empId = @empId
+Delete from UserInfo WHERE custId = @empId
 
-Create Procedure sp_updateUser
+Alter Procedure sp_updateUser
 @empId int,
 @empName varchar(50),
 @empAddress varchar(50),
+@empEmail varchar(50),
+@empPhone varchar(50),
 @empRole varchar(50)
 AS
-Update empInfo
+Update UserInfo
 Set
-empName = @empName,
-empAddress = @empAddress,
-empRole = @empRole
-WHERE empId = @empId
+custName = @empName,
+custAddress = @empAddress,
+custPhone = @empPhone,
+custEmail = @empEmail,
+roles = @empRole
+WHERE custId = @empId
 
 Alter Procedure sp_ticketing 
 @movieId int,
 @custId int,
 @venue varchar(50),
-@date date
+@date date,
+@numPerson int
 AS
-INSERT INTO vw_tickets(movieId,UserId,Cinema,Date)
-VALUES (@movieId,@custId,@venue,@date)
+INSERT INTO vw_tickets(movieId,UserId,Cinema,Date,Quantity)
+VALUES (@movieId,@custId,@venue,@date,@numPerson)
 

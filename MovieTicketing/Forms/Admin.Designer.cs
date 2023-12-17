@@ -46,7 +46,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
-            this.label1.Location = new System.Drawing.Point(273, 65);
+            this.label1.Location = new System.Drawing.Point(280, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 24);
             this.label1.TabIndex = 0;
@@ -56,7 +56,7 @@
             // 
             this.txtUsername.Enabled = false;
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(276, 97);
+            this.txtUsername.Location = new System.Drawing.Point(283, 77);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(201, 30);
             this.txtUsername.TabIndex = 1;
@@ -76,7 +76,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
-            this.label2.Location = new System.Drawing.Point(273, 151);
+            this.label2.Location = new System.Drawing.Point(280, 131);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 24);
             this.label2.TabIndex = 0;
@@ -86,7 +86,7 @@
             // 
             this.txtUserId.Enabled = false;
             this.txtUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserId.Location = new System.Drawing.Point(276, 183);
+            this.txtUserId.Location = new System.Drawing.Point(283, 163);
             this.txtUserId.Name = "txtUserId";
             this.txtUserId.Size = new System.Drawing.Size(201, 30);
             this.txtUserId.TabIndex = 1;
@@ -94,17 +94,17 @@
             // dtgCustInfo
             // 
             this.dtgCustInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgCustInfo.Location = new System.Drawing.Point(385, 290);
+            this.dtgCustInfo.Location = new System.Drawing.Point(336, 290);
             this.dtgCustInfo.Name = "dtgCustInfo";
             this.dtgCustInfo.RowHeadersWidth = 51;
             this.dtgCustInfo.RowTemplate.Height = 24;
-            this.dtgCustInfo.Size = new System.Drawing.Size(670, 243);
+            this.dtgCustInfo.Size = new System.Drawing.Size(719, 243);
             this.dtgCustInfo.TabIndex = 3;
             this.dtgCustInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(250, 362);
+            this.btnDelete.Location = new System.Drawing.Point(210, 361);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(107, 33);
             this.btnDelete.TabIndex = 5;
@@ -114,7 +114,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(250, 428);
+            this.btnUpdate.Location = new System.Drawing.Point(210, 427);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(107, 33);
             this.btnUpdate.TabIndex = 6;
@@ -139,6 +139,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Admin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.Admin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

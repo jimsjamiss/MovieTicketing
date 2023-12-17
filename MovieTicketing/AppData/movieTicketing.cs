@@ -19,6 +19,9 @@ namespace MovieTicketing.AppData
         public string Venue { get; set; }
         public int tckId { get; set; }
         public int custId { get; set; }
+        public Nullable<decimal> total { get; set; }
+        public Nullable<decimal> change { get; set; }
+        public Nullable<int> numOfPerson { get; set; }
     
         public virtual movieShows movieShows { get; set; }
         public virtual UserInfo UserInfo { get; set; }

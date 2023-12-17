@@ -14,9 +14,11 @@ namespace MovieTicketing.AppData
     
     public partial class vw_empList
     {
-        public int Employee_ID { get; set; }
-        public string Employee_Name { get; set; }
-        public string Employee_Address { get; set; }
-        public string Role { get; set; }
+        public int ID { get; set; }
+        public string Username { get; set; }
+        public string Address { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public string Roles { get; set; }
     }
 }

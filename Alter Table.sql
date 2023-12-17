@@ -11,4 +11,3 @@ add roles varchar(50);
 
 Alter table movieTicketing
 add custId int NOT NULL;
-

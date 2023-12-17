@@ -16,6 +16,7 @@ namespace MovieTicketing.Forms
         UserInfo userInfo;
         UserRepo userRepo;
         db_movie_ticketingEntities3 db;
+        movieShows movies;
         public Dashboard()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace MovieTicketing.Forms
         {
             InitializeComponent();
             db = new db_movie_ticketingEntities3();
+           
             userInfo = user;
             userInfo = db.UserInfo.Where(m => m.custId == UserRepo.userId).FirstOrDefault();
         }

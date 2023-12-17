@@ -18,6 +18,8 @@ namespace MovieTicketing
         movieShows movies = new movieShows();
 
         public static int userId = 0;
+        public static int mvId = 0;
+        public static int tckId = 0;
         public UserRepo()
         {
             db = new db_movie_ticketingEntities3();
@@ -86,8 +88,8 @@ namespace MovieTicketing
             ErrorCode retValue = ErrorCode.Error;
             try
             {
-                empInfo emp = db.empInfo.Where(m => m.empId == empId).FirstOrDefault();
-                db.sp_delete_user(emp.empId,emp.empName, emp.empAddress, emp.empRole);
+                UserInfo emp = db.UserInfo.Where(m => m.custId == empId).FirstOrDefault();
+                db.sp_delete_user(emp.custId, emp.custName, emp.custAddress,emp.custEmail,emp.custPhone, emp.roles);
                 db.SaveChanges();
                 outMessage = "Employee Deleted Successfully!";
                 retValue = ErrorCode.Success;
@@ -101,13 +103,13 @@ namespace MovieTicketing
             }
             return retValue;
         }
-        public ErrorCode UpdateEmp(int? id, string name, string address, string role, ref String outMessage)
+        public ErrorCode UpdateEmp(int? id, string name, string address, string role,string phone, string email, ref String outMessage)
         {
             using (db = new db_movie_ticketingEntities3())
             {
                 try
                 {
-                    db.sp_updateUser(id, name, address, role);
+                    db.sp_updateUser(id, name, address, email, phone,role);
                     outMessage = "Employee Updated!";
                     return ErrorCode.Success;
                 }
@@ -141,15 +143,16 @@ namespace MovieTicketing
                 return db.movieShows.Where(s => s.movieId == movieId).FirstOrDefault();
             }
         }
-        public movieShows GetMoviesByTitle(string title)
+        public movieTicketing ticketList(int ticketId)
         {
             // re-initialize db object because sometimes data in the list not updated
             using (db = new db_movie_ticketingEntities3())
             {
                 // SELECT TOP 1 * FROM USERACCOUNT WHERE userName == username
-                return db.movieShows.Where(s => s.moviName == title).FirstOrDefault();
+                return db.movieTicketing.Where(s => s.tckId== ticketId).FirstOrDefault();
             }
         }
+
 
         public List<vw_list_movieShows> AllMovieShows()
         {
@@ -177,6 +180,13 @@ namespace MovieTicketing
             using (db = new db_movie_ticketingEntities3())
             {
                 return db.vw_empList.ToList();
+            }
+        }
+        public List<vw_tickets> tickets()
+        {
+            using (db = new db_movie_ticketingEntities3())
+            {
+                return db.vw_tickets.ToList();  
             }
         }
     }

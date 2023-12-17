@@ -39,6 +39,10 @@
             this.txtEmpId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtgEmpList = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtPhone = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmpList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,7 +99,7 @@
             // txtEmpName
             // 
             this.txtEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmpName.Location = new System.Drawing.Point(287, 380);
+            this.txtEmpName.Location = new System.Drawing.Point(53, 380);
             this.txtEmpName.Name = "txtEmpName";
             this.txtEmpName.Size = new System.Drawing.Size(174, 30);
             this.txtEmpName.TabIndex = 11;
@@ -105,7 +109,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
-            this.label2.Location = new System.Drawing.Point(283, 340);
+            this.label2.Location = new System.Drawing.Point(49, 340);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(168, 24);
             this.label2.TabIndex = 7;
@@ -114,7 +118,7 @@
             // txtEmpId
             // 
             this.txtEmpId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmpId.Location = new System.Drawing.Point(287, 284);
+            this.txtEmpId.Location = new System.Drawing.Point(53, 284);
             this.txtEmpId.Name = "txtEmpId";
             this.txtEmpId.Size = new System.Drawing.Size(174, 30);
             this.txtEmpId.TabIndex = 12;
@@ -124,7 +128,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
-            this.label1.Location = new System.Drawing.Point(283, 244);
+            this.label1.Location = new System.Drawing.Point(49, 244);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 24);
             this.label1.TabIndex = 8;
@@ -141,6 +145,44 @@
             this.dtgEmpList.TabIndex = 4;
             this.dtgEmpList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgEmpList_CellContentClick);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
+            this.label5.Location = new System.Drawing.Point(292, 244);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 24);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(296, 284);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(174, 30);
+            this.txtEmail.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
+            this.label6.Location = new System.Drawing.Point(292, 340);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(148, 24);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Phone Number:";
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhone.Location = new System.Drawing.Point(296, 380);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(174, 30);
+            this.txtPhone.TabIndex = 11;
+            // 
             // UpdateEmp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -152,13 +194,18 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtEmpAddress);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtPhone);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txtEmpName);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtEmpId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtgEmpList);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UpdateEmp";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateEmp";
             this.Load += new System.EventHandler(this.UpdateEmp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmpList)).EndInit();
@@ -180,5 +227,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtgEmpList;
         private System.Windows.Forms.ErrorProvider errorProviderCustom;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtPhone;
     }
 }

@@ -1,4 +1,5 @@
 ﻿
+using Dbsys;
 using MovieTicketing.AppData;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,8 @@ namespace MovieTicketing.Forms
     public partial class frmRegistration : Form
     {
         public string username = String.Empty;
-            db_movie_ticketingEntities3 db;
+        db_movie_ticketingEntities3 db;
+
        
         public frmRegistration()
         {
@@ -26,6 +28,8 @@ namespace MovieTicketing.Forms
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+           
+
             errorProviderCustom = new System.Windows.Forms.ErrorProvider();
 
             if (String.IsNullOrEmpty(txtFName.Text))

@@ -14,11 +14,11 @@ namespace MovieTicketing.AppData
     
     public partial class vw_list_movieShows
     {
-        public string Movie_ID { get; set; }
+        public int Movie_ID { get; set; }
         public string Title { get; set; }
         public string Showing_Date { get; set; }
         public string Genre { get; set; }
         public string Duration { get; set; }
-        public string Price { get; set; }
+        public Nullable<decimal> Price { get; set; }
     }
 }

@@ -81,16 +81,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
-    <Compile Include="AppData\empInfo.cs">
-      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
-    </Compile>
     <Compile Include="AppData\movieShows.cs">
       <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\movieTicketing.cs">
-      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AppData\payment.cs">
       <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\sp_helpdiagramdefinition_Result.cs">
@@ -114,6 +108,9 @@
     <Compile Include="AppData\vw_list_movieShows.cs">
       <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppData\vw_tickets.cs">
+      <DependentUpon>dbMovieTicketing.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppData\vw_userList.cs">
       <DependentUpon>dbMovieTicketing.tt</DependentUpon>
     </Compile>
@@ -128,6 +125,12 @@
     </Compile>
     <Compile Include="Forms\DeleteEmp.Designer.cs">
       <DependentUpon>DeleteEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reciept.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reciept.Designer.cs">
+      <DependentUpon>Reciept.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\RegisterStaffAdmin.cs">
       <SubType>Form</SubType>
@@ -195,6 +198,8 @@
     <Compile Include="Forms\UpdateMovie.Designer.cs">
       <DependentUpon>UpdateMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\MovieLogged.cs" />
+    <Compile Include="Model\TicketLogged.cs" />
     <Compile Include="Model\UserLogged.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -207,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DeleteEmp.resx">
       <DependentUpon>DeleteEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reciept.resx">
+      <DependentUpon>Reciept.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RegisterStaffAdmin.resx">
       <DependentUpon>RegisterStaffAdmin.cs</DependentUpon>

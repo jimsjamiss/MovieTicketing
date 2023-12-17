@@ -1,4 +1,5 @@
-﻿using MovieTicketing.AppData;
+﻿using Dbsys;
+using MovieTicketing.AppData;
 using System;
 using System.Data;
 using System.Linq;
@@ -12,20 +13,29 @@ namespace MovieTicketing.Forms
         movieShows movies;
         UserRepo userRepo;
         UserInfo userInfo;
+        MovieLogged movie;
+        movieTicketing mvTickets;
+       
 
         public Dashboard_1()
         {
             InitializeComponent();
+            
             loadDataToCBox();
 
         }
         public Dashboard_1(UserInfo user)
         {
             InitializeComponent();
+           
             loadDataToCBox();
             db = new db_movie_ticketingEntities3();
+            movieShows movie = new movieShows();
+
             userInfo = user;
             userInfo = db.UserInfo.Where(m => m.custId == UserRepo.userId).FirstOrDefault();
+            movies = movie;
+            movies = db.movieShows.Where(m => m.movieId == UserRepo.mvId).FirstOrDefault();
         }
 
         private void Dashboard_1_Load(object sender, EventArgs e)
@@ -93,8 +103,14 @@ namespace MovieTicketing.Forms
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            errorProviderCustom = new ErrorProvider();
+            db = new db_movie_ticketingEntities3();
+            userRepo = new UserRepo();
             userInfo = new UserInfo();
+            mvTickets = new movieTicketing();
+            errorProviderCustom = new ErrorProvider();
+            
+           
+
             if (String.IsNullOrEmpty(txtMvID.Text))
             {
                 errorProviderCustom.Clear();
@@ -118,8 +134,29 @@ namespace MovieTicketing.Forms
                 errorProviderCustom.SetError(txtPrice, "Empty field");
                 return;
             }
-                    
-            
+            int createdBy = UserLogged.GetInstance().UserAccount.custId;
+            int mvs = MovieLogged.GetInstance().movieAccount.movieId;
+
+            //var user = db.UserInfo.Where(m => m.custId == id).FirstOrDefault();
+            var movie = db.movieShows.Where(c => c.movieId == mvs).FirstOrDefault();
+            var ticks = db.movieTicketing.Where(s => s.tckId == mvTickets.tckId).FirstOrDefault();
+
+            mvTickets.custId = userInfo.custId;
+            mvTickets.movieId = movie.movieId;
+            mvTickets.Venue = cboxCinema.SelectedValue.ToString();
+            mvTickets.Date = DateTime.Now;
+
+            MovieLogged.GetInstance().movieAccount = movie;
+            TicketLogged.GetInstance().movieTickets = mvTickets;
+            UserRepo.mvId = MovieLogged.GetInstance().movieAccount.movieId;
+
+            TicketLogged.GetInstance().movieTickets = ticks;
+            db = new db_movie_ticketingEntities3();
+            db.sp_ticketing(mvs, createdBy, mvTickets.Venue,mvTickets.Date,Convert.ToInt32(nupNumPerson.Value));
+            db.SaveChanges();
+
+            UserRepo.tckId = mvTickets.tckId;
+            new Reciept(movie,ticks).Show();
         }
     }
 }

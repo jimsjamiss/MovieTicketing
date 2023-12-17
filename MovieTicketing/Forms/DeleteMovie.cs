@@ -32,7 +32,8 @@ namespace MovieTicketing.Forms
                 txtMvGenre.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Genre"].Value.ToString();
                 dtpDate.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Showing_Date"].Value.ToString();
                 txtMvHrs.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Duration"].Value.ToString();
-                
+                txtPrice.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Price"].Value.ToString();
+
             }
             catch (Exception ex)
             {

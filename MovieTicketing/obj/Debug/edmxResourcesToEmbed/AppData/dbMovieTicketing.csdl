@@ -58,12 +58,16 @@
       <Parameter Name="empId" Mode="In" Type="Int32" />
       <Parameter Name="empName" Mode="In" Type="String" />
       <Parameter Name="empAddress" Mode="In" Type="String" />
+      <Parameter Name="empEmail" Mode="In" Type="String" />
+      <Parameter Name="empPhone" Mode="In" Type="String" />
       <Parameter Name="empRole" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_updateUser">
       <Parameter Name="empId" Mode="In" Type="Int32" />
       <Parameter Name="empName" Mode="In" Type="String" />
       <Parameter Name="empAddress" Mode="In" Type="String" />
+      <Parameter Name="empEmail" Mode="In" Type="String" />
+      <Parameter Name="empPhone" Mode="In" Type="String" />
       <Parameter Name="empRole" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_ticketing">
@@ -71,28 +75,20 @@
       <Parameter Name="custId" Mode="In" Type="Int32" />
       <Parameter Name="venue" Mode="In" Type="String" />
       <Parameter Name="date" Mode="In" Type="DateTime" />
+      <Parameter Name="numPerson" Mode="In" Type="Int32" />
     </FunctionImport>
-    <EntitySet Name="empInfo" EntityType="db_movie_ticketingModel.empInfo" />
     <EntitySet Name="movieShows" EntityType="db_movie_ticketingModel.movieShows" />
     <EntitySet Name="movieTicketing" EntityType="db_movie_ticketingModel.movieTicketing" />
-    <EntitySet Name="payment" EntityType="db_movie_ticketingModel.payment" />
     <EntitySet Name="sysdiagrams" EntityType="db_movie_ticketingModel.sysdiagrams" />
     <EntitySet Name="UserInfo" EntityType="db_movie_ticketingModel.UserInfo" />
     <EntitySet Name="vw_browseMovies" EntityType="db_movie_ticketingModel.vw_browseMovies" />
     <EntitySet Name="vw_empList" EntityType="db_movie_ticketingModel.vw_empList" />
     <EntitySet Name="vw_list_movieShows" EntityType="db_movie_ticketingModel.vw_list_movieShows" />
+    <EntitySet Name="vw_tickets" EntityType="db_movie_ticketingModel.vw_tickets" />
     <EntitySet Name="vw_userList" EntityType="db_movie_ticketingModel.vw_userList" />
-    <AssociationSet Name="FK_payment_empInfo" Association="db_movie_ticketingModel.FK_payment_empInfo">
-      <End Role="empInfo" EntitySet="empInfo" />
-      <End Role="payment" EntitySet="payment" />
-    </AssociationSet>
     <AssociationSet Name="FK_movieTicketing_movieShows" Association="db_movie_ticketingModel.FK_movieTicketing_movieShows">
       <End Role="movieShows" EntitySet="movieShows" />
       <End Role="movieTicketing" EntitySet="movieTicketing" />
-    </AssociationSet>
-    <AssociationSet Name="FK_payment_movieShows" Association="db_movie_ticketingModel.FK_payment_movieShows">
-      <End Role="movieShows" EntitySet="movieShows" />
-      <End Role="payment" EntitySet="payment" />
     </AssociationSet>
     <AssociationSet Name="FK_movieTicketing_UserInfo" Association="db_movie_ticketingModel.FK_movieTicketing_UserInfo">
       <End Role="UserInfo" EntitySet="UserInfo" />
@@ -110,16 +106,6 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
-  <EntityType Name="empInfo">
-    <Key>
-      <PropertyRef Name="empId" />
-    </Key>
-    <Property Name="empId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="empName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="empAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="empRole" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="payment" Relationship="db_movie_ticketingModel.FK_payment_empInfo" FromRole="empInfo" ToRole="payment" />
-  </EntityType>
   <EntityType Name="movieShows">
     <Key>
       <PropertyRef Name="movieId" />
@@ -131,7 +117,6 @@
     <Property Name="movieHour" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="moviePrice" Type="Decimal" Precision="18" Scale="0" />
     <NavigationProperty Name="movieTicketing" Relationship="db_movie_ticketingModel.FK_movieTicketing_movieShows" FromRole="movieShows" ToRole="movieTicketing" />
-    <NavigationProperty Name="payment" Relationship="db_movie_ticketingModel.FK_payment_movieShows" FromRole="movieShows" ToRole="payment" />
   </EntityType>
   <EntityType Name="movieTicketing">
     <Key>
@@ -142,20 +127,11 @@
     <Property Name="Venue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="tckId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="custId" Type="Int32" Nullable="false" />
+    <Property Name="total" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="change" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="numOfPerson" Type="Int32" />
     <NavigationProperty Name="movieShows" Relationship="db_movie_ticketingModel.FK_movieTicketing_movieShows" FromRole="movieTicketing" ToRole="movieShows" />
     <NavigationProperty Name="UserInfo" Relationship="db_movie_ticketingModel.FK_movieTicketing_UserInfo" FromRole="movieTicketing" ToRole="UserInfo" />
-  </EntityType>
-  <EntityType Name="payment">
-    <Key>
-      <PropertyRef Name="paymentId" />
-    </Key>
-    <Property Name="paymentId" Type="Int32" Nullable="false" />
-    <Property Name="amount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="custId" Type="Int32" Nullable="false" />
-    <Property Name="movieId" Type="Int32" Nullable="false" />
-    <Property Name="empId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="empInfo" Relationship="db_movie_ticketingModel.FK_payment_empInfo" FromRole="payment" ToRole="empInfo" />
-    <NavigationProperty Name="movieShows" Relationship="db_movie_ticketingModel.FK_payment_movieShows" FromRole="payment" ToRole="movieShows" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -184,24 +160,26 @@
     <Key>
       <PropertyRef Name="Movie_Id" />
       <PropertyRef Name="Genre" />
-      <PropertyRef Name="Price" />
     </Key>
-    <Property Name="Movie_Id" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="Movie_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Genre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Price" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="moviePrice" Type="Decimal" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="vw_empList">
     <Key>
-      <PropertyRef Name="Employee_ID" />
-      <PropertyRef Name="Employee_Name" />
-      <PropertyRef Name="Employee_Address" />
-      <PropertyRef Name="Role" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Address" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Phone" />
     </Key>
-    <Property Name="Employee_ID" Type="Int32" Nullable="false" />
-    <Property Name="Employee_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Employee_Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Roles" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="vw_list_movieShows">
     <Key>
@@ -209,43 +187,57 @@
       <PropertyRef Name="Showing_Date" />
       <PropertyRef Name="Genre" />
       <PropertyRef Name="Duration" />
-      <PropertyRef Name="Price" />
     </Key>
-    <Property Name="Movie_ID" Type="String" Nullable="false" MaxLength="19" FixedLength="false" Unicode="false" />
+    <Property Name="Movie_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Showing_Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Genre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Duration" Type="String" Nullable="false" MaxLength="54" FixedLength="false" Unicode="false" />
-    <Property Name="Price" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Duration" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="vw_tickets">
+    <Key>
+      <PropertyRef Name="TicketId" />
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Address" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="MovieId" />
+      <PropertyRef Name="Genre" />
+      <PropertyRef Name="Duration" />
+      <PropertyRef Name="Cinema" />
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="TicketId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MovieId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Genre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Duration" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Cinema" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Total" Type="Decimal" Precision="29" Scale="0" />
   </EntityType>
   <EntityType Name="vw_userList">
     <Key>
       <PropertyRef Name="Id" />
       <PropertyRef Name="Name" />
-      <PropertyRef Name="Password" />
       <PropertyRef Name="Address" />
       <PropertyRef Name="Email_Address" />
       <PropertyRef Name="Phone_Number" />
     </Key>
-    <Property Name="Id" Type="String" Nullable="false" MaxLength="19" FixedLength="false" Unicode="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Email_Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Phone_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
-  <Association Name="FK_payment_empInfo">
-    <End Type="db_movie_ticketingModel.empInfo" Role="empInfo" Multiplicity="1" />
-    <End Type="db_movie_ticketingModel.payment" Role="payment" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="empInfo">
-        <PropertyRef Name="empId" />
-      </Principal>
-      <Dependent Role="payment">
-        <PropertyRef Name="empId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_movieTicketing_movieShows">
     <End Type="db_movie_ticketingModel.movieShows" Role="movieShows" Multiplicity="1" />
     <End Type="db_movie_ticketingModel.movieTicketing" Role="movieTicketing" Multiplicity="*" />
@@ -254,18 +246,6 @@
         <PropertyRef Name="movieId" />
       </Principal>
       <Dependent Role="movieTicketing">
-        <PropertyRef Name="movieId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_payment_movieShows">
-    <End Type="db_movie_ticketingModel.movieShows" Role="movieShows" Multiplicity="1" />
-    <End Type="db_movie_ticketingModel.payment" Role="payment" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="movieShows">
-        <PropertyRef Name="movieId" />
-      </Principal>
-      <Dependent Role="payment">
         <PropertyRef Name="movieId" />
       </Dependent>
     </ReferentialConstraint>

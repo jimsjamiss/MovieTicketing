@@ -28,15 +28,14 @@ namespace MovieTicketing.AppData
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<empInfo> empInfo { get; set; }
         public DbSet<movieShows> movieShows { get; set; }
         public DbSet<movieTicketing> movieTicketing { get; set; }
-        public DbSet<payment> payment { get; set; }
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<UserInfo> UserInfo { get; set; }
         public DbSet<vw_browseMovies> vw_browseMovies { get; set; }
         public DbSet<vw_empList> vw_empList { get; set; }
         public DbSet<vw_list_movieShows> vw_list_movieShows { get; set; }
+        public DbSet<vw_tickets> vw_tickets { get; set; }
         public DbSet<vw_userList> vw_userList { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
@@ -225,7 +224,7 @@ namespace MovieTicketing.AppData
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_createMovies", movieNameParameter, movieDateParameter, movieHoursParameter, movieGenreParameter, moviePriceParameter);
         }
     
-        public virtual int sp_delete_user(Nullable<int> empId, string empName, string empAddress, string empRole)
+        public virtual int sp_delete_user(Nullable<int> empId, string empName, string empAddress, string empEmail, string empPhone, string empRole)
         {
             var empIdParameter = empId.HasValue ?
                 new ObjectParameter("empId", empId) :
@@ -239,14 +238,22 @@ namespace MovieTicketing.AppData
                 new ObjectParameter("empAddress", empAddress) :
                 new ObjectParameter("empAddress", typeof(string));
     
+            var empEmailParameter = empEmail != null ?
+                new ObjectParameter("empEmail", empEmail) :
+                new ObjectParameter("empEmail", typeof(string));
+    
+            var empPhoneParameter = empPhone != null ?
+                new ObjectParameter("empPhone", empPhone) :
+                new ObjectParameter("empPhone", typeof(string));
+    
             var empRoleParameter = empRole != null ?
                 new ObjectParameter("empRole", empRole) :
                 new ObjectParameter("empRole", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_delete_user", empIdParameter, empNameParameter, empAddressParameter, empRoleParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_delete_user", empIdParameter, empNameParameter, empAddressParameter, empEmailParameter, empPhoneParameter, empRoleParameter);
         }
     
-        public virtual int sp_updateUser(Nullable<int> empId, string empName, string empAddress, string empRole)
+        public virtual int sp_updateUser(Nullable<int> empId, string empName, string empAddress, string empEmail, string empPhone, string empRole)
         {
             var empIdParameter = empId.HasValue ?
                 new ObjectParameter("empId", empId) :
@@ -260,14 +267,22 @@ namespace MovieTicketing.AppData
                 new ObjectParameter("empAddress", empAddress) :
                 new ObjectParameter("empAddress", typeof(string));
     
+            var empEmailParameter = empEmail != null ?
+                new ObjectParameter("empEmail", empEmail) :
+                new ObjectParameter("empEmail", typeof(string));
+    
+            var empPhoneParameter = empPhone != null ?
+                new ObjectParameter("empPhone", empPhone) :
+                new ObjectParameter("empPhone", typeof(string));
+    
             var empRoleParameter = empRole != null ?
                 new ObjectParameter("empRole", empRole) :
                 new ObjectParameter("empRole", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateUser", empIdParameter, empNameParameter, empAddressParameter, empRoleParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateUser", empIdParameter, empNameParameter, empAddressParameter, empEmailParameter, empPhoneParameter, empRoleParameter);
         }
     
-        public virtual int sp_ticketing(Nullable<int> movieId, Nullable<int> custId, string venue, Nullable<System.DateTime> date)
+        public virtual int sp_ticketing(Nullable<int> movieId, Nullable<int> custId, string venue, Nullable<System.DateTime> date, Nullable<int> numPerson)
         {
             var movieIdParameter = movieId.HasValue ?
                 new ObjectParameter("movieId", movieId) :
@@ -285,7 +300,11 @@ namespace MovieTicketing.AppData
                 new ObjectParameter("date", date) :
                 new ObjectParameter("date", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ticketing", movieIdParameter, custIdParameter, venueParameter, dateParameter);
+            var numPersonParameter = numPerson.HasValue ?
+                new ObjectParameter("numPerson", numPerson) :
+                new ObjectParameter("numPerson", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ticketing", movieIdParameter, custIdParameter, venueParameter, dateParameter, numPersonParameter);
         }
     }
 }

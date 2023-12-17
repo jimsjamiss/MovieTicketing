@@ -170,7 +170,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "staffDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Admin Dashboard";
+            this.Text = "Staff Dashboard";
             this.Load += new System.EventHandler(this.ApprovedTicket_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboxProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdminMovies)).EndInit();
