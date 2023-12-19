@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTicketing", "MovieTicketing\MovieTicketing.csproj", "{D09704FE-F4A6-4F17-9C1A-6DA5B7D7D94C}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CineMovie", "CineMovie\CineMovie.vdproj", "{840FE2F9-2950-432A-98E8-503C10317020}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{D09704FE-F4A6-4F17-9C1A-6DA5B7D7D94C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D09704FE-F4A6-4F17-9C1A-6DA5B7D7D94C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D09704FE-F4A6-4F17-9C1A-6DA5B7D7D94C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{840FE2F9-2950-432A-98E8-503C10317020}.Debug|Any CPU.ActiveCfg = Debug
+		{840FE2F9-2950-432A-98E8-503C10317020}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

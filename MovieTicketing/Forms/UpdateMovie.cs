@@ -25,6 +25,7 @@ namespace MovieTicketing.Forms
         {
             userRepo = new UserRepo();
             loadMovieShows();
+            cboxGenre.DataSource = Enum.GetValues(typeof(Genre));
         }
         private void loadMovieShows()
         {
@@ -39,7 +40,7 @@ namespace MovieTicketing.Forms
                 selectedMovieId = (Int32)dgvMovieShows.Rows[e.RowIndex].Cells[0].Value;
                 txtID.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Movie_ID"].Value.ToString();
                 txtTitle.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Title"].Value.ToString();
-                txtGenre.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Genre"].Value.ToString();
+                cboxGenre.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Genre"].Value.ToString();
                 dtpDate.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Showing_Date"].Value.ToString();
                 txtDuration.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Duration"].Value.ToString();
                 txtPrice.Text = dgvMovieShows.Rows[e.RowIndex].Cells["Price"].Value.ToString();
@@ -66,7 +67,7 @@ namespace MovieTicketing.Forms
                 }
                 
                 var movieInfo = userRepo.GetMoviesByMovieId(movieId);
-                ErrorCode retValue = userRepo.UpdateMovie(movieId,txtTitle.Text,dtpDate.Text,txtDuration.Text,txtGenre.Text,Convert.ToDecimal(txtPrice.Text), ref strOutputMsg);
+                ErrorCode retValue = userRepo.UpdateMovie(movieId,txtTitle.Text,dtpDate.Text,txtDuration.Text,cboxGenre.SelectedValue.ToString(),Convert.ToDecimal(txtPrice.Text), ref strOutputMsg);
                 if (retValue == ErrorCode.Success)
                 {
                     //Clear the errors
@@ -79,7 +80,7 @@ namespace MovieTicketing.Forms
 
                     txtID.Clear();
                     txtTitle.Clear();
-                    txtGenre.Clear();
+                    cboxGenre.ResetText();
                     dtpDate.ResetText();
                     txtDuration.Clear();
 

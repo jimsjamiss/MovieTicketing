@@ -55,7 +55,7 @@ namespace MovieTicketing.Forms
                 lblDuration.Text = MovieLogged.GetInstance().movieAccount.movieHour.ToString(); 
                 lblPrice.Text = MovieLogged.GetInstance().movieAccount.moviePrice.ToString();
 
-                lblTicketID.Text = TicketLogged.GetInstance().movieTickets.tckId.ToString();
+          
                 
             }
                 

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateEmp));
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.txtEmpRole = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtEmpAddress = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
+            this.cboxRole = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmpList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,14 +57,6 @@
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // txtEmpRole
-            // 
-            this.txtEmpRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmpRole.Location = new System.Drawing.Point(584, 284);
-            this.txtEmpRole.Name = "txtEmpRole";
-            this.txtEmpRole.Size = new System.Drawing.Size(201, 30);
-            this.txtEmpRole.TabIndex = 9;
             // 
             // label4
             // 
@@ -183,14 +175,23 @@
             this.txtPhone.Size = new System.Drawing.Size(174, 30);
             this.txtPhone.TabIndex = 11;
             // 
+            // cboxRole
+            // 
+            this.cboxRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboxRole.FormattingEnabled = true;
+            this.cboxRole.Location = new System.Drawing.Point(584, 284);
+            this.cboxRole.Name = "cboxRole";
+            this.cboxRole.Size = new System.Drawing.Size(201, 30);
+            this.cboxRole.TabIndex = 14;
+            // 
             // UpdateEmp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(67)))));
             this.ClientSize = new System.Drawing.Size(816, 511);
+            this.Controls.Add(this.cboxRole);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.txtEmpRole);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtEmpAddress);
             this.Controls.Add(this.label3);
@@ -217,7 +218,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.TextBox txtEmpRole;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtEmpAddress;
         private System.Windows.Forms.Label label3;
@@ -231,5 +231,6 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.ComboBox cboxRole;
     }
 }

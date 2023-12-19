@@ -25,6 +25,7 @@ namespace MovieTicketing.Forms
         {
             userRepo = new UserRepo();
             loadEmpList();
+            cboxRole.DataSource = Enum.GetValues(typeof(Role));
         }
 
         private void dtgEmpList_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -35,7 +36,7 @@ namespace MovieTicketing.Forms
                 txtEmpId.Text = dtgEmpList.Rows[e.RowIndex].Cells["Id"].Value.ToString();
                 txtEmpName.Text = dtgEmpList.Rows[e.RowIndex].Cells["Name"].Value.ToString();
                 txtEmpAddress.Text = dtgEmpList.Rows[e.RowIndex].Cells["Address"].Value.ToString();
-                txtEmpRole.Text = dtgEmpList.Rows[e.RowIndex].Cells["Role"].Value.ToString();
+                cboxRole.Text = dtgEmpList.Rows[e.RowIndex].Cells["Role"].Value.ToString();
                 txtEmail.Text = dtgEmpList.Rows[e.RowIndex].Cells["Email_Address"].Value.ToString();
                 txtPhone.Text = dtgEmpList.Rows[e.RowIndex].Cells["Phone_Number"].Value.ToString();
 
@@ -61,7 +62,7 @@ namespace MovieTicketing.Forms
                 }
 
                 var movieInfo = userRepo.GetMoviesByMovieId(empId);
-                ErrorCode retValue = userRepo.UpdateEmp(empId,txtEmpName.Text,txtEmpAddress.Text,txtEmail.Text,txtPhone.Text,txtEmpRole.Text, ref strOutputMsg);
+                ErrorCode retValue = userRepo.UpdateEmp(empId,txtEmpName.Text,txtEmpAddress.Text,cboxRole.SelectedValue.ToString(),txtPhone.Text, txtEmail.Text,ref strOutputMsg);
                 if (retValue == ErrorCode.Success)
                 {
                     //Clear the errors
@@ -74,7 +75,7 @@ namespace MovieTicketing.Forms
                     txtEmpId.Clear();
                     txtEmpName.Clear();
                     txtEmpAddress.Clear();
-                    txtEmpRole.Clear();
+                    cboxRole.ResetText();
                 }
                 else
                 {

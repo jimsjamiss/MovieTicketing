@@ -33,7 +33,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtGenre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDuration = new System.Windows.Forms.TextBox();
@@ -44,6 +43,7 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
+            this.cboxGenre = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovieShows)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,13 +86,6 @@
             this.label3.Size = new System.Drawing.Size(124, 25);
             this.label3.TabIndex = 1;
             this.label3.Text = "Movie Genre";
-            // 
-            // txtGenre
-            // 
-            this.txtGenre.Location = new System.Drawing.Point(338, 39);
-            this.txtGenre.Name = "txtGenre";
-            this.txtGenre.Size = new System.Drawing.Size(216, 22);
-            this.txtGenre.TabIndex = 2;
             // 
             // label4
             // 
@@ -189,12 +182,21 @@
             this.txtPrice.Size = new System.Drawing.Size(216, 22);
             this.txtPrice.TabIndex = 9;
             // 
+            // cboxGenre
+            // 
+            this.cboxGenre.FormattingEnabled = true;
+            this.cboxGenre.Location = new System.Drawing.Point(338, 38);
+            this.cboxGenre.Name = "cboxGenre";
+            this.cboxGenre.Size = new System.Drawing.Size(216, 24);
+            this.cboxGenre.TabIndex = 10;
+            // 
             // UpdateMovie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(67)))));
             this.ClientSize = new System.Drawing.Size(834, 484);
+            this.Controls.Add(this.cboxGenre);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -205,7 +207,6 @@
             this.Controls.Add(this.txtDuration);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtGenre);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.label2);
@@ -227,7 +228,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtGenre;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDuration;
@@ -239,5 +239,6 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.ComboBox cboxGenre;
     }
 }
