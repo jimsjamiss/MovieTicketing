@@ -22,19 +22,13 @@
         "Entry"
         {
         "MsmKey" = "8:_07F7480E33E6AF84A927FAC0478B275D"
-        "OwnerKey" = "8:_7C826FF8C68A46C9A009EC2D8D214E12"
+        "OwnerKey" = "8:_B05C460DBD944ED8BBC5D0630DCC4E18"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_4BDF048CA3FEC59FEE2F8CD6D7CB93BD"
-        "OwnerKey" = "8:_7C826FF8C68A46C9A009EC2D8D214E12"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7C826FF8C68A46C9A009EC2D8D214E12"
-        "OwnerKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B05C460DBD944ED8BBC5D0630DCC4E18"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -46,7 +40,13 @@
         "Entry"
         {
         "MsmKey" = "8:_AADF52175FBD53BAF247F298E13C4D8E"
-        "OwnerKey" = "8:_7C826FF8C68A46C9A009EC2D8D214E12"
+        "OwnerKey" = "8:_B05C460DBD944ED8BBC5D0630DCC4E18"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B05C460DBD944ED8BBC5D0630DCC4E18"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -58,25 +58,19 @@
         "Entry"
         {
         "MsmKey" = "8:_F5773B02D669CB902B315A1816A86E35"
-        "OwnerKey" = "8:_7C826FF8C68A46C9A009EC2D8D214E12"
+        "OwnerKey" = "8:_B05C460DBD944ED8BBC5D0630DCC4E18"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_F5BDC1CA0E114DE8F9BD7690F2860E3F"
-        "OwnerKey" = "8:_7C826FF8C68A46C9A009EC2D8D214E12"
+        "OwnerKey" = "8:_B05C460DBD944ED8BBC5D0630DCC4E18"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F5773B02D669CB902B315A1816A86E35"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7C826FF8C68A46C9A009EC2D8D214E12"
+        "OwnerKey" = "8:_B05C460DBD944ED8BBC5D0630DCC4E18"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -103,6 +97,12 @@
         "OwnerKey" = "8:_07F7480E33E6AF84A927FAC0478B275D"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F5773B02D669CB902B315A1816A86E35"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -121,6 +121,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -137,6 +145,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -538,7 +554,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_609EF6EB5ED444F49CA86F50B108A510"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_6669EA2DC5F34B31BBE60C9BE1227D2E"
             {
             "Name" = "8:Cine-Movie"
             "Arguments" = "8:"
@@ -546,13 +562,13 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_7C826FF8C68A46C9A009EC2D8D214E12"
-            "Folder" = "8:_433EBEB551B84407A846344AA81BCC78"
+            "Target" = "8:_B05C460DBD944ED8BBC5D0630DCC4E18"
+            "Folder" = "8:_B4B30417B11449BB9EDFDDBBFA8AE547"
             "WorkingFolder" = "8:_E16EDB6ED01B4F7798CED2AE58408CC0"
             "Icon" = "8:_B8BAA3116837449B8CA69AF0935D06C2"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F0B9EE586ACF4492A8E6AF5FCBAF7A52"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B712468CD5104615B4F39AE50382A6D6"
             {
             "Name" = "8:Cine-Movie"
             "Arguments" = "8:"
@@ -560,8 +576,8 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_7C826FF8C68A46C9A009EC2D8D214E12"
-            "Folder" = "8:_B4B30417B11449BB9EDFDDBBFA8AE547"
+            "Target" = "8:_B05C460DBD944ED8BBC5D0630DCC4E18"
+            "Folder" = "8:_433EBEB551B84407A846344AA81BCC78"
             "WorkingFolder" = "8:_E16EDB6ED01B4F7798CED2AE58408CC0"
             "Icon" = "8:_B8BAA3116837449B8CA69AF0935D06C2"
             "Feature" = "8:"
@@ -965,7 +981,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7C826FF8C68A46C9A009EC2D8D214E12"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B05C460DBD944ED8BBC5D0630DCC4E18"
             {
             "SourcePath" = "8:..\\MovieTicketing\\obj\\Debug\\MovieTicketing.exe"
             "TargetName" = "8:"
